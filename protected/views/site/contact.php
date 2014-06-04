@@ -50,6 +50,12 @@ If you have business inquiries or other questions, please fill out the following
 	</div>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'telefono'); ?>
+		<?php echo $form->textField($model,'telefono'); ?>
+		<?php echo $form->error($model,'telefono'); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->labelEx($model,'subject'); ?>
 		<?php echo $form->textField($model,'subject',array('size'=>60,'maxlength'=>128)); ?>
 		<?php echo $form->error($model,'subject'); ?>

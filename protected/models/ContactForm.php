@@ -12,6 +12,7 @@ class ContactForm extends CFormModel
 	public $subject;
 	public $body;
 	public $verifyCode;
+	public $telefono;
 
 	/**
 	 * Declares the validation rules.
@@ -20,7 +21,7 @@ class ContactForm extends CFormModel
 	{
 		return array(
 			// name, email, subject and body are required
-			array('name, email, subject, body', 'required'),
+			array('name, email, subject, body,telefono', 'required'),
 			// email has to be a valid email address
 			array('email', 'email'),
 			// verifyCode needs to be entered correctly
