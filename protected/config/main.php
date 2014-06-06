@@ -53,6 +53,11 @@ return array(
 
 	// application components
 	'components'=>array(
+
+		'Mapas' => array(
+               'class'=>'application.components.Mapas',
+                ),
+		
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,

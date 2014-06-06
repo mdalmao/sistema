@@ -22,3 +22,8 @@ $this->pageTitle=Yii::app()->name;
 <?php echo CHtml::decode($inmueble['Descripcion']); ?>
 <?php endforeach; ?>
 </div>
+
+
+<?php
+echo Yii::app()->Mapas->mapa();
+?>
