@@ -29,7 +29,18 @@ class SiteController extends Controller
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('index');
+
+		 $inmuebles = Inmueble::model()->findAll();
+
+         $this->render('index', array('inmuebles' => $inmuebles));
+
+        /*
+		$dataProvider=new CActiveDataProvider('Inmueble');
+		$this->render('index',array(
+			'dataProvider'=>$dataProvider,
+		));
+        */
+	  //	$this->render('index');
 	}
 
 	/**

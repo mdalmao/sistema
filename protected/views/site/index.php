@@ -4,17 +4,21 @@
 $this->pageTitle=Yii::app()->name;
 ?>
 
-<h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
+<p> Imagenes Principales <p>
 
-<p>Congratulations! You have successfully created your Yii application.</p>
+<img src="./imagenes/prueba1.jpg" alt="prueba" class="img-rounded" height="140" width="140px">
+<img src="./imagenes/prueba1.jpg" alt="prueba" class="img-rounded" height="140" width="140px">
+<img src="./imagenes/prueba1.jpg" alt="prueba" class="img-rounded" height="140" width="140px">
+<img src="./imagenes/prueba1.jpg" alt="prueba" class="img-rounded" height="140" width="140px">
+<img src="./imagenes/prueba1.jpg" alt="prueba" class="img-rounded" height="140" width="140px">
+<img src="./imagenes/prueba1.jpg" alt="prueba" class="img-rounded" height="140" width="140px">
 
-<p>You may change the content of this page by modifying the following two files:</p>
-<ul>
-	<li>View file: <code><?php echo __FILE__; ?></code></li>
-	<li>Layout file: <code><?php echo $this->getLayoutFile('main'); ?></code></li>
-</ul>
+<p>Aca van los inmuebles</p>
 
-<p>For more details on how to further develop this application, please read
-the <a href="http://www.yiiframework.com/doc/">documentation</a>.
-Feel free to ask in the <a href="http://www.yiiframework.com/forum/">forum</a>,
-should you have any questions.</p>
+
+<div>
+<?php foreach ($inmuebles as $inmueble): ?>
+<h2><?php echo $inmueble['idInmueble']; ?></h2>
+<?php echo CHtml::decode($inmueble['Descripcion']); ?>
+<?php endforeach; ?>
+</div>
