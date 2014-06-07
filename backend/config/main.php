@@ -20,7 +20,7 @@ return array(
     'viewPath' => $backend.'/views',
     'runtimePath' => $backend.'/runtime',
 
-    'name'=>'My Web Application',
+    'name'=>'Panel de Administracion',
      'theme'=> 'bootstrap',
 	// preloading 'log' component
 	'preload'=>array(

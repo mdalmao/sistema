@@ -30,12 +30,6 @@
 <div class="container-fluid">
 <ul class="nav nav-pills">
  <li> <a href="/yii/sistema/" class="btn btn-primary btn-large"><i class="icon-white icon-home"></i> Inicio</a> </li>
- <?php if (!Yii::app()->user->isGuest){  ?>
- <li> <a href="/yii/sistema/site/logout" class="btn btn-primary btn-large"><i class="icon-white icon-user"></i> Logout</a> </li> 
- <?php } else{?>
- <li> <a href="/yii/sistema/site/login" class="btn btn-primary btn-large"><i class="icon-white icon-user"></i> Ingresar</a> </li>
- 
- <?php } ?>
  <li> <a href="#" class="btn btn-primary btn-large"><i class="icon-white icon-calendar"></i> Calendario</a> </li>
  <li> <a href="/yii/sistema/site/contact" class="btn btn-primary btn-large"><i class="icon-white icon-envelope"></i> Contacto</a> </li>
      <form class="navbar-form navbar-left" role="search">
