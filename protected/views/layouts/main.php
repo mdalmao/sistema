@@ -50,6 +50,7 @@
 	<?php echo $content; ?>
 
 
+
  <div id="footer">
 
      	Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>

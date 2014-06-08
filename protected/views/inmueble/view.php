@@ -34,5 +34,7 @@ $this->menu=array(
 		'Direccion',
 		'Portada',
 		'idUsuario',
+		'x',
+		'y',
 	),
 )); ?>

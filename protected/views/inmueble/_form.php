@@ -91,6 +91,18 @@
 		<?php echo $form->error($model,'idUsuario'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->labelEx($model,'x'); ?>
+		<?php echo $form->textField($model,'x'); ?>
+		<?php echo $form->error($model,'x'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'y'); ?>
+		<?php echo $form->textField($model,'y'); ?>
+		<?php echo $form->error($model,'y'); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

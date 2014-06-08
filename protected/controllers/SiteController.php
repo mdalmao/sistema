@@ -31,8 +31,7 @@ class SiteController extends Controller
 		// using the default layout 'protected/views/layouts/main.php'
 
 		 $inmuebles = Inmueble::model()->findAll();
-
-         $this->render('index', array('inmuebles' => $inmuebles));
+		 $this->render('index', array('inmuebles' => $inmuebles));
 
         /*
 		$dataProvider=new CActiveDataProvider('Inmueble');
