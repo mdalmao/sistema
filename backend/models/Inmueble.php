@@ -17,6 +17,8 @@
  * @property string $Direccion
  * @property integer $Portada
  * @property integer $idUsuario
+ * @property double $x
+ * @property double $y
  *
  * The followings are the available model relations:
  * @property Alquiler[] $alquilers
@@ -47,7 +49,7 @@ class Inmueble extends CActiveRecord
 		return array(
 			array('idUsuario', 'required'),
 			array('Disponible, Portada, idUsuario', 'numerical', 'integerOnly'=>true),
-			array('Precio', 'numerical'),
+			array('Precio, x, y', 'numerical'),
 			array('TipoInmueble, QueHacer, Estado, Departamento, Ciudad, Zona', 'length', 'max'=>45),
 			array('Descripcion', 'length', 'max'=>300),
 			array('Direccion', 'length', 'max'=>60),
@@ -94,6 +96,8 @@ class Inmueble extends CActiveRecord
 			'Direccion' => 'Direccion',
 			'Portada' => 'Portada',
 			'idUsuario' => 'Id Usuario',
+			'x' => 'X',
+			'y' => 'Y',
 		);
 	}
 
@@ -128,6 +132,8 @@ class Inmueble extends CActiveRecord
 		$criteria->compare('Direccion',$this->Direccion,true);
 		$criteria->compare('Portada',$this->Portada);
 		$criteria->compare('idUsuario',$this->idUsuario);
+		$criteria->compare('x',$this->x);
+		$criteria->compare('y',$this->y);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
