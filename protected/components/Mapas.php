@@ -24,10 +24,10 @@ class Mapas extends CApplicationComponent{
     $oficinas = Yii::app()->baseUrl . "/imagenes/oficina.png";
 
     // Create marker
-    /*
+    
     $inmuebles = Inmueble::model()->findAll();
     foreach ($inmuebles as $inmueble):
-          echo "Prueba". $inmueble['x'] ;
+        
         $icon = new EGMapMarkerImage($casa);
         $icon->setSize(32, 37);
         $icon->setAnchor(16, 16.5);
@@ -37,8 +37,8 @@ class Mapas extends CApplicationComponent{
         $gMap->addMarker($marker);
    endforeach;
 
-    */ 
-   
+     
+
    /*
     $marker = new EGMapMarker( -34.8999172,-56.1345209, array('title' => 'Casa en Alquiler','icon'=>$icon));
     $marker->addHtmlInfoWindow($info_window_a);
