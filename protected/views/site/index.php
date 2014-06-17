@@ -22,9 +22,14 @@ $this->pageTitle=Yii::app()->name;
 <div class="inmueble">
 <p>Aca van los inmuebles</p>
 <?php foreach ($inmuebles as $inmueble): ?>
-<h2><?php echo $inmueble['idInmueble']; ?></h2>
-<?php echo CHtml::decode($inmueble['Descripcion']); ?>
+<div class="resultado">
+<p class="reserva-titulo"><?php echo $inmueble['idInmueble']; ?></p>
+<p class="descripcion"> <?php echo CHtml::decode($inmueble['Descripcion']);  ?> </p>
+<?php $id = $inmueble['idInmueble']; ?>
+ <img class ="imagen" src="<?php echo Yii::app()->ImagenesInmueble->imagenprincipal($id); ?>" /> 
+</div>
 <?php endforeach; ?>
+
 </div>
 
 <div id="lateral">

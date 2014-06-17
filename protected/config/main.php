@@ -57,6 +57,11 @@ return array(
 		'Mapas' => array(
                'class'=>'application.components.Mapas',
                 ),
+
+         'ImagenesInmueble' => array(
+               'class'=>'application.components.ImagenesInmueble',
+                ),
+		
 		
 		'user'=>array(
 			// enable cookie-based authentication
