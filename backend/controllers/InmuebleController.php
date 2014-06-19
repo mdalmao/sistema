@@ -63,6 +63,8 @@ class InmuebleController extends Controller
 	public function actionCreate()
 	{
 		$model=new Inmueble;
+		$datosp=new Datospersonales;
+		$casapo=new Inmcao;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -76,6 +78,8 @@ class InmuebleController extends Controller
 
 		$this->render('create',array(
 			'model'=>$model,
+			'datosp'=>$datosp,
+			'casapo'=>$casapo,
 		));
 	}
 

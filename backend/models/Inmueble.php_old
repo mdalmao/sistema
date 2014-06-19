@@ -55,7 +55,7 @@ class Inmueble extends CActiveRecord
 			array('Direccion', 'length', 'max'=>60),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idInmueble, TipoInmueble, QueHacer, Disponible, Estado, Precio, Descripcion, Departamento, Ciudad, Zona, Direccion, Portada, idUsuario, x, y', 'safe', 'on'=>'search'),
+			array('idInmueble, TipoInmueble, QueHacer, Disponible, Estado, Precio, Descripcion, Departamento, Ciudad, Zona, Direccion, Portada, idUsuario', 'safe', 'on'=>'search'),
 		);
 	}
 

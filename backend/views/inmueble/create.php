@@ -15,4 +15,4 @@ $this->menu=array(
 
 <h1>Create Inmueble</h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php $this->renderPartial('_form', array('model'=>$model,'datosp'=>$datosp,'casapo'=>$casapo));?>
