@@ -57,6 +57,13 @@ class SiteController extends Controller
 		}
 	}
 
+	public function actionBuscar()
+	{
+
+	   $model=new Inmueble();
+	   $this->render('buscar',array('model'=>$model));
+	}
+
 	/**
 	 * Displays the contact page
 	 */

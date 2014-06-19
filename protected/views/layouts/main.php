@@ -40,7 +40,10 @@
 </ul>
 </div>
 
+<div id="container">
 
+
+<div id="main">
 <?php if(isset($this->breadcrumbs)):?>
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
 			'links'=>$this->breadcrumbs,
@@ -48,8 +51,8 @@
 	<?php endif?>
 
 	<?php echo $content; ?>
-
-
+</div>
+</div>
 
  <div id="footer">
 

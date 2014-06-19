@@ -7,7 +7,9 @@ $this->pageTitle=Yii::app()->name;
 
 
 <div class="container"> 
-<div class="principal">
+
+<div id="sidebar">
+     
  <h1> Imagenes Principales </h1>
  <img src="./imagenes/prueba1.jpg" alt="prueba" class="img-rounded" height="140" width="140px">
  <img src="./imagenes/prueba1.jpg" alt="prueba" class="img-rounded" height="140" width="140px">
@@ -15,7 +17,10 @@ $this->pageTitle=Yii::app()->name;
  <img src="./imagenes/prueba1.jpg" alt="prueba" class="img-rounded" height="140" width="140px">
  <img src="./imagenes/prueba1.jpg" alt="prueba" class="img-rounded" height="140" width="140px">
  <img src="./imagenes/prueba1.jpg" alt="prueba" class="img-rounded" height="140" width="140px">
+
+   
 </div>
+
 
 
 
