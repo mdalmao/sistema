@@ -70,6 +70,18 @@ class ClienteController extends Controller
 		if(isset($_POST['Cliente']))
 		{
 			$model->attributes=$_POST['Cliente'];
+			$model2->attributes=$_POST['Users'];
+
+			$model->idUsuario =1;
+			$model2->status =1;
+			$model2->activkey="skdab";
+			$model2->lastvisit =1;
+			$model2->createtime=2/8/1990;
+			$model2->superuser =1;
+			$model2->password="lala";
+			$model2->id = $model->idUsuario;
+
+			$model2->save(); 
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->idUsuario));
 		}

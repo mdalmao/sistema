@@ -19,10 +19,22 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
+<div class="row">
+		<?php echo $form->labelEx($model2,'username'); ?>
+		<?php echo $form->textField($model2,'username',array('size'=>20,'maxlength'=>20)); ?>
+		<?php echo $form->error($model2,'username'); ?>
+	</div>
+
 	<div class="row">
-		<?php echo $form->labelEx($model,'idUsuario'); ?>
-		<?php echo $form->textField($model,'idUsuario'); ?>
-		<?php echo $form->error($model,'idUsuario'); ?>
+		<?php echo $form->labelEx($model2,'email'); ?>
+		<?php echo $form->textField($model2,'email',array('size'=>60,'maxlength'=>128)); ?>
+		<?php echo $form->error($model2,'email'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'password'); ?>
+		<?php echo $form->textField($model,'password',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->error($model,'password'); ?>
 	</div>
 
 	<div class="row">

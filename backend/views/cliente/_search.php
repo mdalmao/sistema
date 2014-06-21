@@ -11,9 +11,24 @@
 	'method'=>'get',
 )); ?>
 
-	<div class="row">
+	<!--<div class="row">
 		<?php echo $form->label($model,'idUsuario'); ?>
 		<?php echo $form->textField($model,'idUsuario'); ?>
+	</div>-->
+
+	<div class="row">
+		<?php echo $form->label($model,'username'); ?>
+		<?php echo $form->textField($model,'username',array('size'=>45,'maxlength'=>45)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'email'); ?>
+		<?php echo $form->textField($model,'email',array('size'=>45,'maxlength'=>45)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'password'); ?>
+		<?php echo $form->textField($model,'password',array('size'=>45,'maxlength'=>45)); ?>
 	</div>
 
 	<div class="row">
