@@ -65,26 +65,42 @@ class InmuebleController extends Controller
 		$model=new Inmueble;
 		$datosp=new Datospersonales;
 		$casapo=new Inmcao;
+		$imagen=new Imagenes;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
 		if(isset($_POST['Inmueble']))
 		{
+			/////Imagen///////////////
+			 $rnd = rand(0,9999);  // generate random number between 0-9999
+                     $model->attributes=$_POST['Imagenes'];
+  
+                     $uploadedFile=CUploadedFile::getInstance($model,'imagen');
+                     $nombre= $uploadedFile->getName();
+                     $fileName = "{$rnd}-{$nombre}";  
+                     $model->imagen = $fileName;
+
+			////////
+
 			$model->attributes=$_POST['Inmueble'];
 			$model->Disponible = '1';	
 
-			if($model->save())
+			if($model->save()){
+				$uploadedFile->saveAs(YII::app()->baseUrl. "/imagenes/".$fileName);
+                $this->redirect(array('view','id'=>$model->id));
 				$casapo->attributes=$_POST['Inmcao'];
 			    $casapo->idInmbueble=$model->idInmueble;
 			    $casapo->save();
 				$this->redirect(array('view','id'=>$model->idInmueble));
+			}
 		}
 
 		$this->render('create',array(
 			'model'=>$model,
 			'datosp'=>$datosp,
 			'casapo'=>$casapo,
+			'imagen'=>$imagen,
 		));
 	}
 

@@ -49,7 +49,7 @@ class Inmueble extends CActiveRecord
 		return array(
 			array('idUsuario', 'required'),
 			array('Disponible, Portada, idUsuario', 'numerical', 'integerOnly'=>true),
-			array('Precio, X, Y', 'numerical'),
+			array('Precio, x, y', 'numerical'),
 			array('TipoInmueble, QueHacer, Estado, Departamento, Ciudad, Zona', 'length', 'max'=>45),
 			array('Descripcion', 'length', 'max'=>300),
 			array('Direccion', 'length', 'max'=>60),
@@ -96,8 +96,8 @@ class Inmueble extends CActiveRecord
 			'Direccion' => 'Direccion',
 			'Portada' => 'Portada',
 			'idUsuario' => 'Id Usuario',
-			'X' => 'X',
-			'Y' => 'Y',
+			'x' => 'x',
+			'y' => 'y',
 		);
 	}
 
@@ -132,8 +132,8 @@ class Inmueble extends CActiveRecord
 		$criteria->compare('Direccion',$this->Direccion,true);
 		$criteria->compare('Portada',$this->Portada);
 		$criteria->compare('idUsuario',$this->idUsuario);
-		$criteria->compare('X',$this->X);
-		$criteria->compare('Y',$this->Y);
+		$criteria->compare('x',$this->X);
+		$criteria->compare('y',$this->Y);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -8,6 +8,7 @@
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'inmueble-form',
+	 'htmlOptions' => array('enctype' => 'multipart/form-data'),
 	// Please note: When you enable ajax validation, make sure the corresponding
 	// controller action is handling ajax validation correctly.
 	// There is a call to performAjaxValidation() commented in generated controller code.
@@ -80,15 +81,15 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'X'); ?>
-		<?php echo $form->textField($model,'X'); ?>
-		<?php echo $form->error($model,'X'); ?>
+		<?php echo $form->labelEx($model,'x'); ?>
+		<?php echo $form->textField($model,'x'); ?>
+		<?php echo $form->error($model,'x'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'Y'); ?>
-		<?php echo $form->textField($model,'Y'); ?>
-		<?php echo $form->error($model,'Y'); ?>
+		<?php echo $form->labelEx($model,'y'); ?>
+		<?php echo $form->textField($model,'y'); ?>
+		<?php echo $form->error($model,'y'); ?>
 	</div>
 
 	<div class="row">
@@ -152,6 +153,16 @@
 		<?php echo $form->error($model,'Cerramiento'); ?>
 	</div>
 </div>
+	<div class="row">
+		<?php echo $form->labelEx($imagen,'imagen'); ?>
+		<?php echo $form->fileField($imagen,'imagen', array('maxlength'=>255)); ?>
+		<?php echo $form->error($imagen,'imagen'); ?>
+	</div>
+        <?php if($model->isNewRecord!='1'){ ?>
+        <div class="row">
+          <?php echo CHtml::image(Yii::app()->request->baseUrl.'/upload/'.$model->imagen,"imagen",array("width"=>200)); ?>  
+        </div>
+        <?php } ?>
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
