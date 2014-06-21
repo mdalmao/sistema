@@ -126,7 +126,18 @@ class SiteController extends Controller
 
 
 	}
+	public function actionCasasGenerico()
+	{
 
+	   //obtener los apartamentos de la base
+		$Criteria = new CDbCriteria();
+		//Obtener los inmuebles que son para alquilar ver como pasar el id de la vista de arriba
+    	$Criteria->condition = "idinmueble = 1";
+    	$Casas = Inmcasa::model()->findAll($Criteria);
+    	
+
+	   $this->render('casasGenerico',array('model' =>$Casas));
+	}
 
 	/**
 	 * Displays the contact page
