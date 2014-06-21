@@ -3,89 +3,64 @@
 /* @var $model ContactForm */
 /* @var $form CActiveForm */
 
-$this->pageTitle=Yii::app()->name . ' - Contact Us';
+$this->pageTitle=Yii::app()->name . ' - Apartamento';
 $this->breadcrumbs=array(
-	'Contact',
+	'Apartamento',
 );
 ?>
 
-<h1>Contact Us</h1>
+<h1>Apartamentos</h1>
 
-<?php if(Yii::app()->user->hasFlash('contact')): ?>
 
-<div class="flash-success">
-	<?php echo Yii::app()->user->getFlash('contact'); ?>
-</div>
 
-<?php else: ?>
+<div class="inmueble">
+	<p>Aca van los inmuebles</p>
+	<?php foreach ($model as $Apartamento): ?>
+		<div class="resultado">
+			
+			<p class="descripcion"> 
+				<p> Descripcion:
+				<?php echo CHtml::decode($Apartamento['Descripcion']);  ?> 
+				</p>
+			</p>
+			<p class="estado">
+				<p> Estado:
+				 <?php echo CHtml::decode($Apartamento['Estado']);  ?> 
+				</P>
+			</p>
+			<p class="precio"> 
+				<p> Precio:
+				<?php echo CHtml::decode($Apartamento['Precio']);  ?> 
+				</p>
+			</p>
+			<p class="departamento"> 
+				<p>Departamento:
+				<?php echo CHtml::decode($Apartamento['Departamento']);  ?> 
+				</p>
 
-<p>
-If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
-</p>
 
-<div class="form">
+			</p>
+			<p class="ciudad">
+				<p>Ciudad:
+				 <?php echo CHtml::decode($Apartamento['Ciudad']);  ?>
+				</p>
+			 </p>
+			<p class="direccion"> 
+				<p>
+					Zona: 
+					<?php echo CHtml::decode($Apartamento['Zona']); ?>
+				</p>
+				<p> Direccion: 	
 
-<?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'contact-form',
-	'enableClientValidation'=>true,
-	'clientOptions'=>array(
-		'validateOnSubmit'=>true,
-	),
-)); ?>
+				<?php echo CHtml::decode($Apartamento['Direccion']);  ?> 
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+				</p>
+			</p>
+			<?php $id = $Apartamento['idInmueble']; ?>
+ 			<img class ="imagen" src="<?php echo Yii::app()->ImagenesInmueble->imagenprincipal($id); ?>" /> 
+			</div>
 
-	<?php echo $form->errorSummary($model); ?>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'name'); ?>
-		<?php echo $form->textField($model,'name'); ?>
-		<?php echo $form->error($model,'name'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'email'); ?>
-		<?php echo $form->textField($model,'email'); ?>
-		<?php echo $form->error($model,'email'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'telefono'); ?>
-		<?php echo $form->textField($model,'telefono'); ?>
-		<?php echo $form->error($model,'telefono'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'subject'); ?>
-		<?php echo $form->textField($model,'subject',array('size'=>60,'maxlength'=>128)); ?>
-		<?php echo $form->error($model,'subject'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'body'); ?>
-		<?php echo $form->textArea($model,'body',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'body'); ?>
-	</div>
-
-	<?php if(CCaptcha::checkRequirements()): ?>
-	<div class="row">
-		<?php echo $form->labelEx($model,'verifyCode'); ?>
-		<div>
-		<?php $this->widget('CCaptcha'); ?>
-		<?php echo $form->textField($model,'verifyCode'); ?>
 		</div>
-		<div class="hint">Please enter the letters as they are shown in the image above.
-		<br/>Letters are not case-sensitive.</div>
-		<?php echo $form->error($model,'verifyCode'); ?>
-	</div>
-	<?php endif; ?>
+	<?php endforeach; ?>
 
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Submit'); ?>
-	</div>
-
-<?php $this->endWidget(); ?>
-
-</div><!-- form -->
-
-<?php endif; ?>
+</div>

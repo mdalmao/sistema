@@ -12,6 +12,7 @@ class SiteController extends Controller
 			'captcha'=>array(
 				'class'=>'CCaptchaAction',
 				'backColor'=>0xFFFFFF,
+
 			),
 			// page action renders "static" pages stored under 'protected/views/site/pages'
 			// They can be accessed via: index.php?r=site/page&view=FileName
@@ -63,6 +64,56 @@ class SiteController extends Controller
 	   $model=new Inmueble();
 	   $this->render('buscar',array('model'=>$model));
 	}
+	public function actionApartamentos()
+	{
+
+		//obtener los apartamentos de la base
+		$Criteria = new CDbCriteria();
+		//Los string estan en comillas simples sino no lo toma S
+    	$Criteria->condition = "TipoInmueble = 'APARTAMENTO'";
+    	$Apartamentos = Inmueble::model()->findAll($Criteria);	
+
+    	//como devuelvo ,$Inmueble
+	   	$this->render('apartamentos',array('model'=>$Apartamentos));
+	}
+	public function actionCasas()
+	{
+
+	   //obtener los apartamentos de la base
+		$Criteria = new CDbCriteria();
+		//Los string estan en comillas simples sino no lo toma S
+    	$Criteria->condition = "TipoInmueble = 'CASA'";
+    	$Casas = Inmueble::model()->findAll($Criteria);	
+
+    	
+	   	$this->render('casas',array('model'=>$Casas));
+	   
+	}
+	public function actionCampos()
+	{
+
+	   //obtener los apartamentos de la base
+		$Criteria = new CDbCriteria();
+		//Los string estan en comillas simples sino no lo toma S
+    	$Criteria->condition = "TipoInmueble = 'CAMPO'";
+    	$Campos = Inmueble::model()->findAll($Criteria);	
+
+    	
+	   	$this->render('campos',array('model'=>$Campos));
+	}
+	public function actionAlquileres()
+	{
+
+	   //$model=new Alquileres();
+	   $this->render('alquileres');
+	}
+	public function actionVentas()
+	{
+
+	   //$model=new Alquileres();
+	   $this->render('ventas');
+	}
+
 
 	/**
 	 * Displays the contact page

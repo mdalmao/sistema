@@ -3,24 +3,24 @@
 /* @var $model ContactForm */
 /* @var $form CActiveForm */
 
-$this->pageTitle=Yii::app()->name . ' - campos';
+$this->pageTitle=Yii::app()->name . ' - Ventas';
 $this->breadcrumbs=array(
-	'campos',
+	'Venta',
 );
 ?>
 
-<h1>Campos</h1>
+<h1>Apartamentos</h1>
 
-<?php if(Yii::app()->user->hasFlash('campos')): ?>
+<?php if(Yii::app()->user->hasFlash('ventas')): ?>
 
 <div class="flash-success">
-	<?php echo Yii::app()->user->getFlash('campos'); ?>
+	<?php echo Yii::app()->user->getFlash('ventas'); ?>
 </div>
 
 <?php else: ?>
 
 <p>
-Mostrar las campos
+Mostrar los ventas
 </p>
 
 
