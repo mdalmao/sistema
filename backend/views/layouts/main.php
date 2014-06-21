@@ -30,9 +30,9 @@
 <div class="container" id="page">
 
 	<div id="header">
-		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
+		
 		<p> <img class ="img-rounded" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'logo.png' ; ?>"></img></p>
-
+		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
 	</div><!-- header -->
 
 	<div id="mainmenu">
@@ -47,7 +47,7 @@
 								array('label'=>'Cliente', 'url'=>array('/cliente'), 'visible'=>!Yii::app()->user->isGuest),
 								array('label'=>'Contacto', 'url'=>array('/contacto'), 'visible'=>!Yii::app()->user->isGuest),
 								array('label'=>'Inmueble', 'url'=>array('/inmueble'), 'visible'=>!Yii::app()->user->isGuest),
-								array('label'=>'Empleado', 'url'=>array('/empleado'), 'visible'=>!Yii::app()->user->isGuest),
+								array('label'=>'Empleado', 'url'=>array('/user'), 'visible'=>!Yii::app()->user->isGuest),
 								array('label'=>'Gestion de Portada', 'url'=>array('/gestiondeportada'), 'visible'=>!Yii::app()->user->isGuest),
 			),
 		)); ?>

@@ -102,6 +102,7 @@ class ClienteController extends Controller
 		$model2=new Datospersonales;
 
 		$model=$this->loadModel($id);
+		$model2=$this->loadModel2($id);
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -109,12 +110,19 @@ class ClienteController extends Controller
 		if(isset($_POST['Cliente']))
 		{
 			$model->attributes=$_POST['Cliente'];
-			if($model->save())
+			$model2->attributes=$_POST['Datospersonales'];
+
+
+			if($model->save()){
+				$model->idUsuario= $model2->idUsuario;
+				$model2->save(); 
 				$this->redirect(array('view','id'=>$model->idUsuario));
+			}	
 		}
 
 		$this->render('update',array(
 			'model'=>$model,
+			'model2'=>$model2,
 		));
 	}
 
@@ -173,6 +181,15 @@ class ClienteController extends Controller
 		return $model;
 	}
 
+
+	//agrego esta funcion
+	public function loadModel2($id)
+	{
+		$model2=Datospersonales::model()->findByPk($id);
+		if($model2===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+		return $model2;
+	}
 	/**
 	 * Performs the AJAX validation.
 	 * @param Cliente $model the model to be validated

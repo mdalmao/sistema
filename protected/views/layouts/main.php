@@ -34,9 +34,10 @@
 
 <body>
 <div class="page-header">
-		<h1>Bienveniedos a Inmobiliaria S.A</h1>
+		
 		<div class= "container-fluid">
 			<p> <img class ="img-rounded" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'logo.png' ; ?>"></img></p>
+			<h4>Bienveniedos a nuestra Inmboliaria Inmobi 4p</h4>
 
 		</div>
 		<div>

@@ -11,6 +11,7 @@
 
 	
 
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Nacionalidad')); ?>:</b>
 	<?php echo CHtml::encode($data->Nacionalidad); ?>
 	<br />

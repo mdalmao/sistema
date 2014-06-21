@@ -5,6 +5,7 @@
 $this->breadcrumbs=array(
 	'Clientes'=>array('index'),
 	$model->idUsuario=>array('view','id'=>$model->idUsuario),
+	//$model2->idUsuario=>array('view','id'=>$model->idUsuario),
 	'Update',
 );
 
