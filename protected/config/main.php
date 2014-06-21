@@ -103,7 +103,7 @@ return array(
 			'connectionString' => 'mysql:host=localhost;dbname=inmobiliaria',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => 'rootphp',
+			'password' => '',
 			'charset' => 'utf8',
 		),
 		
