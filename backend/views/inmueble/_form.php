@@ -104,7 +104,6 @@
 		<?php echo $form->error($model,'idUsuario'); ?>
 	</div>
 
-<div id="casapo">
 	<div class="row">
 		<?php echo $form->labelEx($model,'Fecha de Construccion'); ?>
 		<?php echo $form->textField($casapo,'AnioConstruccion'); ?>
@@ -152,17 +151,12 @@
 		<?php echo $form->dropDownList($casapo,'Cerramiento',array('Planchada'=>'Planchada','Techo libiano'=>'Techo Libiano')); ?>
 		<?php echo $form->error($model,'Cerramiento'); ?>
 	</div>
-</div>
+	
 	<div class="row">
-		<?php echo $form->labelEx($imagen,'imagen'); ?>
-		<?php echo $form->fileField($imagen,'imagen', array('maxlength'=>255)); ?>
-		<?php echo $form->error($imagen,'imagen'); ?>
+		<?php echo $form->labelEx($model,'Ubicacion'); ?>
+		<?php echo $form->fileField($imagenes,'Ubicacion', array('maxlength'=>255)); ?>
+		<?php echo $form->error($model,'Ubicacion'); ?>
 	</div>
-        <?php if($model->isNewRecord!='1'){ ?>
-        <div class="row">
-          <?php echo CHtml::image(Yii::app()->request->baseUrl.'/upload/'.$model->imagen,"imagen",array("width"=>200)); ?>  
-        </div>
-        <?php } ?>
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
