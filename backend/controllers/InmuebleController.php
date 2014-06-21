@@ -77,9 +77,7 @@ class InmuebleController extends Controller
 			$model->attributes=$_POST['Inmueble'];
 			$model->Disponible = '1';	
 
-			if($model->save()){
-				//$uploadedFile->saveAs(YII::app()->baseUrl. "/imagenes/".$fileName);
-                //$this->redirect(array('view','id'=>$model->id));
+			if($model->save()){				                
 				$casapo->attributes=$_POST['Inmcao'];
 			    $casapo->idInmbueble=$model->idInmueble;
 			    $casapo->save();				
@@ -90,8 +88,7 @@ class InmuebleController extends Controller
                   $uploadedFile=CUploadedFile::getInstance($imagenes,'Ubicacion');
                   $nombre= $uploadedFile->getName();
                   $fileName = "{$rnd}-{$nombre}";                                         		       
-                  //$uploadedFile->saveAs( Yii::app()->baseUrl . "/imagenes/" .$fileName);
-                  $uploadedFile->saveAs( "yii/sistema/imagenes/" .$fileName);
+                  $uploadedFile->saveAs( Yii::app()->basePath.'/../imagenes/' .$fileName);                 
                   
                   $imagenes->Idinmueble = $model->idInmueble;
                   $imagenes->IdImagen='1';                 

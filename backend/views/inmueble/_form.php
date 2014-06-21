@@ -153,9 +153,9 @@
 	</div>
 	
 	<div class="row">
-		<?php echo $form->labelEx($model,'Ubicacion'); ?>
+		<?php echo $form->labelEx($imagenes,'Ubicacion'); ?>
 		<?php echo $form->fileField($imagenes,'Ubicacion', array('maxlength'=>255)); ?>
-		<?php echo $form->error($model,'Ubicacion'); ?>
+		<?php echo $form->error($imagenes,'Ubicacion'); ?>
 	</div>
 
 	<div class="row buttons">
