@@ -58,6 +58,14 @@
 	<?php echo CHtml::encode($data->idUsuario); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('X')); ?>:</b>
+	<?php echo CHtml::encode($data->X); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('Y')); ?>:</b>
+	<?php echo CHtml::encode($data->Y); ?>
+	<br />
+
 	*/ ?>
 
 </div>

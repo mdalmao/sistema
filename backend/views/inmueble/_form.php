@@ -5,7 +5,6 @@
 ?>
 
 <div class="form">
-<?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'inmueble-form',
@@ -13,9 +12,8 @@
 	// controller action is handling ajax validation correctly.
 	// There is a call to performAjaxValidation() commented in generated controller code.
 	// See class documentation of CActiveForm for details on this.
-	'enableAjaxValidation'=>false,	
+	'enableAjaxValidation'=>false,
 )); ?>
-
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
@@ -82,6 +80,18 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'X'); ?>
+		<?php echo $form->textField($model,'X'); ?>
+		<?php echo $form->error($model,'X'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'Y'); ?>
+		<?php echo $form->textField($model,'Y'); ?>
+		<?php echo $form->error($model,'Y'); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->labelEx($model,'Portada'); ?>
 		<?php echo $form->textField($model,'Portada'); ?>
 		<?php echo $form->error($model,'Portada'); ?>
@@ -104,7 +114,7 @@
 		<?php echo $form->labelEx($model,'Metros Cuadrados'); ?>
 		<?php echo $form->textField($casapo,'MetrosCuadrados'); ?>
 		<?php echo $form->error($model,'MetrosCuadrados'); ?>
-	</div>
+	</div>	
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'Cantidad de Dormitorios'); ?>
@@ -146,9 +156,6 @@
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
-
-
-
 
 <?php $this->endWidget(); ?>
 

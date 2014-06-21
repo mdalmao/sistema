@@ -72,7 +72,12 @@ class InmuebleController extends Controller
 		if(isset($_POST['Inmueble']))
 		{
 			$model->attributes=$_POST['Inmueble'];
+			$model->Disponible = '1';	
+
 			if($model->save())
+				$casapo->attributes=$_POST['Inmcao'];
+			    $casapo->idInmbueble=$model->idInmueble;
+			    $casapo->save();
 				$this->redirect(array('view','id'=>$model->idInmueble));
 		}
 

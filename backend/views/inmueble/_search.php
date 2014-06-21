@@ -76,6 +76,16 @@
 		<?php echo $form->textField($model,'idUsuario'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->label($model,'x'); ?>
+		<?php echo $form->textField($model,'x'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'y'); ?>
+		<?php echo $form->textField($model,'y'); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>
 	</div>
