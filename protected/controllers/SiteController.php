@@ -104,14 +104,27 @@ class SiteController extends Controller
 	public function actionAlquileres()
 	{
 
-	   //$model=new Alquileres();
-	   $this->render('alquileres');
+	   //obtener los apartamentos de la base
+		$Criteria = new CDbCriteria();
+		//Obtener los inmuebles que son para alquilar
+    	$Criteria->condition = "QueHacer = 'ALQUILAR' AND Disponible = 1";
+    	$Alquileres = Inmueble::model()->findAll($Criteria);
+    	
+
+	   $this->render('alquileres',array('model'=>$Alquileres));
 	}
 	public function actionVentas()
 	{
+	   //obtener los apartamentos de la base
+		$Criteria = new CDbCriteria();
+		//Obtener los inmuebles que son para alquilar
+    	$Criteria->condition = "QueHacer = 'VENDER' AND Disponible = 1";
+    	$Ventas = Inmueble::model()->findAll($Criteria);
+    	
 
-	   //$model=new Alquileres();
-	   $this->render('ventas');
+	   $this->render('ventas',array('model'=>$Ventas));
+
+
 	}
 
 

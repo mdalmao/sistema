@@ -9,19 +9,58 @@ $this->breadcrumbs=array(
 );
 ?>
 
-<h1>Apartamentos</h1>
+<h1>Ventas</h1>
 
-<?php if(Yii::app()->user->hasFlash('ventas')): ?>
 
-<div class="flash-success">
-	<?php echo Yii::app()->user->getFlash('ventas'); ?>
+
+<div class="inmueble">
+	
+	<?php foreach ($model as $Ventas): ?>
+		<div class="resultado">
+			
+			<p class="descripcion"> 
+				<p> Descripcion:
+				<?php echo CHtml::decode($Ventas['Descripcion']);  ?> 
+				</p>
+			</p>
+			<p class="estado">
+				<p> Estado:
+				 <?php echo CHtml::decode($Ventas['Estado']);  ?> 
+				</P>
+			</p>
+			<p class="precio"> 
+				<p> Precio:
+				<?php echo CHtml::decode($Ventas['Precio']);  ?> 
+				</p>
+			</p>
+			<p class="departamento"> 
+				<p>Departamento:
+				<?php echo CHtml::decode($Ventas['Departamento']);  ?> 
+				</p>
+
+
+			</p>
+			<p class="ciudad">
+				<p>Ciudad:
+				 <?php echo CHtml::decode($Ventas['Ciudad']);  ?>
+				</p>
+			 </p>
+			<p class="direccion"> 
+				<p>
+					Zona: 
+					<?php echo CHtml::decode($Ventas['Zona']); ?>
+				</p>
+				<p> Direccion: 	
+
+				<?php echo CHtml::decode($Ventas['Direccion']);  ?> 
+
+				</p>
+			</p>
+			<?php $id = $Ventas['idInmueble']; ?>
+ 			<img class ="imagen" src="<?php echo Yii::app()->ImagenesInmueble->imagenprincipal($id); ?>" /> 
+			</div>
+
+		</div>
+	<?php endforeach; ?>
+
 </div>
-
-<?php else: ?>
-
-<p>
-Mostrar los ventas
-</p>
-
-
-<?php endif; ?>
