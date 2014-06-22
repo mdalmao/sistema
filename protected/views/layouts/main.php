@@ -36,7 +36,8 @@
 <div class="page-header">
 		<h1>Bienveniedos a Inmobiliaria S.A</h1>
 		<div class= "container-fluid">
-			<p> <img class ="img-rounded" src="casa.jpg"></img></p>
+			<p> <img class ="img-rounded" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'logo.png' ; ?>"></img></p>
+
 		</div>
 		<div>
 			<ul class="nav nav-pills">

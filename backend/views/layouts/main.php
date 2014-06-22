@@ -31,6 +31,8 @@
 
 	<div id="header">
 		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
+		<p> <img class ="img-rounded" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'logo.png' ; ?>"></img></p>
+
 	</div><!-- header -->
 
 	<div id="mainmenu">
@@ -42,6 +44,11 @@
                               //array('url'=>Yii::app()->getModule('user')->registrationUrl, 'label'=>Yii::app()->getModule('user')->t("Register"), 'visible'=>Yii::app()->user->isGuest),
                                 array('url'=>Yii::app()->getModule('user')->profileUrl, 'label'=>Yii::app()->getModule('user')->t("Profile"), 'visible'=>!Yii::app()->user->isGuest),
                                 array('url'=>Yii::app()->getModule('user')->logoutUrl, 'label'=>Yii::app()->getModule('user')->t("Logout").' ('.Yii::app()->user->name.')', 'visible'=>!Yii::app()->user->isGuest),
+								array('label'=>'Cliente', 'url'=>array('/cliente'), 'visible'=>!Yii::app()->user->isGuest),
+								array('label'=>'Contacto', 'url'=>array('/contacto'), 'visible'=>!Yii::app()->user->isGuest),
+								array('label'=>'Inmueble', 'url'=>array('/inmueble'), 'visible'=>!Yii::app()->user->isGuest),
+								array('label'=>'Empleado', 'url'=>array('/empleado'), 'visible'=>!Yii::app()->user->isGuest),
+								array('label'=>'Gestion de Portada', 'url'=>array('/gestiondeportada'), 'visible'=>!Yii::app()->user->isGuest),
 			),
 		)); ?>
 	</div><!-- mainmenu -->

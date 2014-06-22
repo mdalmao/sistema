@@ -98,6 +98,9 @@ class ClienteController extends Controller
 	 */
 	public function actionUpdate($id)
 	{
+		$model=new Cliente;
+		$model2=new Datospersonales;
+
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
