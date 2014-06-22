@@ -73,10 +73,11 @@ class ClienteController extends Controller
 			$model2->attributes=$_POST['Users'];
 
 			$model->idUsuario =1;
+			$model->nacionalidad = "Uruguayo";
 			$model2->status =1;
 			$model2->activkey="skdab";
 			$model2->lastvisit =1;
-			$model2->createtime=2/8/1990;
+			$model2->createtime=20/10/1990;
 			$model2->superuser =1;
 			$model2->password="lala";
 			$model2->id = $model->idUsuario;
