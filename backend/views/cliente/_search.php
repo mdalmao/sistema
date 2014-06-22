@@ -21,15 +21,7 @@
 		<?php echo $form->textField($model,'username',array('size'=>45,'maxlength'=>45)); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->label($model,'email'); ?>
-		<?php echo $form->textField($model,'email',array('size'=>45,'maxlength'=>45)); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'password'); ?>
-		<?php echo $form->textField($model,'password',array('size'=>45,'maxlength'=>45)); ?>
-	</div>
+	
 
 	<div class="row">
 		<?php echo $form->label($model,'Nacionalidad'); ?>

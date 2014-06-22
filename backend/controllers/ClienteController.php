@@ -63,6 +63,7 @@ class ClienteController extends Controller
 	public function actionCreate()
 	{
 		$model=new Cliente;
+		$model2=new Datospersonales;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -70,25 +71,23 @@ class ClienteController extends Controller
 		if(isset($_POST['Cliente']))
 		{
 			$model->attributes=$_POST['Cliente'];
-			$model2->attributes=$_POST['Users'];
+			$model2->attributes=$_POST['Datospersonales'];
 
-			$model->idUsuario =1;
-			$model->nacionalidad = "Uruguayo";
-			$model2->status =1;
-			$model2->activkey="skdab";
-			$model2->lastvisit =1;
-			$model2->createtime=20/10/1990;
-			$model2->superuser =1;
-			$model2->password="lala";
-			$model2->id = $model->idUsuario;
+			//$model->idUsuario =1;
+			
 
 			$model2->save(); 
-			if($model->save())
+			//si se guardo datospersonales agrego los datos de cliente (id)
+			if($model2->save()){
+				$model->idUsuario= $model2->idUsuario;
+				$model->save();
 				$this->redirect(array('view','id'=>$model->idUsuario));
+			}
 		}
 
 		$this->render('create',array(
 			'model'=>$model,
+			'model2'=>$model2,
 		));
 	}
 
