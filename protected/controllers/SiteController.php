@@ -61,8 +61,8 @@ class SiteController extends Controller
 	public function actionBuscar()
 	{
 
-	   $model=new Inmueble();
-	   $this->render('buscar',array('model'=>$model));
+	  $inmuebles = Inmueble::model()->findAll();
+	   $this->render('buscar',array('model'=>$inmuebles));
 	}
 	public function actionApartamentos()
 	{
