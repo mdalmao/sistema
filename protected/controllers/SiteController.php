@@ -141,18 +141,17 @@ class SiteController extends Controller
 	public function actionCasasGenerico()
 	{
 
-		$model = new Inmueble;
-		//$model->elemento = $_POST['CasasGenerico'];
-	   //obtener los apartamentos de la base
+		//ver como obtener el id del inmueble enviado por post
+		
 		$Criteria = new CDbCriteria();
-		//$model->id = $_POST[$Ventas['idInmueble']];
-		//$id2 = $Ventas['idInmueble'];
-		//Obtener los inmuebles que son para alquilar ver como pasar el id de la vista de arriba
+		$Criteria2 = new CDbCriteria();
     	$Criteria->condition = "idinmueble = 1";
+    	$Criteria2->condition = "idinmueble = 1";
     	$Casas = Inmcasa::model()->findAll($Criteria);
+    	$Inmueble = Inmueble::model()->findAll($Criteria2);
     	
 
-	   $this->render('casasGenerico',array('model' =>$Casas));
+	   $this->render('casasGenerico',array('model' =>$Casas, 'model2' =>$Inmueble));
 	}
 	public function actionCampoGenerico()
 	{

@@ -8,44 +8,140 @@ $this->breadcrumbs=array(
 	'casas',
 );
 ?>
+<h1>Cacasa con id= 1 seteado necesito ver como pasarle el id de la vista anterior</h1>
 <div class="inmueble">
-<h1>Cacasa x</h1>
-<?php foreach ($model as $modelo): ?>
-<div class="resultado">
+	
+	<?php foreach ($model2 as $inmueble): ?>
+	 <form action="Inmueble"  method="post">
+		<div class="resultado">
 			
-			
-			 <p> Piso:
-				<?php echo CHtml::decode($modelo['Piso']);  ?> 
+			<p class="descripcion"> 
+				<p> Descripcion:
+				<?php echo CHtml::decode($inmueble['Descripcion']);  ?> 
 				</p>
-				<p> Fondo:
-				 <?php echo CHtml::decode($modelo['Fondo']);  ?> 
+			</p>
+			<p class="estado">
+				<p> Estado:
+				 <?php echo CHtml::decode($inmueble['Estado']);  ?> 
 				</P>
-			
-				<p> Frente:
-				<?php echo CHtml::decode($modelo['Frente']);  ?> 
+			</p>
+			<p class="precio"> 
+				<p> Precio:
+				<?php echo CHtml::decode($inmueble['Precio']);  ?> 
 				</p>
-			
-				<p> Barbacoa:
-				<?php echo CHtml::decode($modelo['Barbacoa']);  ?> 
+			</p>
+			<p class="departamento"> 
+				<p>Departamento:
+				<?php echo CHtml::decode($inmueble['Departamento']);  ?> 
 				</p>
 
 
+			</p>
+			<p class="ciudad">
 				<p>Ciudad:
-				 <?php echo CHtml::decode($modelo['Rejas']);  ?>
+				 <?php echo CHtml::decode($inmueble['Ciudad']);  ?>
+				</p>
+			 </p>
+			<p class="direccion"> 
+				<p>
+					Zona: 
+					<?php echo CHtml::decode($inmueble['Zona']); ?>
+				</p>
+				<p> Direccion: 	
+
+				<?php echo CHtml::decode($inmueble['Direccion']);  ?> 
+
+				</p>
+			</p>
+			 			
+			</div>
+
+
+<?php foreach ($model as $modelo): ?>
+	<form action="Alquileres"  method="post">
+	<div class="resultado">
+				
+			
+				<p> Cantidad de Piso:
+					<?php echo CHtml::decode($modelo['Piso']);  ?> 
+				</p>
+			
+				<p>
+					Metros Cuadrados de la Propiedad:
+					<?php echo CHtml::decode($modelo['MetrosCuadradosTerreno']);  ?> 
 				</p>
 				<p>
+					Fondo:
+					 
+					<?php if ($modelo['Fondo'] == 1): ?>
+					 	<?php echo CHtml::decode('Si');  ?> 
+					<?php else: ?> 	
+						<?php echo CHtml::decode('No');  ?> 
+					<?php endif; ?>
+				</p>
+				<p>	 Frente:
+					
+					<?php if ($modelo['Frente'] == 1): ?>
+					 	<?php echo CHtml::decode('Si');  ?> 
+					<?php else: ?> 	
+						<?php echo CHtml::decode('No');  ?> 
+					<?php endif; ?>
+				</p>
+				
+				<p> Barbacoa:
+					
+					<?php if ($modelo['Barbacoa'] == 1): ?>
+					 	<?php echo CHtml::decode('Si');  ?> 
+					<?php else: ?> 	
+						<?php echo CHtml::decode('No');  ?> 
+					<?php endif; ?>
+				</p>
+				<p>
+					Rejas:
+					 
+					 <?php if ($modelo['Rejas'] == 1): ?>
+					 	<?php echo CHtml::decode('Si');  ?> 
+					<?php else: ?> 	
+						<?php echo CHtml::decode('No');  ?> 
+					<?php endif; ?>
+				</p>
+					<p>
 					Estufa: 
-					<?php echo CHtml::decode($modelo['Estufa']); ?>
+					
+					<?php if ($modelo['Estufa'] == 1): ?>
+				 	<?php echo CHtml::decode('Si');  ?> 
+					<?php else: ?> 	
+					<?php echo CHtml::decode('No');  ?> 
+					<?php endif; ?>
 				</p>
-				<p> Saneamiento: 	
+					<p>
+					Saneamiento: 	
+						<?php if ($modelo['Saneamiento'] == 1): ?>
+					 	<?php echo CHtml::decode('Si');  ?> 
+					<?php else: ?> 	
+						<?php echo CHtml::decode('No');  ?> 
+					s<?php endif; ?>
+					</p>
 
-				<?php echo CHtml::decode($modelo['Saneamiento']);  ?> 
 
-				</p>
+					
+	</div>
+			</form>
+	<?php endforeach; ?>
 
- 			
-	
+		</div>
+		</form>
+	<?php endforeach; ?>
+
+
+
 
 </div>
-<?php endforeach; ?>
+<div class = 'imagen'>
+
+		<?php $id = $inmueble['idInmueble']; ?>
+ 			<img class ="imagen" src="<?php echo Yii::app()->ImagenesInmueble->imagenprincipal($id); ?>" /> 
+
+
+</div>
 
