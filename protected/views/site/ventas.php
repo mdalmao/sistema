@@ -59,8 +59,17 @@ $this->breadcrumbs=array(
 			</p>
 			<?php $id = $Ventas['idInmueble']; ?>
  			<img class ="imagen" src="<?php echo Yii::app()->ImagenesInmueble->imagenprincipal($id); ?>" /> 
+ 				<?php if ($Ventas['TipoInmueble'] == 'CASA'): ?>
+				 <a href="/yii/sistema/site/CasasGenerico" class="btn btn-success btn-mini"><i class="icon-white"></i> Ver Mas</a>
+				<?php endif; ?>
+				<?php if ($Ventas['TipoInmueble'] == 'CAMPO'): ?>
+				 <a href="/yii/sistema/site/CampoGenerico" class="btn btn-success btn-mini"><i class="icon-white"></i> Ver Mas</a>
+				<?php endif; ?>
+				<?php if ($Ventas['TipoInmueble'] == 'APARTAMENTO'): ?>
+				 <a href="/yii/sistema/site/ApartamentoGenerico" class="btn btn-success btn-mini"><i class="icon-white"></i> Ver Mas</a>
+				<?php endif; ?>
 			 
-			 <a href="/yii/sistema/site/CasasGenerico" class="btn btn-success btn-mini"><i class="icon-white"></i> Ver Mas</a>
+			
 			</div>
 
 		</div>

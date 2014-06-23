@@ -141,9 +141,11 @@ class SiteController extends Controller
 	public function actionCasasGenerico()
 	{
 
+		$model = new Inmueble;
+		//$model->elemento = $_POST['CasasGenerico'];
 	   //obtener los apartamentos de la base
 		$Criteria = new CDbCriteria();
-		//$id = $_POST[$Ventas['idInmueble']];
+		//$model->id = $_POST[$Ventas['idInmueble']];
 		//$id2 = $Ventas['idInmueble'];
 		//Obtener los inmuebles que son para alquilar ver como pasar el id de la vista de arriba
     	$Criteria->condition = "idinmueble = 1";
@@ -152,7 +154,20 @@ class SiteController extends Controller
 
 	   $this->render('casasGenerico',array('model' =>$Casas));
 	}
+	public function actionCampoGenerico()
+	{
 
+	
+    	
+		 $this->render('campoGenerico');
+	}
+	public function actionApartamentoGenerico()
+	{
+
+	
+    	
+		 $this->render('apartamentoGenerico');
+	}
 	/**
 	 * Displays the contact page
 	 */
