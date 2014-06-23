@@ -14,8 +14,9 @@ $this->breadcrumbs=array(
 
 
 <div class="inmueble">
-	<p>Aca van los inmuebles</p>
+	
 	<?php foreach ($model as $Apartamento): ?>
+	<form action="ApartamentosGenericos"  method="post">
 		<div class="resultado">
 			
 			<p class="descripcion"> 
@@ -58,9 +59,11 @@ $this->breadcrumbs=array(
 			</p>
 			<?php $id = $Apartamento['idInmueble']; ?>
  			<img class ="imagen" src="<?php echo Yii::app()->ImagenesInmueble->imagenprincipal($id); ?>" /> 
+ 			<a href="/yii/sistema/site/ApartamentosGenerico" class="btn btn-success btn-mini"><i class="icon-white"></i> Ver Mas</a>
 			</div>
 
 		</div>
+		</form>
 	<?php endforeach; ?>
 
 </div>

@@ -64,6 +64,18 @@ class SiteController extends Controller
 	  $inmuebles = Inmueble::model()->findAll();
 	   $this->render('buscar',array('model'=>$inmuebles));
 	}
+	public function actionMision()
+	{
+
+	  
+	   $this->render('mision');
+	}
+	public function actionVision()
+	{
+
+	  
+	   $this->render('vision');
+	}
 	public function actionApartamentos()
 	{
 
@@ -131,6 +143,8 @@ class SiteController extends Controller
 
 	   //obtener los apartamentos de la base
 		$Criteria = new CDbCriteria();
+		//$id = $_POST[$Ventas['idInmueble']];
+		//$id2 = $Ventas['idInmueble'];
 		//Obtener los inmuebles que son para alquilar ver como pasar el id de la vista de arriba
     	$Criteria->condition = "idinmueble = 1";
     	$Casas = Inmcasa::model()->findAll($Criteria);
