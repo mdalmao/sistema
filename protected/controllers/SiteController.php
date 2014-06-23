@@ -82,7 +82,7 @@ class SiteController extends Controller
 		//obtener los apartamentos de la base
 		$Criteria = new CDbCriteria();
 		//Los string estan en comillas simples sino no lo toma S
-    	$Criteria->condition = "TipoInmueble = 'APARTAMENTO'";
+    	$Criteria->condition = "TipoInmueble = 'APARTAMENTO' AND Disponible = 1";
     	$Apartamentos = Inmueble::model()->findAll($Criteria);	
 
     	//como devuelvo ,$Inmueble
@@ -94,7 +94,7 @@ class SiteController extends Controller
 	   //obtener los apartamentos de la base
 		$Criteria = new CDbCriteria();
 		//Los string estan en comillas simples sino no lo toma S
-    	$Criteria->condition = "TipoInmueble = 'CASA'";
+    	$Criteria->condition = "TipoInmueble = 'CASA' AND Disponible = 1";
     	$Casas = Inmueble::model()->findAll($Criteria);	
 
     	
@@ -107,7 +107,7 @@ class SiteController extends Controller
 	   //obtener los apartamentos de la base
 		$Criteria = new CDbCriteria();
 		//Los string estan en comillas simples sino no lo toma S
-    	$Criteria->condition = "TipoInmueble = 'CAMPO'";
+    	$Criteria->condition = "TipoInmueble = 'CAMPO' AND Disponible = 1";
     	$Campos = Inmueble::model()->findAll($Criteria);	
 
     	
