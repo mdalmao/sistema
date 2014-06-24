@@ -156,7 +156,7 @@ class SiteController extends Controller
 	public function actionCampoGenerico()
 	{
 		//ver como obtener el id del inmueble enviado por post
-		//setie con id = 1 a modo de como quedaria la vista
+		//setie con id = 5 a modo de como quedaria la vista
 		$Criteria = new CDbCriteria();
 		$Criteria->condition = "idinmueble = 5";
     	
@@ -172,10 +172,21 @@ class SiteController extends Controller
 	}
 	public function actionApartamentoGenerico()
 	{
+		//ver como obtener el id del inmueble enviado por post
+		//setie con id = 3 a modo de como quedaria la vista
+		$Criteria = new CDbCriteria();
+		$Criteria->condition = "idinmueble = 3";
+    	
+    	$Campo = Inmapartoficina::model()->findAll($Criteria);
+    	$Inmueble = Inmueble::model()->findAll($Criteria);
+    	$Imagenes = Imagenes::model()->findAll($Criteria);
+    	
 
+	   $this->render('apartamentoGenerico',array('model' =>$Campo, 'model2' =>$Inmueble,'model3'=>$Imagenes));
+	
 	
     	
-		 $this->render('apartamentoGenerico');
+		 //$this->render('apartamentoGenerico');
 	}
 	/**
 	 * Displays the contact page

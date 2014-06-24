@@ -59,7 +59,7 @@ $this->breadcrumbs=array(
 			</p>
 			<?php $id = $Apartamento['idInmueble']; ?>
  			<img class ="imagen" src="<?php echo Yii::app()->ImagenesInmueble->imagenprincipal($id); ?>" /> 
- 			<a href="/yii/sistema/site/ApartamentosGenerico" class="btn btn-success btn-mini"><i class="icon-white"></i> Ver Mas</a>
+ 			<a href="/yii/sistema/site/ApartamentoGenerico" class="btn btn-success btn-mini"><i class="icon-white"></i> Ver Mas</a>
 			</div>
 
 		</div>

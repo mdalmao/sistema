@@ -3,9 +3,9 @@
 /* @var $model ContactForm */
 /* @var $form CActiveForm */
 
-$this->pageTitle=Yii::app()->name . ' - casas';
+$this->pageTitle=Yii::app()->name . ' - Campo';
 $this->breadcrumbs=array(
-	'casas',
+	'Campo',
 );
 ?>
 <h1>Campo con id= 5 seteado  desde el controlador necesito ver como pasarle el id de la vista anterior</h1>
@@ -58,7 +58,7 @@ $this->breadcrumbs=array(
 
 
 <?php foreach ($model as $modelo): ?>
-	<form action="Alquileres"  method="post">
+	<form action="Campo"  method="post">
 	<div class="resultado">
 				
 			
