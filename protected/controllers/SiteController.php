@@ -142,16 +142,16 @@ class SiteController extends Controller
 	{
 
 		//ver como obtener el id del inmueble enviado por post
-		
+		//setie con id = 1 a modo de como quedaria la vista
 		$Criteria = new CDbCriteria();
-		$Criteria2 = new CDbCriteria();
-    	$Criteria->condition = "idinmueble = 1";
-    	$Criteria2->condition = "idinmueble = 1";
+		$Criteria->condition = "idinmueble = 1";
+    	
     	$Casas = Inmcasa::model()->findAll($Criteria);
-    	$Inmueble = Inmueble::model()->findAll($Criteria2);
+    	$Inmueble = Inmueble::model()->findAll($Criteria);
+    	$Imagenes = Imagenes::model()->findAll($Criteria);
     	
 
-	   $this->render('casasGenerico',array('model' =>$Casas, 'model2' =>$Inmueble));
+	   $this->render('casasGenerico',array('model' =>$Casas, 'model2' =>$Inmueble,'model3'=>$Imagenes));
 	}
 	public function actionCampoGenerico()
 	{

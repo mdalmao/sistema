@@ -6,6 +6,26 @@ class ImagenesInmueble extends CApplicationComponent{
    public function init(){
     // init es llamado por Yii, debido a que es un componente
    }
+   
+   public function imagenesDeInmueble($id,$idImag){
+
+    $Criteria = new CDbCriteria();
+    $Criteria->condition = "Idinmueble = $id AND IdImagen = $idImag";
+     $imagenes = Imagenes::model()->findAll($Criteria);
+     $nombre= "";
+     foreach ($imagenes as $imagen):
+         
+            $nombre =  $imagen->Ubicacion;
+          
+
+     endforeach; 
+     if ($nombre == "") {
+         $nombre = "sinimagen.jpg";
+     }    
+     
+     $valor = Yii::app()->baseUrl . "/imagenes/" . $nombre;
+     return $valor;
+   }
 
    public function imagenprincipal($id){
      $imagenes = Imagenes::model()->findAll();
