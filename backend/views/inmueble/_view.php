@@ -58,12 +58,12 @@
 	<?php echo CHtml::encode($data->idUsuario); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('X')); ?>:</b>
-	<?php echo CHtml::encode($data->X); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('x')); ?>:</b>
+	<?php echo CHtml::encode($data->x); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('Y')); ?>:</b>
-	<?php echo CHtml::encode($data->Y); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('y')); ?>:</b>
+	<?php echo CHtml::encode($data->y); ?>
 	<br />
 
 	*/ ?>

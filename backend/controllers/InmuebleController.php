@@ -72,8 +72,6 @@ class InmuebleController extends Controller
 
 		if(isset($_POST['Inmueble']))
 		{
-
-
 			$model->attributes=$_POST['Inmueble'];
 			$model->Disponible = '1';	
 
@@ -115,6 +113,9 @@ class InmuebleController extends Controller
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
+		$casapo=$this->loadModelImcao($id);
+		$datosp=$this->loadModelDatosPersonales($id);
+		$imagenes=new Imagenes;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -122,12 +123,39 @@ class InmuebleController extends Controller
 		if(isset($_POST['Inmueble']))
 		{
 			$model->attributes=$_POST['Inmueble'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->idInmueble));
+			if($model->save()){
+				$casapo->attributes=$_POST['Inmcao'];
+			    $casapo->idInmbueble=$model->idInmueble;
+			    $casapo->save();				
+			/////Imagen///////////////
+				  $rnd = rand(0,9999);  // generate random number between 0-9999
+                  $imagenes->attributes=$_POST['Imagenes'];				
+  
+                  $uploadedFile=CUploadedFile::getInstance($imagenes,'Ubicacion');
+                  $nombre= $uploadedFile->getName();
+                  $fileName = "{$rnd}-{$nombre}";                                         		       
+                  $uploadedFile->saveAs( Yii::app()->basePath.'/../imagenes/' .$fileName);                 
+                  
+                  $imagenes->Idinmueble = $model->idInmueble;
+                  $imagenes->IdImagen='1';                 
+                  $imagenes->Ubicacion = $fileName;
+               	  $imagenes->save();             
+			////////FIN IMAGEN////////////////////////			
+				$this->redirect(array('view','id'=>$model->idInmueble,'anio'=>$casapo->AnioConstruccion));
+               	 /* $this->render('view',array(
+					'model'=>$model,			
+					'casapo'=>$casapo,	
+					'datosp'=>$datosp,	
+					'imagenes'=>$imagenes,	
+				  ));*/				
+			}				
 		}
 
 		$this->render('update',array(
-			'model'=>$model,
+			'model'=>$model,			
+			'casapo'=>$casapo,	
+			'datosp'=>$datosp,	
+			'imagenes'=>$imagenes,	
 		));
 	}
 
@@ -181,6 +209,31 @@ class InmuebleController extends Controller
 	public function loadModel($id)
 	{
 		$model=Inmueble::model()->findByPk($id);
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+		return $model;
+	}
+
+	public function loadModelImcao($id)
+	{
+		$model=Inmcao::model()->findByPk($id);
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+		return $model;
+	}
+
+	public function loadModelDatosPersonales($id)
+	{
+		$model=Datospersonales::model()->findByPk($id);
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+		return $model;
+	}
+
+	public function loadModelImagenes($id)
+	{
+		$model=Imagenes::model()->findByPk($id);
+
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;

@@ -3,7 +3,7 @@
 /* @var $model Inmueble */
 
 $this->breadcrumbs=array(
-	'Inmuebles'=>array('index'),
+	'Inmuebles'=>array('index'),	
 	$model->idInmueble,
 );
 
@@ -35,6 +35,7 @@ $this->menu=array(
 		'Portada',
 		'idUsuario',
 		'x',
-		'y',
-	),
+		'y',	
+	),	
+
 )); ?>

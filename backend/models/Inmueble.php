@@ -17,8 +17,8 @@
  * @property string $Direccion
  * @property integer $Portada
  * @property integer $idUsuario
- * @property double $X
- * @property double $Y
+ * @property double $x
+ * @property double $y
  *
  * The followings are the available model relations:
  * @property Alquiler[] $alquilers
@@ -55,7 +55,7 @@ class Inmueble extends CActiveRecord
 			array('Direccion', 'length', 'max'=>60),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idInmueble, TipoInmueble, QueHacer, Disponible, Estado, Precio, Descripcion, Departamento, Ciudad, Zona, Direccion, Portada, idUsuario, X, Y', 'safe', 'on'=>'search'),
+			array('idInmueble, TipoInmueble, QueHacer, Disponible, Estado, Precio, Descripcion, Departamento, Ciudad, Zona, Direccion, Portada, idUsuario, x, y', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -132,8 +132,8 @@ class Inmueble extends CActiveRecord
 		$criteria->compare('Direccion',$this->Direccion,true);
 		$criteria->compare('Portada',$this->Portada);
 		$criteria->compare('idUsuario',$this->idUsuario);
-		$criteria->compare('x',$this->X);
-		$criteria->compare('y',$this->Y);
+		$criteria->compare('x',$this->x);
+		$criteria->compare('y',$this->y);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

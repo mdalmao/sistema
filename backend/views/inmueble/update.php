@@ -18,4 +18,4 @@ $this->menu=array(
 
 <h1>Update Inmueble <?php echo $model->idInmueble; ?></h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php $this->renderPartial('_form', array('model'=>$model,'datosp'=>$datosp,'casapo'=>$casapo,'imagenes'=>$imagenes)); ?>
