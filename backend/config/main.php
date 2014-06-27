@@ -63,6 +63,14 @@ return array(
 
 	// application components
 	'components'=>array(
+			'Mapas' => array(
+               'class'=>'application.components.Mapas',
+                ),
+
+         'ImagenesInmueble' => array(
+               'class'=>'application.components.ImagenesInmueble',
+                ),
+		
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
@@ -118,11 +126,11 @@ return array(
 					'levels'=>'error, warning',
 				),
 				// uncomment the following to show log messages on web pages
-				/*
+
 				array(
 					'class'=>'CWebLogRoute',
 				),
-				*/
+				
 			),
 		),
 	),

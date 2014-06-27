@@ -152,11 +152,15 @@
 		<?php echo $form->error($model,'Cerramiento'); ?>
 	</div>
 	
+	<div class="row">	
+		<?php echo $form->labelEx($model,'Imagen Principal'); ?>
+		<img class ="imagen" src="<?php echo Yii::app()->ImagenesInmueble->imagenprincipal($model->idInmueble); ?>" /> 
+	</div>
 	
 	<div class="row">
-		<?php echo $form->labelEx($imagenes,'Imagen Principal'); ?>
+		<?php echo $form->labelEx($model,'Imagen Principal'); ?>
 		<?php echo $form->fileField($imagenes,'Ubicacion', array('maxlength'=>255)); ?>
-		<?php echo $form->error($imagenes,'Ubicacion'); ?>
+		<?php echo $form->error($model,'Ubicacion'); ?>
 	</div>
 
 	<div class="row buttons">

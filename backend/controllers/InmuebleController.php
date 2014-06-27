@@ -115,7 +115,9 @@ class InmuebleController extends Controller
 		$model=$this->loadModel($id);
 		$casapo=$this->loadModelImcao($id);
 		$datosp=$this->loadModelDatosPersonales($id);
-		$imagenes=new Imagenes;
+		$imagenes = new Imagenes;
+		$imagenes2 = new Imagenes;				
+		$imagenes3 = new Imagenes;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -130,24 +132,46 @@ class InmuebleController extends Controller
 			/////Imagen///////////////
 				  $rnd = rand(0,9999);  // generate random number between 0-9999
                   $imagenes->attributes=$_POST['Imagenes'];				
-  
-                  $uploadedFile=CUploadedFile::getInstance($imagenes,'Ubicacion');
-                  $nombre= $uploadedFile->getName();
-                  $fileName = "{$rnd}-{$nombre}";                                         		       
-                  $uploadedFile->saveAs( Yii::app()->basePath.'/../imagenes/' .$fileName);                 
-                  
-                  $imagenes->Idinmueble = $model->idInmueble;
-                  $imagenes->IdImagen='1';                 
-                  $imagenes->Ubicacion = $fileName;
-               	  $imagenes->save();             
+  				  if($imagenes != NULL)
+  				  {
+  				  	//cuento la cantidad de imagenes
+  				  	$consulta2 = new CDbCriteria();
+				    $consulta2->condition = "Idinmueble = $id";
+					$imagenes2 = Imagenes::model()->findAll($consulta2);
+					$count = count($imagenes2);
+
+					//obtengo el numero 1
+					$consulta3 = new CDbCriteria();
+				    $consulta3->condition = "Idinmueble = $id and IdImagen = 1";
+					$imagenes3 = Imagenes::model()->find($consulta3);
+					$imagenes3->IdImagen = $count + '1';
+					$imagenes3->save(); 
+
+  				  	 $uploadedFile=CUploadedFile::getInstance($imagenes,'Ubicacion');
+	                 $nombre= $uploadedFile->getName();
+	                 $fileName = "{$rnd}-{$nombre}";                                         		       
+	                 $uploadedFile->saveAs( Yii::app()->basePath.'/../imagenes/' .$fileName);                 
+	                  
+	                 $imagenes->Idinmueble = $model->idInmueble;
+	                 $imagenes->IdImagen='1';                 
+	                 $imagenes->Ubicacion = $fileName;
+	               	 $imagenes->save(); 
+  				  }	
+  				  else
+  				  {
+  				  	$uploadedFile=CUploadedFile::getInstance($imagenes,'Ubicacion');
+	                 $nombre= $uploadedFile->getName();
+	                 $fileName = "{$rnd}-{$nombre}";                                         		       
+	                 $uploadedFile->saveAs( Yii::app()->basePath.'/../imagenes/' .$fileName);                 
+	                  
+	                 $imagenes->Idinmueble = $model->idInmueble;
+	                 $imagenes->IdImagen='1';                 
+	                 $imagenes->Ubicacion = $fileName;
+	               	 $imagenes->save(); 
+  				  }
+                              
 			////////FIN IMAGEN////////////////////////			
-				$this->redirect(array('view','id'=>$model->idInmueble,'anio'=>$casapo->AnioConstruccion));
-               	 /* $this->render('view',array(
-					'model'=>$model,			
-					'casapo'=>$casapo,	
-					'datosp'=>$datosp,	
-					'imagenes'=>$imagenes,	
-				  ));*/				
+				$this->redirect(array('view','id'=>$model->idInmueble,'anio'=>$casapo->AnioConstruccion));               	 		
 			}				
 		}
 
@@ -156,6 +180,7 @@ class InmuebleController extends Controller
 			'casapo'=>$casapo,	
 			'datosp'=>$datosp,	
 			'imagenes'=>$imagenes,	
+			//'imgnueva'=>$imgnueva,
 		));
 	}
 
@@ -166,8 +191,25 @@ class InmuebleController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		$this->loadModel($id)->delete();
+		$Criteria = new CDbCriteria();
+		$inmcliente = new clienteinmueble;
+		$imagenes=new Imagenes;
 
+		//$casapo=new Inmcao;
+		//Los string estan en comillas simples sino no lo toma S
+    	$Criteria->condition = "idInmueble = $id";				
+		$inmcliente=clienteinmueble::model()->findAll($Criteria);
+
+		$consulta = new CDbCriteria();
+		$consulta->condition = "Idinmueble = $id";
+		$imagenes = Imagenes::model()->findAll($consulta);
+
+		if($inmcliente==NULL){			
+		    
+
+			$casapo=$this->loadModelImcao($id)->delete();			
+			$this->loadModel($id)->delete();	
+		}		
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
