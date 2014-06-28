@@ -32,9 +32,9 @@ class InmuebleController extends Controller
 				'users'=>array('admin'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','pictures'),
 				'users'=>array('admin'),
-			),
+			),			
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete'),
 				'users'=>array('admin'),
@@ -83,16 +83,19 @@ class InmuebleController extends Controller
 				  $rnd = rand(0,9999);  // generate random number between 0-9999
                   $imagenes->attributes=$_POST['Imagenes'];				
   
-                  $uploadedFile=CUploadedFile::getInstance($imagenes,'Ubicacion');
-                  $nombre= $uploadedFile->getName();
-                  $fileName = "{$rnd}-{$nombre}";                                         		       
-                  $uploadedFile->saveAs( Yii::app()->basePath.'/../imagenes/' .$fileName);                 
-                  
-                  $imagenes->Idinmueble = $model->idInmueble;
-                  $imagenes->IdImagen='1';                 
-                  $imagenes->Ubicacion = $fileName;
-               	  $imagenes->save();
-                  $this->redirect(array('view','id'=>$model->idInmueble));                                  
+  				  if(isset($imagenes->Ubicacion))
+  				  {
+  				  	  $uploadedFile=CUploadedFile::getInstance($imagenes,'Ubicacion');
+	                  $nombre= $uploadedFile->getName();
+	                  $fileName = "{$rnd}-{$nombre}";                                         		       
+	                  $uploadedFile->saveAs( Yii::app()->basePath.'/../imagenes/' .$fileName);                 
+	                  
+	                  $imagenes->Idinmueble = $model->idInmueble;
+	                  $imagenes->IdImagen='1';                 
+	                  $imagenes->Ubicacion = $fileName;
+	               	  $imagenes->save();
+	                  $this->redirect(array('view','id'=>$model->idInmueble));     
+  				  }                                               
 			////////FIN IMAGEN////////////////////////
 			}
 		}
@@ -131,8 +134,10 @@ class InmuebleController extends Controller
 			    $casapo->save();				
 			/////Imagen///////////////
 				  $rnd = rand(0,9999);  // generate random number between 0-9999
-                  $imagenes->attributes=$_POST['Imagenes'];				
-  				  if($imagenes != NULL)
+                  $imagenes->attributes=$_POST['Imagenes'];		
+
+
+  				  if(isset($imagenes->Ubicacion))
   				  {
   				  	//cuento la cantidad de imagenes
   				  	$consulta2 = new CDbCriteria();
@@ -140,22 +145,30 @@ class InmuebleController extends Controller
 					$imagenes2 = Imagenes::model()->findAll($consulta2);
 					$count = count($imagenes2);
 
-					//obtengo el numero 1
-					$consulta3 = new CDbCriteria();
-				    $consulta3->condition = "Idinmueble = $id and IdImagen = 1";
-					$imagenes3 = Imagenes::model()->find($consulta3);
-					$imagenes3->IdImagen = $count + '1';
-					$imagenes3->save(); 
-
+					
   				  	 $uploadedFile=CUploadedFile::getInstance($imagenes,'Ubicacion');
-	                 $nombre= $uploadedFile->getName();
-	                 $fileName = "{$rnd}-{$nombre}";                                         		       
-	                 $uploadedFile->saveAs( Yii::app()->basePath.'/../imagenes/' .$fileName);                 
-	                  
-	                 $imagenes->Idinmueble = $model->idInmueble;
-	                 $imagenes->IdImagen='1';                 
-	                 $imagenes->Ubicacion = $fileName;
-	               	 $imagenes->save(); 
+	                 
+  				  	 if(is_object($uploadedFile))
+  				  	 {	
+
+	  				  	 	//obtengo el numero 1
+						$consulta3 = new CDbCriteria();
+					    $consulta3->condition = "Idinmueble = $id and IdImagen = 1";
+						$imagenes3 = Imagenes::model()->find($consulta3);
+						$imagenes3->IdImagen = $count + '1';
+						$imagenes3->save(); 
+
+
+  				  	 	 $nombre= $uploadedFile->getName();
+		                 $fileName = "{$rnd}-{$nombre}";                                         		       
+		                 $uploadedFile->saveAs( Yii::app()->basePath.'/../imagenes/' .$fileName);                 
+		                  
+		                 $imagenes->Idinmueble = $model->idInmueble;
+		                 $imagenes->IdImagen='1';                 
+		                 $imagenes->Ubicacion = $fileName;
+		               	 $imagenes->save(); 
+  				  	 }
+	                
   				  }	
   				  else
   				  {
@@ -241,6 +254,20 @@ class InmuebleController extends Controller
 		));
 	}
 
+	public function actionPictures($id)
+	{			
+		$model=$this->loadModel($id);
+		$imagenes=new Imagenes;
+
+		if(isset($_GET['Inmueble']))
+			$model->attributes=$_GET['Inmueble'];
+
+		$this->render('pictures',array(
+			'model'=>$model,
+			'imagenes'=>$imagenes,
+		));
+	}
+
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
@@ -293,4 +320,5 @@ class InmuebleController extends Controller
 			Yii::app()->end();
 		}
 	}
+	 
 }

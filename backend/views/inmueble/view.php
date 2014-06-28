@@ -13,6 +13,7 @@ $this->menu=array(
 	array('label'=>'Update Inmueble', 'url'=>array('update', 'id'=>$model->idInmueble)),
 	array('label'=>'Delete Inmueble', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idInmueble),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>'Manage Inmueble', 'url'=>array('admin')),
+	array('label'=>'Add Pictures', 'url'=>array('pictures', 'id'=>$model->idInmueble)),
 );
 ?>
 

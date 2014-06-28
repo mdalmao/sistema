@@ -2,11 +2,38 @@
 /* @var $this InmuebleController */
 /* @var $model Inmueble */
 /* @var $form CActiveForm */
+Yii::app()->clientScript->registerCoreScript('jquery');
 ?>
 
 <div class="form">
-
-<?php $form=$this->beginWidget('CActiveForm', array(
+	<script>
+  $(document).ready(function() {
+      $("#apartamento").hide();
+      
+	  $("#Inmueble_TipoInmueble").change(function() {
+	     var valor = $(this).val();
+         if  ( valor == "CASA" ){
+		   $("#apartamento").hide();
+           $("#casa").show();
+         }
+         if  ( valor == "APARTAMENTO" ){
+		   $("#apartamento").hide();
+           $("#casa").show();
+         }
+         if  ( valor == "OFICINA" ){
+		   $("#apartamento").hide();
+           $("#casa").show();
+         }
+         else{
+		   $("#apartamento").show();
+           $("#casa").hide();
+		 }
+		 
+      });
+	  
+   });
+  </script>
+<?php $form=$this->beginWidget('CActiveForm', array(	
 	'id'=>'inmueble-form',
 	 'htmlOptions' => array('enctype' => 'multipart/form-data'),
 	// Please note: When you enable ajax validation, make sure the corresponding
@@ -26,6 +53,11 @@
 		<?php echo $form->error($model,'TipoInmueble'); ?>
 	</div>
 
+
+    <div id="apartamento">
+     apartamento
+    </div>
+    
 	<div class="row">
 		<?php echo $form->labelEx($model,'QueHacer'); ?>
 		<?php echo $form->dropDownList($model,'QueHacer',array('1'=>'VENDO','2'=>'ALQUILO','3'=>'TRASPASO','4'=>'PERMUTO')); ?>
@@ -104,6 +136,9 @@
 		<?php echo $form->error($model,'idUsuario'); ?>
 	</div>
 
+<div id="casa">		
+    
+
 	<div class="row">
 		<?php echo $form->labelEx($model,'Fecha de Construccion'); ?>
 		<?php echo $form->textField($casapo,'AnioConstruccion'); ?>
@@ -152,6 +187,7 @@
 		<?php echo $form->error($model,'Cerramiento'); ?>
 	</div>
 	
+</div>
 	
 	<div class="row">
 		<?php echo $form->labelEx($imagenes,'Imagen Principal'); ?>
@@ -163,6 +199,9 @@
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
 
-<?php $this->endWidget(); ?>
+	
+
+
+ <?php $this->endWidget(); ?>
 
 </div><!-- form -->
