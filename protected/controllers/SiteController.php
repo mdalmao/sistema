@@ -160,8 +160,8 @@ class SiteController extends Controller
 		//ver como obtener el id del inmueble enviado por post
 		//setie con id = 5 a modo de como quedaria la vista
 		$Criteria = new CDbCriteria();
-		$Criteria->condition = "idinmueble = 5";
-    	
+		$id =$_POST['idinmueble'];
+		$Criteria->condition = "idinmueble = $id";
     	$Campo = Inmcampos::model()->findAll($Criteria);
     	$Inmueble = Inmueble::model()->findAll($Criteria);
     	$Imagenes = Imagenes::model()->findAll($Criteria);
@@ -170,15 +170,15 @@ class SiteController extends Controller
 	   $this->render('campoGenerico',array('model' =>$Campo, 'model2' =>$Inmueble,'model3'=>$Imagenes));
 	
     	
-		 //$this->render('campoGenerico');
+		
 	}
 	public function actionApartamentoGenerico()
 	{
 		//ver como obtener el id del inmueble enviado por post
 		//setie con id = 3 a modo de como quedaria la vista
 		$Criteria = new CDbCriteria();
-		$Criteria->condition = "idinmueble = 3";
-    	
+		$id =$_POST['idinmueble'];
+		$Criteria->condition = "idinmueble = $id";
     	$Campo = Inmapartoficina::model()->findAll($Criteria);
     	$Inmueble = Inmueble::model()->findAll($Criteria);
     	$Imagenes = Imagenes::model()->findAll($Criteria);

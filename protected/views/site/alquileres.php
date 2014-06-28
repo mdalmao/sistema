@@ -18,8 +18,10 @@ $this->breadcrumbs=array(
 <div class="inmueble">
 	
 	<?php foreach ($model as $Alquilere): ?>
-	 <form action="Alquileres"  method="post">
+	 
 		<div class="resultado">
+			<input type="hidden" name="idinmueble" value="<?php echo $Alquilere['idInmueble']; ?>"/>
+			<input type="hidden" name="tipo" value="<?php echo $Alquilere['TipoInmueble']; ?>"/>
 			
 			<p class="descripcion"> 
 				<p> Descripcion:
@@ -61,19 +63,37 @@ $this->breadcrumbs=array(
 			</p>
 			<?php $id = $Alquilere['idInmueble']; ?>
  			<img class ="imagen" src="<?php echo Yii::app()->ImagenesInmueble->imagenprincipal($id); ?>" /> 
+
  			<?php if ($Alquilere['TipoInmueble'] == 'CASA'): ?>
-				 <a href="/yii/sistema/site/CasasGenerico" class="btn btn-success btn-mini"><i class="icon-white"></i> Ver Mas</a>
+ 					<form action="CasasGenerico"  method="post">
+ 					<input type="hidden" name="idinmueble" value="<?php echo $Alquilere['idInmueble']; ?>"/>	
+					 <div class="row buttons">
+					<?php echo CHtml::submitButton('Ver Mas'); ?>
+					</div>
+				 </form>
 				<?php endif; ?>
 				<?php if ($Alquilere['TipoInmueble'] == 'CAMPO'): ?>
-				 <a href="/yii/sistema/site/CampoGenerico" class="btn btn-success btn-mini"><i class="icon-white"></i> Ver Mas</a>
+				<form action="CampoGenerico"  method="post">
+					<input type="hidden" name="idinmueble" value="<?php echo $Alquilere['idInmueble']; ?>"/>	
+					<div class="row buttons">
+					<?php echo CHtml::submitButton('Ver Mas'); ?>
+					</div>
+				 
+				
+				</form>
 				<?php endif; ?>
 				<?php if ($Alquilere['TipoInmueble'] == 'APARTAMENTO'): ?>
-				 <a href="/yii/sistema/site/ApartamentoGenerico" class="btn btn-success btn-mini"><i class="icon-white"></i> Ver Mas</a>
+				<form action="ApartamentoGenerico"  method="post">
+					<input type="hidden" name="idinmueble" value="<?php echo $Alquilere['idInmueble']; ?>"/>	
+					<div class="row buttons">
+					<?php echo CHtml::submitButton('Ver Mas'); ?>
+					</div>
+				</form>
 				<?php endif; ?>
 			</div>
 
 		</div>
-		</form>
+		
 	<?php endforeach; ?>
 
 </div>

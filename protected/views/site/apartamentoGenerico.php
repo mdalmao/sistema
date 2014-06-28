@@ -8,7 +8,7 @@ $this->breadcrumbs=array(
 	'Apartamento',
 );
 ?>
-<h1>apartamento con id= 3 seteado  desde el controlador necesito ver como pasarle el id de la vista anterior</h1>
+
 <div class="inmueble">
 	
 	<?php foreach ($model2 as $inmueble): ?>

@@ -16,7 +16,7 @@ $this->breadcrumbs=array(
 <div class="inmueble">
 	
 	<?php foreach ($model as $Ventas): ?>
-		 <form action="CasasGenerico"  method="post">
+		 
 		<div class="resultado">
 			
 			<p class="descripcion"> 
@@ -60,20 +60,48 @@ $this->breadcrumbs=array(
 			<?php $id = $Ventas['idInmueble']; ?>
  			<img class ="imagen" src="<?php echo Yii::app()->ImagenesInmueble->imagenprincipal($id); ?>" /> 
  				<?php if ($Ventas['TipoInmueble'] == 'CASA'): ?>
-				 <a href="/yii/sistema/site/CasasGenerico" class="btn btn-success btn-mini"><i class="icon-white"></i> Ver Mas</a>
+
+
+				 <form action="CasasGenerico"  method="post">
+ 					<input type="hidden" name="idinmueble" value="<?php echo $Ventas['idInmueble']; ?>"/>	
+					 <div class="row buttons">
+					<?php echo CHtml::submitButton('Ver Mas'); ?>
+					</div>
+				 </form>
+
 				<?php endif; ?>
+
+
 				<?php if ($Ventas['TipoInmueble'] == 'CAMPO'): ?>
-				 <a href="/yii/sistema/site/CampoGenerico" class="btn btn-success btn-mini"><i class="icon-white"></i> Ver Mas</a>
+
+					<form action="CampoGenerico"  method="post">
+					<input type="hidden" name="idinmueble" value="<?php echo $Ventas['idInmueble']; ?>"/>	
+					<div class="row buttons">
+					<?php echo CHtml::submitButton('Ver Mas'); ?>
+					</div>
+				 
+				
+				</form>
+
 				<?php endif; ?>
 				<?php if ($Ventas['TipoInmueble'] == 'APARTAMENTO'): ?>
-				 <a href="/yii/sistema/site/ApartamentoGenerico" class="btn btn-success btn-mini"><i class="icon-white"></i> Ver Mas</a>
+
+
+				<form action="ApartamentoGenerico"  method="post">
+					<input type="hidden" name="idinmueble" value="<?php echo $Alquilere['idInmueble']; ?>"/>	
+					<div class="row buttons">
+					<?php echo CHtml::submitButton('Ver Mas'); ?>
+					</div>
+				</form>
+				
+
 				<?php endif; ?>
 			 
 			
 			</div>
 
 		</div>
-		</form>
+		
 	<?php endforeach; ?>
 
 </div>
