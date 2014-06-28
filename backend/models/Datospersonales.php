@@ -64,10 +64,10 @@ class Datospersonales extends CActiveRecord
 	{
 		return array(
 			'idUsuario' => 'Id Usuario',
-			'CIUsuario' => 'Ciusuario',
-			'NombreUsuario' => 'Nombre Usuario',
-			'ApellidoUsuario' => 'Apellido Usuario',
-			'DireccionUsuario' => 'Direccion Usuario',
+			'CIUsuario' => 'CI',
+			'NombreUsuario' => 'Nombre',
+			'ApellidoUsuario' => 'Apellido',
+			'DireccionUsuario' => 'Direccion',
 			'Telefono' => 'Telefono',
 			'FechaNacimiento' => 'Fecha Nacimiento',
 		);

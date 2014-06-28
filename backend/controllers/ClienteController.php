@@ -133,11 +133,20 @@ class ClienteController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		$this->loadModel($id)->delete();
+		$model=new Cliente;
+		$model2=new Inmueble;
+
+		$model->idUsuario = $id;
+		$model2->idUsuario = $id;
+
+		//if($model->$id == $model2->$id){
+		//if($model->idUsuario == $model2->idUsuario){
+		//	$this->loadModel($id)->delete();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		if(!isset($_GET['ajax']))
+		if(!isset($_GET['ajax'])){
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+		}
 	}
 
 	/**
