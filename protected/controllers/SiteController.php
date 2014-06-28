@@ -145,7 +145,8 @@ class SiteController extends Controller
 		//ver como obtener el id del inmueble enviado por post
 		//setie con id = 1 a modo de como quedaria la vista
 		$Criteria = new CDbCriteria();
-		$Criteria->condition = "idinmueble = 1";
+		$id =$_POST['idinmueble'];
+		$Criteria->condition = "idinmueble = $id";
     	
     	$Casas = Inmcasa::model()->findAll($Criteria);
     	$Inmueble = Inmueble::model()->findAll($Criteria);
