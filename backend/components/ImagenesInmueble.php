@@ -44,6 +44,30 @@ class ImagenesInmueble extends CApplicationComponent{
      return $valor;
    }
 
+    public function AllImage($id){
+     $imagenes = Imagenes::model()->findAll();
+     $nombre= "";
+     foreach ($imagenes as $imagen):
+          if (( $imagen-> Idinmueble == $id)){
+            $nombre =  $imagen->Ubicacion;
+            $valor = Yii::app()->baseUrl . "/imagenes/" . $nombre;
+            echo "<div class='imgres'>";
+            echo "Id Imagen".$imagen->IdImagen;            
+            echo "<img class='imgresultado' src='" . $valor . "'/>";
+            echo "</div>";
+          } 
+
+     endforeach; 
+     if ($nombre == "") {
+         $nombre = "sinimagen.jpg";
+        $valor = Yii::app()->baseUrl . "/imagenes/" . $nombre;
+        echo "<img class='imgresultado' src='" . $valor . "'/>";
+     }    
+     
+    
+
+   }
+
    public function slider(){
     
     $Criteria = new CDbCriteria();

@@ -258,9 +258,45 @@ class InmuebleController extends Controller
 	{			
 		$model=$this->loadModel($id);
 		$imagenes=new Imagenes;
+		$imagenes2=new Imagenes;
 
-		if(isset($_GET['Inmueble']))
-			$model->attributes=$_GET['Inmueble'];
+		if(isset($_POST['Inmueble']))
+		{
+			$model->attributes=$_POST['Inmueble'];
+			
+			$rnd = rand(0,9999);  // generate random number between 0-9999
+			$imagenes->attributes=$_POST['Imagenes'];
+           
+			if(isset($imagenes->Ubicacion))
+  				  {
+  				  	//cuento la cantidad de imagenes
+  				  	$consulta2 = new CDbCriteria();
+				    $consulta2->condition = "Idinmueble = $id";
+					$imagenes2 = Imagenes::model()->findAll($consulta2);
+					$count = count($imagenes2);
+					
+  				  	 $uploadedFile=CUploadedFile::getInstance($imagenes,'Ubicacion');
+	                 
+  				  	 if(is_object($uploadedFile))
+  				  	 {		
+
+  				  	 	 $nombre= $uploadedFile->getName();
+		                 $fileName = "{$rnd}-{$nombre}";                                         		       
+		                 $uploadedFile->saveAs( Yii::app()->basePath.'/../imagenes/' .$fileName);                 
+		                  
+		                 $imagenes->Idinmueble = $model->idInmueble;
+		                 $imagenes->IdImagen=$count + '1';                 
+		                 $imagenes->Ubicacion = $fileName;
+		               	 $imagenes->save(); 
+		               	 
+						$this->render('pictures',array(
+							'model'=>$model,
+							'imagenes'=>$imagenes,
+						));
+
+  				  	 }	                
+  				  }
+  		}	
 
 		$this->render('pictures',array(
 			'model'=>$model,
