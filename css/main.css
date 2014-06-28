@@ -48,6 +48,41 @@ body
 	font-size: 200%;
 }
 
+.carousel-inner{
+	
+	position: relative;
+    left: 350px;
+    right:350px;
+    width: 600px;
+    height: 400px;
+    margin-right: 350px;
+    
+}
+
+.carousel-caption{
+	margin-right:814px;
+	border-radius: 10px;
+}
+
+#EGMapContainer1{
+	margin-left:280px;
+	border-radius: 10px;
+}
+
+.left{
+	float:left;
+	margin-top:700px;
+	margin-left:300px;
+
+}
+
+.right{
+	float:right;
+	margin-top:700px;
+	margin-right:420px;
+}
+
+
 #mainmenu
 {
 	background:white url(bg.gif) repeat-x left top;
