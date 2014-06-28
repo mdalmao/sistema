@@ -44,6 +44,8 @@ $this->pageTitle=Yii::app()->name;
 <div id="mapa">
 <?php
 echo Yii::app()->Mapas->mapa();
+
+echo Yii::app()->Calendario->mostrar();
 ?>
 </div>
 </div>

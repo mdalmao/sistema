@@ -239,6 +239,13 @@ hr.space {background:#fff;color:#fff;visibility:hidden;}
 #lateral { float:left;
 width: 30%;
 height: 800px;} 
-.inmueble { 
+.inmueble {
     float: center;
 	width: 70%}
+
+.libre{
+   background: green;
+}
+.ocupado{
+	background: red;
+}

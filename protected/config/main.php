@@ -61,6 +61,14 @@ return array(
          'ImagenesInmueble' => array(
                'class'=>'application.components.ImagenesInmueble',
                 ),
+
+         'Calendario' => array(
+               'class'=>'application.components.Calendario',
+                ),
+
+         'Nov_CouchDb' => array(
+               'class'=>'application.components.Nov_CouchDb',
+                ),
 		
 		
 		'user'=>array(

@@ -1,7 +1,11 @@
 <?php 
 class Calendario extends CApplicationComponent{
-   public $idioma; // configurable en config/main.php 
-   
+   public $id; // configurable en config/main.php 
+   public $inmueble;
+   public $fecha;
+   public $hora;
+   public $cliente;
+
    public function init(){
     // init es llamado por Yii, debido a que es un componente.
    }
@@ -21,20 +25,21 @@ class Calendario extends CApplicationComponent{
     echo "Document storage failed : ".$e->getMessage()."<BR>\n";
    }
 
+   
    // view fetching, using the view option limit
   }
 
-  public function alta(){
+  public function alta($idinmueble,$cliente,$fecha,$hora){
      Yii::import('ext.couchdb.*');
      $client = new couchClient ('http://localhost:5984','agenda');
 
 
     // Los siguiente son los datos a guardar en la base no relacional    
-     $idinmueble = 1;
+    /* $idinmueble = 1;
      $cliente =1;
      $fecha= "20/05/2014";
      $hora="20:30";
-
+    */
    // Aca esta como se guarda
      $doc = new couchDocument($client);
      $doc->inmueble= $idinmueble;
@@ -45,19 +50,107 @@ class Calendario extends CApplicationComponent{
 
 
  public function mostrar(){
-   
-    Yii::import('ext.couchdb.*');
-    $client = new couchClient ('http://localhost:5984','agenda');
+ $idinmueble = 1;
+ $hoy = date("d/m/Y");
+ list($day,$mon,$year) = explode('/',$hoy);
+ $mon= ($mon +1) -1;
+ $hoy= date('d/m/Y',mktime(0,0,0,$mon,$day,$year)); 
+ $hora = date("H:i:s");
+ list($day,$mon,$year) = explode('/',$hoy);
+ $mon= ($mon +1) -1;
+ $fechalimite= date('d/m/Y',mktime(0,0,0,$mon,$day+6,$year)); 
+
+ $fechas = array();
+ $horas = array();
+
+ Yii::import('ext.couchdb.*');
+ $client = new couchClient ('http://localhost:5984','agenda');
 
   try {
-     $vista = $client->limit(100)->getView('inmueble','name');
+     $vista = $client->limit(10)->getView('inmueble','name2');
    } catch (Exception $e) {
     echo "something weird happened: ".$e->getMessage()."<BR>\n";
    }
- 
-   echo "Document retrieved: ".print_r($vista,true)."\n";
-    //using couch_document class :
-  }
+  // echo "Document retrieved: ".print_r($vista,true)."\n";
+  $a = 1;
+  foreach ( $vista->rows as $row ) {
+  //  echo "Document ". $row -> id ."<BR>\n";
+    $doc = $client->getDoc($row->id);
+   // echo "cliente: " . $doc->cliente . "<br />";
+      if  ( $idinmueble ==  $doc->inmueble) {
+        $dato =($hoy >= $doc->fecha);
+        $dato2= ($fechalimite <= $doc->fecha);
+      //  if (  $dato && $dato2 ) {
+      //   echo "Inmueble: " . $doc->inmueble . "<br /><br />";
+      //  echo "Fecha: " . $doc->fecha . "<br /><br />";
+      //  echo "Hora: " . $doc->hora . "<br /><br />";
+         $fechas[$a] = $doc->fecha;
+         $horas[$a] = $doc->hora;
+         $a = $a +1;
+       //  }
+      }
+      
+  }   
+   
+  echo "<table>";
+  echo "<th> Fecha </th>";
+  echo "<th width='20px'> Hora 8 a 9 </th>";
+  echo "<th width='20px'> Hora 9 a 10 </th>";
+  echo "<th width='20px'> Hora 10 a 11 </th>";
+  echo "<th width='20px'> Hora 11 a 12 </th>";
+  echo "<th width='20px'> Hora 12 a 13 </th>";
+  echo "<th width='20px'> Hora 14 a 15 </th>";
+  echo "<th width='20px'> Hora 15 a 16 </th>";
+  echo "<th width='20px'> Hora 16 a 17 </th>";
+  echo "<th width='20px'> Hora 17 a 18 </th>";
+  echo "<tr>";
+  for($t=0;$t<=5; $t++){
+   list($day,$mon,$year) = explode('/',$hoy);
+   $fecha= date('d/m/Y',mktime(0,0,0,$mon,$day+$t,$year));  
+   echo "<td>" . $fecha  . "</td>";
+   $linea = array();
+   $l=0;
+
+   // Si la fecha esta en fechas busco que horas tiene seteadas y las cargo en el array linea
+   if (in_array($fecha, $fechas)) {
+       for ($j=1; $j <=count($fechas); $j++){
+           if ( $fechas[$j] == $fecha ){
+               for ( $p= $l; $p<= $horas[$j]; $p++){
+                 $linea[$p] = 0 ;
+                }
+                $linea[$horas[$j]]= $horas[$j];
+                $l = $l +1;           
+           }
+          
+       } 
+
+       echo "Linea: ".print_r($linea,true)."\n";
+    
+    // ARMO LA LINEA, COMPLETA PINTANDO EN VERDE O ROJO SEGUN SI ESTA LIBRE O OCUPADO
+    // LA VARIABLE o INDICA LA POSICION DE LA LINEA QUE VA DE 0 a 8   
+    for($o=1; $o <= 9; $o++){
+        if ( in_array($o, $linea ))
+        { 
+          echo "<td class='ocupado'>  </td>"; 
+        }else{
+          echo "<td class='libre'> </td>";
+        }
+      }
+   }
+   // Como la fecha no esta en array fechas, pinto toda la linea como libre
+   else {
+     for($i=0;$i<=8; $i++){
+      echo "<td class='libre'> </td>";   
+      }
+    
+   }
+     echo "<tr>";
+   }
+
+  
+  echo "</table>";
+
+}
 
 public function borrar(){
  Yii::import('ext.couchdb.*');

@@ -76,7 +76,8 @@ class SiteController extends Controller
 	  
 	   $this->render('vision');
 	}
-	public function actionApartamentos()
+
+   	public function actionApartamentos()
 	{
 
 		//obtener los apartamentos de la base
