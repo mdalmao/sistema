@@ -20,7 +20,7 @@ $this->breadcrumbs=array(
 <?php else: ?>
 
 <p>
-If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
+Si desea comunicarse con nuestra empresa, ingrese sus datos en el formulario a continuación.
 </p>
 
 <div class="form">
@@ -33,7 +33,7 @@ If you have business inquiries or other questions, please fill out the following
 	),
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Campos <span class="required">*</span> requeridos.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
