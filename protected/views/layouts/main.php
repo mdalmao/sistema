@@ -49,7 +49,7 @@
 			 <li> <a href="/yii/sistema/site/Vision" class="btn btn-primary btn-large"><i class="icon-white"></i> Vision</a> </li>
 			 <li> <a href="/yii/sistema/site/alquileres" class="btn btn-success btn-large"><i class="icon-white "></i> Alquileres</a> </li>
 			 <li> <a href="/yii/sistema/site/ventas" class="btn btn-success btn-large"><i class="icon-white "></i> Ventas</a> </li>
-			 <li> <a href="#" class="btn btn-primary btn-large"><i class="icon-white icon-calendar"></i> Calendario</a> </li>
+			 
 			 <li> <a href="/yii/sistema/site/contact" class="btn btn-primary btn-large"><i class="icon-white icon-envelope"></i> Contacto</a> </li>    
 			
 			     <form class="navbar-form navbar-left" role="search">

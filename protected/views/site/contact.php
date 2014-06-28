@@ -3,7 +3,7 @@
 /* @var $model ContactForm */
 /* @var $form CActiveForm */
 
-$this->pageTitle=Yii::app()->name . ' - Contact Us';
+$this->pageTitle=Yii::app()->name . ' - Contacto';
 $this->breadcrumbs=array(
 	'Contact',
 );
@@ -81,7 +81,7 @@ Si desea comunicarse con nuestra empresa, ingrese sus datos en el formulario a c
 	<?php endif; ?>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Submit'); ?>
+		<?php echo CHtml::submitButton('Enviar'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

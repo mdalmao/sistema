@@ -145,5 +145,17 @@ $this->breadcrumbs=array(
  			<img class ="imagen" src="<?php echo Yii::app()->ImagenesInmueble->imagenesDeInmueble($id,$idImag); ?>" /> 
  			</div>	
 <?php endforeach; ?>
+
+<div id="lateral">
+	<div class= "calendarioInmueble">
+	<?php 
+		$id = $inmueble['idInmueble']; 
+
+		echo Yii::app()->Calendario->mostrar($id);
+
+	?>
+	</div>
+
+</div>
 </div>
 
