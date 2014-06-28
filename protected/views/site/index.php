@@ -4,50 +4,35 @@
 $this->pageTitle=Yii::app()->name;
 
 ?>
+<?php $todo=Yii::app()->ImagenesInmueble->slider();
+      $fotos= $todo[0];
+      $titulo= $todo[1];
+      $descripcion =   $todo[2];
+      $this->widget('bootstrap.widgets.TbCarousel', array(
+      'items'=>array(
+        array('image'=> $fotos[0], 'label'=> $titulo[0], 'caption'=> $descripcion[0]),
+        array('image'=> $fotos[1], 'label'=>$titulo[1], 'caption'=>$descripcion[1]),
+        array('image'=> $fotos[2], 'label'=>$titulo[2], 'caption'=>$descripcion[2]),
+        array('image'=> $fotos[3], 'label'=> $titulo[3], 'caption'=>$descripcion[3]),
+        array('image'=> $fotos[4], 'label'=>$titulo[4], 'caption'=>$descripcion[4]),
+        array('image'=> $fotos[5], 'label'=>$titulo[5], 'caption'=> $descripcion[5]),
+    ), )); 
 
 
-<div class="container"> 
+?>
 
-<div id="sidebar">
-     
- <h1> Imagenes Principales </h1>
- <img src="./imagenes/prueba1.jpg" alt="prueba" class="img-rounded" height="140" width="140px">
- <img src="./imagenes/prueba1.jpg" alt="prueba" class="img-rounded" height="140" width="140px">
- <img src="./imagenes/prueba1.jpg" alt="prueba" class="img-rounded" height="140" width="140px">
- <img src="./imagenes/prueba1.jpg" alt="prueba" class="img-rounded" height="140" width="140px">
- <img src="./imagenes/prueba1.jpg" alt="prueba" class="img-rounded" height="140" width="140px">
- <img src="./imagenes/prueba1.jpg" alt="prueba" class="img-rounded" height="140" width="140px">
-
-   
-</div>
-
-
-
-
-<div class="inmueble">
-<p>Aca van los inmuebles</p>
-<?php foreach ($inmuebles as $inmueble): ?>
-<div class="resultado">
-<p class="reserva-titulo"><?php echo $inmueble['idInmueble']; ?></p>
-<p class="descripcion"> <?php echo CHtml::decode($inmueble['Descripcion']);  ?> </p>
-<?php $id = $inmueble['idInmueble']; ?>
- <img class ="imagen" src="<?php echo Yii::app()->ImagenesInmueble->imagenprincipal($id); ?>" /> 
-</div>
-<?php endforeach; ?>
-
-</div>
-
-<div id="lateral">
-<div id="vistos">
-<h1> Mas Vistos </h1>
-</div>
 <div id="mapa">
 <?php
 echo Yii::app()->Mapas->mapa();
-
-echo Yii::app()->Calendario->mostrar();
 ?>
 </div>
+
+<div class="container"> 
+
+
+
+ 
+ 
 </div>
 
-</div>
+

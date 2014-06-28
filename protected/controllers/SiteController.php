@@ -33,15 +33,11 @@ class SiteController extends Controller
 
 		 $inmuebles = Inmueble::model()->findAll();
 		 
-		 $this->render('index', array('inmuebles' => $inmuebles));
+		// $this->render('index', array('inmuebles' => $inmuebles));
 
-        /*
-		$dataProvider=new CActiveDataProvider('Inmueble');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
-        */
-	  //	$this->render('index');
+	   $this->render('index',array('model'=>$inmuebles));
+
+       
 	}
 
 	/**

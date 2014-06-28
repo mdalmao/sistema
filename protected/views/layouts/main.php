@@ -49,7 +49,10 @@
 			 <li> <a href="/yii/sistema/site/Vision" class="btn btn-primary btn-large"><i class="icon-white"></i> Vision</a> </li>
 			 <li> <a href="/yii/sistema/site/alquileres" class="btn btn-success btn-large"><i class="icon-white "></i> Alquileres</a> </li>
 			 <li> <a href="/yii/sistema/site/ventas" class="btn btn-success btn-large"><i class="icon-white "></i> Ventas</a> </li>
-			 
+			 <li> <a href="/yii/sistema/site/casas" class="btn btn-success btn-large"><i class="icon-white"></i> Casas</a> </li>
+			<li> <a href="/yii/sistema/site/apartamentos" class="btn btn btn-success btn-large"><i class="icon-white "></i> Apartamentos</a> </li>
+			<li> <a href="/yii/sistema/site/campos" class="btn btn-success btn-large"><i class="icon-white"></i> Campos</a> </li>
+	    
 			 <li> <a href="/yii/sistema/site/contact" class="btn btn-primary btn-large"><i class="icon-white icon-envelope"></i> Contacto</a> </li>    
 			
 			     <form class="navbar-form navbar-left" role="search">
@@ -65,12 +68,7 @@
 		</div>
 </div>
 <div id="container">
-	<ul class="nav pull-left">
-	<li> <a href="/yii/sistema/site/casas" class="btn btn-success btn-mini"><i class="icon-white"></i> Casas</a> </li>
-	<li> <a href="/yii/sistema/site/apartamentos" class="btn btn btn-success btn-mini"><i class="icon-white "></i> Apartamentos</a> </li>
-	<li> <a href="/yii/sistema/site/campos" class="btn btn-success btn-mini"><i class="icon-white"></i> Campos</a> </li>
-	    
-	</ul>
+	
 
 	<div id="main">
 	<?php if(isset($this->breadcrumbs)):?>
@@ -83,14 +81,17 @@
 	</div>
 </div>
 
- <div id="footer">
+
+
+
+
+ 
+
+<div id="footer">
 
      	Copyright &copy; <?php echo date('Y'); ?> Inmobiliaria PHP.<br/>
 		All Rights Reserved.<br/>
 		
  </div><!-- footer -->
-
-</div><!-- page -->
-
 </body>
 </html>
