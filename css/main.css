@@ -5,6 +5,7 @@ body
 	color: #555;
 	font: normal 10pt Arial,Helvetica,sans-serif;
 	background: #EFEFEF;
+	background-image:url('../imagenes/bg.jpg');
 }
 
 #page
@@ -234,3 +235,4 @@ div.search-form
 .titulo{border-radius:0 0 8px 8px;-moz-border-radius:0 0 8px 8px;-webkit-border-radius:0 0 8px 8px;-ms-border-radius:0 0 8px 8px;-o-border-radius:0 0 8px 8px;background:#0E75BB;color:#FFFFFF;font-size:18px;line-height:40px;margin-top:-5px;text-align:center;}
 .descripcion{border-radius:0 0 8px 8px;-moz-border-radius:0 0 8px 8px;-webkit-border-radius:0 0 8px 8px;-ms-border-radius:0 0 8px 8px;-o-border-radius:0 0 8px 8px;background:#0E75BB;color:#FFFFFF;font-size:18px;line-height:40px;margin-top:-5px;text-align:center;}
 .imagen{border-radius:8px 8px 0 0;-moz-border-radius:8px 8px 0 0;-webkit-border-radius:8px 8px 0 0;-ms-border-radius:8px 8px 0 0;-o-border-radius:8px 8px 0 0;}
+
