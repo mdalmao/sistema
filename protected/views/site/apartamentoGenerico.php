@@ -108,31 +108,42 @@ $this->breadcrumbs=array(
 			</form>
 	<?php endforeach; ?>
 
-		</div>
+		
 		</form>
 	<?php endforeach; ?>
 
 
 
+<div class="resultado">
 
-</div>
 <div class = 'imagen'>
 <?php foreach ($model3 as $imagen): ?>
 		<?php $id = $inmueble['idInmueble']; ?>
 		<?php $idImag = $imagen['IdImagen']; ?>
-			<div  class="resultado">
+			
  			<img class ="imagen" src="<?php echo Yii::app()->ImagenesInmueble->imagenesDeInmueble($id,$idImag); ?>" /> 
- 			</div>	
+ 			
 <?php endforeach; ?>
-<div id="lateral">
-	<div class= "calendarioInmueble">
-	<?php 
-		$id = $inmueble['idInmueble']; 
-
-		echo Yii::app()->Calendario->mostrar($id);
-
-	?>
 	</div>
-
 </div>
+<div class="resultado">
+	<div id="lateral">
+
+		<div class= "calendarioInmueble">
+			
+		<?php 
+			$id = $inmueble['idInmueble']; 
+
+			echo Yii::app()->Calendario->mostrar($id);
+
+		?>
+		</div>
+	</div>
+	
+
+
+
+</div>	
+
+
 </div>

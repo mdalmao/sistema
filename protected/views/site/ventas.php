@@ -20,9 +20,9 @@ $this->breadcrumbs=array(
 		<div class="resultado">
 			
 			<p class="descripcion"> 
-				<p> Descripcion:
+				 Descripcion:
 				<?php echo CHtml::decode($Ventas['Descripcion']);  ?> 
-				</p>
+				
 			</p>
 			<p class="estado">
 				<p> Estado:
@@ -64,7 +64,7 @@ $this->breadcrumbs=array(
 
 				 <form action="CasasGenerico"  method="post">
  					<input type="hidden" name="idinmueble" value="<?php echo $Ventas['idInmueble']; ?>"/>	
-					 <div class="row buttons">
+					 <div class="lateral" >
 					<?php echo CHtml::submitButton('Ver Mas'); ?>
 					</div>
 				 </form>
@@ -76,7 +76,7 @@ $this->breadcrumbs=array(
 
 					<form action="CampoGenerico"  method="post">
 					<input type="hidden" name="idinmueble" value="<?php echo $Ventas['idInmueble']; ?>"/>	
-					<div class="row buttons">
+					<div class="lateral" >
 					<?php echo CHtml::submitButton('Ver Mas'); ?>
 					</div>
 				 
@@ -89,7 +89,7 @@ $this->breadcrumbs=array(
 
 				<form action="ApartamentoGenerico"  method="post">
 					<input type="hidden" name="idinmueble" value="<?php echo $Alquilere['idInmueble']; ?>"/>	
-					<div class="row buttons">
+					<div class="lateral" >
 					<?php echo CHtml::submitButton('Ver Mas'); ?>
 					</div>
 				</form>
@@ -98,7 +98,7 @@ $this->breadcrumbs=array(
 				<?php endif; ?>
 			 
 			
-			</div>
+				
 
 		</div>
 		

@@ -18,15 +18,15 @@ $this->breadcrumbs=array(
 <div class="inmueble">
 	
 	<?php foreach ($model as $Alquilere): ?>
-	 
+	  
 		<div class="resultado">
 			<input type="hidden" name="idinmueble" value="<?php echo $Alquilere['idInmueble']; ?>"/>
 			<input type="hidden" name="tipo" value="<?php echo $Alquilere['TipoInmueble']; ?>"/>
 			
 			<p class="descripcion"> 
-				<p> Descripcion:
+				 Descripcion:
 				<?php echo CHtml::decode($Alquilere['Descripcion']);  ?> 
-				</p>
+				
 			</p>
 			<p class="estado">
 				<p> Estado:
@@ -67,7 +67,7 @@ $this->breadcrumbs=array(
  			<?php if ($Alquilere['TipoInmueble'] == 'CASA'): ?>
  					<form action="CasasGenerico"  method="post">
  					<input type="hidden" name="idinmueble" value="<?php echo $Alquilere['idInmueble']; ?>"/>	
-					 <div class="row buttons">
+					<div class="lateral" >
 					<?php echo CHtml::submitButton('Ver Mas'); ?>
 					</div>
 				 </form>
@@ -75,7 +75,7 @@ $this->breadcrumbs=array(
 				<?php if ($Alquilere['TipoInmueble'] == 'CAMPO'): ?>
 				<form action="CampoGenerico"  method="post">
 					<input type="hidden" name="idinmueble" value="<?php echo $Alquilere['idInmueble']; ?>"/>	
-					<div class="row buttons">
+				<div class="lateral" >
 					<?php echo CHtml::submitButton('Ver Mas'); ?>
 					</div>
 				 
@@ -85,12 +85,16 @@ $this->breadcrumbs=array(
 				<?php if ($Alquilere['TipoInmueble'] == 'APARTAMENTO'): ?>
 				<form action="ApartamentoGenerico"  method="post">
 					<input type="hidden" name="idinmueble" value="<?php echo $Alquilere['idInmueble']; ?>"/>	
-					<div class="row buttons">
+					<div class="lateral" >
 					<?php echo CHtml::submitButton('Ver Mas'); ?>
 					</div>
 				</form>
+				
+
 				<?php endif; ?>
-			</div>
+			 
+			
+				
 
 		</div>
 		
