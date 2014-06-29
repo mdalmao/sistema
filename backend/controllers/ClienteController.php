@@ -1,7 +1,10 @@
 <?php
 
+//Yii::app()->clientScript->registerCoreScript('jquery');
+
 class ClienteController extends Controller
 {
+
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
@@ -134,20 +137,36 @@ class ClienteController extends Controller
 	public function actionDelete($id)
 	{
 		$model=new Cliente;
-		$model2=new Inmueble;
+		$model2=new Datospersonales;
+		$model3=new Inmueble;
+
+		$Criteria = new CDbCriteria();
+		//Los string estan en comillas simples sino no lo toma S
+    	$Criteria->condition = "idUsuario = $id";
+
+    	$estaId = Inmueble::model()->findAll($Criteria);
 
 		$model->idUsuario = $id;
 		$model2->idUsuario = $id;
+		$model3->idUsuario = $id;
 
 		//if($model->$id == $model2->$id){
-		//if($model->idUsuario == $model2->idUsuario){
+		//($model->idUsuario == $model2->idUsuario){
+		if(empty($estaId)){
+			$this->loadModel($id)->delete();
+			$this->loadModel2($id)->delete();
+
+			$this->redirect(array('view'));		
+		}
+		else{
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+		}
 		//	$this->loadModel($id)->delete();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		if(!isset($_GET['ajax'])){
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
-		}
-	}
+		//if(!isset($_GET['ajax'])){
+			//$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+	}		
 
 	/**
 	 * Lists all models.
