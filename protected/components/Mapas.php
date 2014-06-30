@@ -16,7 +16,7 @@ class Mapas extends CApplicationComponent{
     );
     $gMap->mapTypeControlOptions= $mapTypeControlOptions;
     $gMap->setCenter(-34.8999799,-56.1348723);
-    // Create GMapInfoWindows
+    // Create GMapInfoWindowc
     $info_window_a = new EGMapInfoWindow('<div>Casa en Alquiler</div>');
     $info_window_b = new EGMapInfoWindow('<div>Nuestras Oficinias, contactese con nosotros</div>');
  

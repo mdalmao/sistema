@@ -157,4 +157,23 @@ class SiteController extends Controller
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
+
+	public function actionCalendario(){
+         
+         $model= Inmueble::model()->findAll();
+        if(isset($_POST['inmueble']))
+		{
+			$idinmueble= $_POST['inmueble'];
+			$cliente=  $_POST['cliente'];
+            $horas=  $_POST['hora'];
+			$fecha = $_POST['fecha'];
+			
+            Yii::app()->Calendario-> alta($idinmueble,$cliente,$fecha,$horas);
+            echo "Se agendo correctamente";
+		}else{
+			$this->render('calendario',array('model'=>$model));
+           
+		}
+         
+	}
 }

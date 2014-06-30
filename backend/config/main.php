@@ -70,6 +70,14 @@ return array(
          'ImagenesInmueble' => array(
                'class'=>'application.components.ImagenesInmueble',
                 ),
+
+         'Datos' => array(
+               'class'=>'application.components.Datos',
+                ),
+
+          'Calendario' => array(
+               'class'=>'application.components.Calendario',
+                ),
 		
 		'user'=>array(
 			// enable cookie-based authentication
