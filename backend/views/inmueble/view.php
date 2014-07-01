@@ -11,7 +11,7 @@ $this->menu=array(
 	array('label'=>'List Inmueble', 'url'=>array('index')),
 	array('label'=>'Create Inmueble', 'url'=>array('create')),
 	array('label'=>'Update Inmueble', 'url'=>array('update', 'id'=>$model->idInmueble)),
-	array('label'=>'Delete Inmueble', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idInmueble),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Delete Inmueble', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idInmueble),'confirm'=>'Esta seguro que desea eliminar este inmueble?')),
 	array('label'=>'Manage Inmueble', 'url'=>array('admin')),
 	array('label'=>'Add Pictures', 'url'=>array('pictures', 'id'=>$model->idInmueble)),
 );

@@ -11,7 +11,7 @@ $this->menu=array(
 	array('label'=>'List Contacto', 'url'=>array('index')),
 	array('label'=>'Create Contacto', 'url'=>array('create')),
 	array('label'=>'Update Contacto', 'url'=>array('update', 'id'=>$model->idContacto)),
-	array('label'=>'Delete Contacto', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idContacto),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Delete Contacto', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idContacto),'confirm'=>'Esta seguro que desea eliminar este contacto?')),
 	array('label'=>'Manage Contacto', 'url'=>array('admin')),
 );
 ?>
