@@ -249,3 +249,13 @@ height: 800px;}
 .ocupado{
 	background: red;
 }
+
+.view{
+	background-image:url('../imagenes/wall4.png');
+	
+}
+
+.resultado{
+	background-image:url('../imagenes/shattered.png');
+	background-size: cover;
+}

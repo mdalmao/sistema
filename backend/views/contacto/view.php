@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Contacto', 'url'=>array('index')),
-	array('label'=>'Create Contacto', 'url'=>array('create')),
-	array('label'=>'Update Contacto', 'url'=>array('update', 'id'=>$model->idContacto)),
-	array('label'=>'Delete Contacto', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idContacto),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Contacto', 'url'=>array('admin')),
+	array('label'=>'Lista de Contactos', 'url'=>array('index')),
+	array('label'=>'Crear Contacto', 'url'=>array('create')),
+	array('label'=>'Editar Contacto', 'url'=>array('update', 'id'=>$model->idContacto)),
+	array('label'=>'Borrar Contacto', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idContacto),'confirm'=>'Esta seguro que desea eliminar este contacto?')),
+	array('label'=>'Gestionar Contactos', 'url'=>array('admin')),
 );
 ?>
 

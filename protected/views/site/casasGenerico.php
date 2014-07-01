@@ -16,9 +16,9 @@ $this->breadcrumbs=array(
 		<div class="resultado">
 			
 			<p class="descripcion"> 
-				<p> Descripcion:
+				Descripcion:
 				<?php echo CHtml::decode($inmueble['Descripcion']);  ?> 
-				</p>
+				
 			</p>
 			<p class="estado">
 				<p> Estado:
@@ -138,6 +138,12 @@ $this->breadcrumbs=array(
 
 </div>
 <div class="resultado">
+
+	<p class="descripcion"> 
+				Imagenes de la Casa:
+				
+				
+			</p>
 <div class = 'imagen'>
 <?php foreach ($model3 as $imagen): ?>
 		<?php $id = $inmueble['idInmueble']; ?>

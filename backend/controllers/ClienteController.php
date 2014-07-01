@@ -156,7 +156,8 @@ class ClienteController extends Controller
 			$this->loadModel($id)->delete();
 			$this->loadModel2($id)->delete();
 
-			$this->redirect(array('view'));		
+			//$this->redirect(array('view'));	
+			$this->redirect(array('admin'));	
 		}
 		else{
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));

@@ -9,10 +9,10 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Contacto', 'url'=>array('index')),
-	array('label'=>'Create Contacto', 'url'=>array('create')),
-	array('label'=>'View Contacto', 'url'=>array('view', 'id'=>$model->idContacto)),
-	array('label'=>'Manage Contacto', 'url'=>array('admin')),
+	array('label'=>'Lista de Contactos', 'url'=>array('index')),
+	array('label'=>'Crear Contacto', 'url'=>array('create')),
+	array('label'=>'Ver Contacto', 'url'=>array('view', 'id'=>$model->idContacto)),
+	array('label'=>'Gestionar Contacto', 'url'=>array('admin')),
 );
 ?>
 

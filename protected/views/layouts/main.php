@@ -36,6 +36,7 @@
 <div class="page-header">
 		
 		<div class= "container-fluid">
+			<br/>
 			<p> <img class ="img-rounded" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'logo.png' ; ?>"></img></p>
 			<h4>Bienveniedos a nuestra Inmboliaria Inmobi 4p</h4>
 
@@ -45,8 +46,8 @@
 
 
 			 <li> <a href="/yii/sistema/" class="btn btn-primary btn-large"><i class="icon-white icon-home"></i> Inicio</a> </li>
-			 <li> <a href="/yii/sistema/site/Mision" class="btn btn-primary btn-large"><i class="icon-white "></i> Mision</a> </li>
-			 <li> <a href="/yii/sistema/site/Vision" class="btn btn-primary btn-large"><i class="icon-white"></i> Vision</a> </li>
+			 <li> <a href="/yii/sistema/site/Mision" class="btn btn-primary btn-large"><i class="icon-white "></i> Misión</a> </li>
+			 <li> <a href="/yii/sistema/site/Vision" class="btn btn-primary btn-large"><i class="icon-white"></i> Visión</a> </li>
 			 <li> <a href="/yii/sistema/site/alquileres" class="btn btn-success btn-large"><i class="icon-white "></i> Alquileres</a> </li>
 			 <li> <a href="/yii/sistema/site/ventas" class="btn btn-success btn-large"><i class="icon-white "></i> Ventas</a> </li>
 			 <li> <a href="/yii/sistema/site/casas" class="btn btn-success btn-large"><i class="icon-white"></i> Casas</a> </li>
@@ -89,7 +90,7 @@
 
 <div id="footer">
 
-     	Copyright &copy; <?php echo date('Y'); ?> Inmobiliaria PHP.<br/>
+     	Copyright &copy; <?php echo date('Y'); ?> Inmobiliaria PHP Inmobi 4p.<br/>
 		All Rights Reserved.<br/>
 		
  </div><!-- footer -->
