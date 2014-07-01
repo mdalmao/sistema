@@ -5,8 +5,8 @@ body
 	color: #555;
 	font: normal 10pt Arial,Helvetica,sans-serif;
 	background: #EFEFEF;
-	background-image:url('../imagenes/brick.gif');
-
+	background-image:url('../imagenes/light_grey.png');
+	
 }
 
 #page
@@ -15,7 +15,8 @@ body
 	margin-bottom: 5px;
 	background: white;
 	border: 1px solid #C9E0ED;
-	background-image:url('../imagenes/bgEdi.jpg');
+	background-image:url('../imagenes/shattered.png');
+
 
 }
 
@@ -24,12 +25,15 @@ body
 	margin: 0;
 	padding: 0;
 	border-top: 3px solid #C9E0ED;
-	background-image:url('../imagenes/footer.png');
+	background-image:url('../imagenes/house.jpg');
+	background-size: cover;
+	height:180px;
+
 }
 
 .page-header
 {
-	background-image:url('../imagenes/bgEdi.jpg');
+	background-image:url('../imagenes/house.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 }

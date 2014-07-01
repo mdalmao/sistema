@@ -251,11 +251,11 @@ height: 800px;}
 }
 
 .view{
-	background-image:url('../imagenes/bgview2.jpg');
-	background-size: cover;
+	background-image:url('../imagenes/wall4.png');
+	
 }
 
 .resultado{
-	background-image:url('../imagenes/bgview2.jpg');
+	background-image:url('../imagenes/shattered.png');
 	background-size: cover;
 }
