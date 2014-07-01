@@ -259,3 +259,9 @@ height: 800px;}
 	background-image:url('../imagenes/shattered.png');
 	background-size: cover;
 }
+
+#tablacalendario{
+	width: 400px;
+	margin-left: 600px;
+    margin-top: -232px;
+}

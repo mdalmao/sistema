@@ -66,7 +66,7 @@ class Calendario extends CApplicationComponent{
  $client = new couchClient ('http://localhost:5984','agenda');
 
   try {
-     $vista = $client->limit(10)->getView('inmueble','name2');
+     $vista = $client->limit(100)->getView('inmueble','name2');
    } catch (Exception $e) {
     echo "something weird happened: ".$e->getMessage()."<BR>\n";
    }
@@ -93,7 +93,7 @@ class Calendario extends CApplicationComponent{
   }   
   
   //echo "Fechas: ".print_r($fechas,true)."\n";
- 
+  echo '<div id="tablacalendario">';
   echo "<table>";
   echo "<th> Fecha </th>";
   echo "<th width='20px'> Hora 8 a 9 </th>";
@@ -153,7 +153,7 @@ class Calendario extends CApplicationComponent{
 
   
   echo "</table>";
-
+ echo "</div>";
 }
 
 public function borrar(){

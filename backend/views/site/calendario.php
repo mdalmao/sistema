@@ -64,4 +64,4 @@ jQuery(function($) {
 </script>
  
 
-<div id="vista">Datos</div>
+<div id="vista"></div>
