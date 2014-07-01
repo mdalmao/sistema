@@ -249,3 +249,8 @@ height: 800px;}
 .ocupado{
 	background: red;
 }
+
+.view{
+	background-image:url('../imagenes/bgview2.jpg');
+	background-size: cover;
+}

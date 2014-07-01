@@ -805,8 +805,9 @@ h4 small {
 
 .page-header {
   padding-bottom: 9px;
-  margin: 20px 0 30px;
+  margin-top:5px;
   border-bottom: 1px solid #eeeeee;
+  
 }
 
 ul,
@@ -5267,6 +5268,7 @@ input[type="submit"].btn.btn-mini {
   display: table;
   line-height: 0;
   content: "";
+  background-image:url('../imagenes/footer.png');
 }
 
 .modal-footer:after {

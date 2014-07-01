@@ -14,6 +14,8 @@ body
 	margin-bottom: 5px;
 	background: white;
 	border: 1px solid #C9E0ED;
+	background-image:url('../imagenes/bgEdi.jpg');
+
 }
 
 #header
@@ -21,11 +23,22 @@ body
 	margin: 0;
 	padding: 0;
 	border-top: 3px solid #C9E0ED;
+	background-image:url('../imagenes/footer.png');
 }
+
+.page-header{
+	
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+}
+
+
 
 #content
 {
     padding: 20px;
+
 }
 
 #sidebar
@@ -40,6 +53,7 @@ body
 	font-size: 0.8em;
 	text-align: center;
 	border-top: 1px solid #C9E0ED;
+	background-image:url('../imagenes/footer.png');
 }
 
 #logo
