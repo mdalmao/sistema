@@ -51,7 +51,7 @@ class SiteController extends Controller
 	public function actionIndex()
 	{
 
-		 if (!Yii::app()->user->isGuest){  
+		 if (Yii::app()->user->isGuest){  
 		   $model=new LoginForm;
      		// if it is ajax validation request
 	    	if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')

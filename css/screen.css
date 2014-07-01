@@ -260,8 +260,24 @@ height: 800px;}
 	background-size: cover;
 }
 
+.resultadoprincipal{
+	width: 600px;
+	background-image:url('../imagenes/shattered.png');
+	background-size: cover;	
+}
+
+#resultadoPrincipal{
+	margin-top: -512px;
+}
+
 #tablacalendario{
 	width: 400px;
 	margin-left: 600px;
     margin-top: -232px;
 }
+
+#mapa{
+    margin-left: 512px;
+    margin-top: -110px;
+}
+

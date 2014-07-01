@@ -27,12 +27,21 @@ echo Yii::app()->Mapas->mapa();
 ?>
 </div>
 
-<div class="container"> 
+<div id="resultadoPrincipal">
+    <?php foreach ($model as $inmueble): ?>
+   <div class="resultadoprincipal">
+   <p class="reserva-titulo"><?php echo $inmueble['idInmueble']; ?></p>
+   <p class="descripcion"> <?php echo CHtml::decode($inmueble['Descripcion']);  ?> </p>
+   <?php $id = $inmueble['idInmueble']; ?> 
+   <img class ="imagen" src="<?php echo Yii::app()->ImagenesInmueble->imagenprincipal($id); ?>" /> 
+   </div>
+   <?php endforeach; ?>
 
 
+   </div>
 
  
  
-</div>
+
 
 
