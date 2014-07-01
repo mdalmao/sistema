@@ -5,7 +5,8 @@ body
 	color: #555;
 	font: normal 10pt Arial,Helvetica,sans-serif;
 	background: #EFEFEF;
-	background-image:url('../imagenes/bg.jpg');
+	background-image:url('../imagenes/brick.gif');
+
 }
 
 #page
@@ -26,14 +27,12 @@ body
 	background-image:url('../imagenes/footer.png');
 }
 
-.page-header{
-	
+.page-header
+{
+	background-image:url('../imagenes/bgEdi.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
-	
 }
-
-
 
 #content
 {

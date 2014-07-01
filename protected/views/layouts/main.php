@@ -36,6 +36,7 @@
 <div class="page-header">
 		
 		<div class= "container-fluid">
+			<br/>
 			<p> <img class ="img-rounded" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'logo.png' ; ?>"></img></p>
 			<h4>Bienveniedos a nuestra Inmboliaria Inmobi 4p</h4>
 
@@ -89,7 +90,7 @@
 
 <div id="footer">
 
-     	Copyright &copy; <?php echo date('Y'); ?> Inmobiliaria PHP.<br/>
+     	Copyright &copy; <?php echo date('Y'); ?> Inmobiliaria PHP Inmobi 4p.<br/>
 		All Rights Reserved.<br/>
 		
  </div><!-- footer -->
