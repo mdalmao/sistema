@@ -158,14 +158,23 @@ class SiteController extends Controller
 		$this->redirect(Yii::app()->homeUrl);
 	}
 
+	public function actionCargarCalendario()
+	{
+		/*
+		$id=$_GET['id'];
+		Yii::app()->Calendario-> mostrar($id);
+        */
+		$this->renderPartial('_ajaxviewcalendario', array('idinmueble' => $_GET['id']));
+	}
+
 	public function actionCalendario(){
          
          $model= Inmueble::model()->findAll();
         if(isset($_POST['inmueble']))
 		{
 			$idinmueble= $_POST['inmueble'];
-			$cliente=  $_POST['cliente'];
-            $horas=  $_POST['hora'];
+			$cliente= (int) $_POST['cliente'];
+            $horas=  (int) $_POST['hora'];
 			$fecha = $_POST['fecha'];
 			
             Yii::app()->Calendario-> alta($idinmueble,$cliente,$fecha,$horas);

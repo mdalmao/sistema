@@ -49,8 +49,7 @@ class Calendario extends CApplicationComponent{
  }
 
 
- public function mostrar(){
- $idinmueble = 1;
+ public function mostrar($idinmueble){
  $hoy = date("d/m/Y");
  list($day,$mon,$year) = explode('/',$hoy);
  $mon= ($mon +1) -1;
@@ -71,7 +70,7 @@ class Calendario extends CApplicationComponent{
    } catch (Exception $e) {
     echo "something weird happened: ".$e->getMessage()."<BR>\n";
    }
-  // echo "Document retrieved: ".print_r($vista,true)."\n";
+  //echo "Document retrieved: ".print_r($vista,true)."\n";
   $a = 1;
   foreach ( $vista->rows as $row ) {
   //  echo "Document ". $row -> id ."<BR>\n";
@@ -84,14 +83,17 @@ class Calendario extends CApplicationComponent{
       //   echo "Inmueble: " . $doc->inmueble . "<br /><br />";
       //  echo "Fecha: " . $doc->fecha . "<br /><br />";
       //  echo "Hora: " . $doc->hora . "<br /><br />";
-         $fechas[$a] = $doc->fecha;
+         list($day,$mon,$year) = explode('/',$doc->fecha);
+         $fechas[$a] =  date('d/m/Y',mktime(0,0,0,$mon,$day,$year)); 
          $horas[$a] = $doc->hora;
          $a = $a +1;
        //  }
       }
       
   }   
-   
+  
+  //echo "Fechas: ".print_r($fechas,true)."\n";
+ 
   echo "<table>";
   echo "<th> Fecha </th>";
   echo "<th width='20px'> Hora 8 a 9 </th>";
@@ -112,6 +114,7 @@ class Calendario extends CApplicationComponent{
    $l=0;
 
    // Si la fecha esta en fechas busco que horas tiene seteadas y las cargo en el array linea
+
    if (in_array($fecha, $fechas)) {
        for ($j=1; $j <=count($fechas); $j++){
            if ( $fechas[$j] == $fecha ){
@@ -124,13 +127,16 @@ class Calendario extends CApplicationComponent{
           
        } 
 
+   // echo "fECHA: ".print_r($linea,true)."\n";
+
     // ARMO LA LINEA, COMPLETA PINTANDO EN VERDE O ROJO SEGUN SI ESTA LIBRE O OCUPADO
     // LA VARIABLE o INDICA LA POSICION DE LA LINEA QUE VA DE 0 a 8   
-    for($o=1; $o <= 9; $o++){
+    for($o=0; $o <= 8; $o++){
         if ( in_array($o, $linea ))
         { 
           echo "<td class='ocupado'>  </td>"; 
         }else{
+
           echo "<td class='libre'> </td>";
         }
       }

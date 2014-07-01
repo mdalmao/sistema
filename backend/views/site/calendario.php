@@ -3,7 +3,6 @@
 
 $this->pageTitle=Yii::app()->name;
 Yii::app()->clientScript->registerCoreScript('jquery');
-
 ?>
 
 <form id="calendario" name="calendario" action="Calendario"  method="post">
@@ -31,6 +30,7 @@ $this->widget('zii.widgets.jui.CJuiDatePicker',array(
     // additional javascript options for the date picker plugin
     'options'=>array(
         'showAnim'=>'slide',//'slide','fold','slideDown','fadeIn','blind','bounce','clip','drop'
+        'dateFormat'=>'dd/mm/yy',
     ),
     'htmlOptions'=>array(
         'style'=>'height:20px;background-color:white;color:black;',
@@ -44,3 +44,24 @@ $this->widget('zii.widgets.jui.CJuiDatePicker',array(
 <input type="submit" class="btn btn-primary btn-large" value="Agregar"/>
 
 </form>
+
+<?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
+<script type="text/javascript">
+/*<![CDATA[*/
+jQuery(function($) {
+   jQuery('body').delegate('#inmueble','change',function(){
+    jQuery.ajax({
+         'url':'/yii/sistema/backend.php/site/CargarCalendario/?id=' + $('#inmueble').val(),
+         'cache':false,
+         'success':function(html){
+            jQuery("#vista").html(html)
+         }
+      });
+      return false;
+   });
+});
+/*]]>*/
+</script>
+ 
+
+<div id="vista">Datos</div>
