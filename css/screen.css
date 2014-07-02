@@ -280,4 +280,25 @@ height: 800px;}
     margin-left: 512px;
     margin-top: -110px;
 }
+#filtrosaplicados{
+	border-style: solid;
+	border-color: black;
+    border-width: 5px;
+    width: 200px;
+    background: gray;
+}
 
+
+#filtradolateral{
+	border-style: solid;
+	border-color: gray;
+    border-width: 5px;
+    width: 200px;
+}
+
+#filtroTipo{
+	border-style: solid;
+	border-color: gray;
+    border-width: 5px;
+    width: 200px;
+}

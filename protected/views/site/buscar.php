@@ -2,7 +2,6 @@
 /* @var $this SiteController */
 
 $this->pageTitle=Yii::app()->name;
-
 ?>
 
 
@@ -20,8 +19,85 @@ $this->pageTitle=Yii::app()->name;
         array('image'=> $fotos[5], 'label'=>$titulo[5], 'caption'=> $descripcion[5]),
     ), )); 
 
-
 ?>
+
+<?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
+<script type="text/javascript">
+/*<![CDATA[*/
+jQuery(function($) {
+   jQuery('body').delegate('#filtrosaplicados','change',function(){
+    jQuery.ajax({
+         'url':'/yii/sistema/backend.php/site/CargarCalendario/?id=' + $('#inmueble').val(),
+         'cache':false,
+         'success':function(html){
+            jQuery("#vista").html(html)
+         }
+      });
+      return false;
+   });
+
+    $( "p" ).click(function() {
+      
+    var htmlString = $( this ).html();
+    var padre = $(this).parents('div:eq(0)').attr('id');
+    alert("Padre" + padre);
+    if ( padre == "filtrosaplicados"){
+       var valor = $(this).html();
+       alert("valor"+valor);
+      if (valor == "Apartamento" || valor =="Casa" || valor=="Campo"){
+        $("#filtroTipo").show();
+        $("#filtroTipo").append($(this));  
+        $("#filtrosaplicados").remove($(this));  
+      }
+      if (valor == "Venta" || valor =="Alquiler"){
+        $("#filtrooperacion").show();
+        $("#filtrooperacion").append($(this));  
+        $("#filtrosaplicados").remove($(this));
+      }        
+    }
+    else{
+      $("#filtrosaplicados").append($(this));
+      if  (padre == "filtroTipo"){
+        $("#filtroTipo").hide();
+      }if  (padre == "filtrooperacion"){
+        $("#filtrooperacion").hide();
+      }       
+    }
+
+    });
+});
+/*]]>*/
+</script>
+
+<div id="filtradolateral">
+Filtrado Por: 
+<div id="filtrosaplicados">
+</div>
+
+<div id="filtroTipo">
+Inmueble:
+  <p>Apartamento</p>
+  <p>Casa</p>
+  <p>Campo</p>
+</div>
+
+<div id="filtrooperacion">
+Operacion:
+  <p>Venta</p>
+  <p>Alquiler</p>
+</div>
+
+<div id="filtroubicacion">
+</div>
+
+<div id="filtrometro">
+</div>
+
+<div id="filtroprecio">
+</div>
+
+
+</div>
 
 <div id="mapa">
 <?php

@@ -49,7 +49,7 @@
 								array('label'=>'Inmueble', 'url'=>array('/inmueble'), 'visible'=>!Yii::app()->user->isGuest),
 								array('label'=>'Empleado', 'url'=>array('/user'), 'visible'=>!Yii::app()->user->isGuest),
 								array('label'=>'Calendario', 'url'=>array('/site/calendario'), 'visible'=>!Yii::app()->user->isGuest),
-								array('label'=>'Gestion de Portada', 'url'=>array('/gestiondeportada'), 'visible'=>!Yii::app()->user->isGuest),
+								//array('label'=>'Gestion de Portada', 'url'=>array('/gestiondeportada'), 'visible'=>!Yii::app()->user->isGuest),
 			),
 		)); ?>
 	</div><!-- mainmenu -->
