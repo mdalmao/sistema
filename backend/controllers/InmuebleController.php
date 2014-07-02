@@ -85,16 +85,21 @@ class InmuebleController extends Controller
   
   				  if(isset($imagenes->Ubicacion))
   				  {
-  				  	  $uploadedFile=CUploadedFile::getInstance($imagenes,'Ubicacion');
-	                  $nombre= $uploadedFile->getName();
-	                  $fileName = "{$rnd}-{$nombre}";                                         		       
-	                  $uploadedFile->saveAs( Yii::app()->basePath.'/../imagenes/' .$fileName);                 
-	                  
-	                  $imagenes->Idinmueble = $model->idInmueble;
-	                  $imagenes->IdImagen='1';                 
-	                  $imagenes->Ubicacion = $fileName;
-	               	  $imagenes->save();
-	                  $this->redirect(array('view','id'=>$model->idInmueble));     
+  				  	 
+	  				$uploadedFile=CUploadedFile::getInstance($imagenes,'Ubicacion');
+
+	  				if(is_object($uploadedFile)){
+		                  $nombre= $uploadedFile->getName();
+		                  $fileName = "{$rnd}-{$nombre}";                                         		       
+		                  $uploadedFile->saveAs( Yii::app()->basePath.'/../imagenes/' .$fileName);                 
+		                  
+		                  $imagenes->Idinmueble = $model->idInmueble;
+		                  $imagenes->IdImagen='1';                 
+		                  $imagenes->Ubicacion = $fileName;
+		               	  $imagenes->save();
+		                       
+	                }
+	                $this->redirect(array('view','id'=>$model->idInmueble));
   				  }                                               
 			////////FIN IMAGEN////////////////////////
 			}
