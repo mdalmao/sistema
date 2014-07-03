@@ -12,20 +12,12 @@ Yii::app()->clientScript->registerCoreScript('jquery');
       
 	  $("#Inmueble_TipoInmueble").change(function() {
 	     var valor = $(this).val();
-         if  ( valor == "CASA" ){
-		   $("#apartamento").hide();
+         if  ( valor == "CASA" || valor =="APARTAMENTO" || valor == "OFICINA"){
+		   $("#campo").hide();
            $("#casa").show();
-         }
-         if  ( valor == "APARTAMENTO" ){
-		   $("#apartamento").hide();
-           $("#casa").show();
-         }
-         if  ( valor == "OFICINA" ){
-		   $("#apartamento").hide();
-           $("#casa").show();
-         }
+         }               
          else{
-		   $("#apartamento").show();
+		   $("#campo").show();
            $("#casa").hide();
 		 }
 		 
@@ -53,10 +45,6 @@ Yii::app()->clientScript->registerCoreScript('jquery');
 		<?php echo $form->error($model,'TipoInmueble'); ?>
 	</div>
 
-
-    <div id="apartamento">
-     apartamento
-    </div>
     
 	<div class="row">
 		<?php echo $form->labelEx($model,'QueHacer'); ?>
@@ -136,9 +124,7 @@ Yii::app()->clientScript->registerCoreScript('jquery');
 		<?php echo $form->error($model,'idUsuario'); ?>
 	</div>
 
-<div id="casa">		
-    
-
+<div id="casa">		    
 	<div class="row">
 		<?php echo $form->labelEx($model,'Fecha de Construccion'); ?>
 		<?php echo $form->textField($casapo,'AnioConstruccion'); ?>
@@ -188,6 +174,75 @@ Yii::app()->clientScript->registerCoreScript('jquery');
 	</div>
 	
 </div>
+
+<div  id="campo">
+	<div class="row">
+		<?php echo $form->labelEx($model,'Hectareas'); ?>
+		<?php echo $form->textField($campo,'Hectareas'); ?>
+		<?php echo $form->error($model,'Hectareas'); ?>
+	</div>
+	<div class="row">
+		<?php echo $form->labelEx($model,'MetrosCuadradosTerreno'); ?>
+		<?php echo $form->textField($campo,'MetrosCuadradosTerreno'); ?>
+		<?php echo $form->error($model,'MetrosCuadradosTerreno'); ?>
+	</div>
+	<div class="row">
+		<?php echo $form->labelEx($model,'MetrosConstruidos'); ?>
+		<?php echo $form->textField($campo,'MetrosConstruidos'); ?>
+		<?php echo $form->error($model,'MetrosConstruidos'); ?>
+	</div>
+	<div class="row">
+		<?php echo $form->labelEx($model,'Luz'); ?>
+		<?php echo $form->dropDownList($campo,'Luz',array('1'=>'SI','0'=>'NO')); ?>
+		<?php echo $form->error($model,'Luz'); ?>
+	</div>
+	<div class="row">
+		<?php echo $form->labelEx($model,'ViviendaPatronal'); ?>
+		<?php echo $form->dropDownList($campo,'ViviendaPatronal',array('1'=>'SI','0'=>'NO')); ?>
+		<?php echo $form->error($model,'ViviendaPatronal'); ?>
+	</div>
+	<div class="row">
+		<?php echo $form->labelEx($model,'EstadoAlambrado'); ?>
+		<?php echo $form->textField($campo,'EstadoAlambrado'); ?>
+		<?php echo $form->error($model,'EstadoAlambrado'); ?>
+	</div>
+	<div class="row">
+		<?php echo $form->labelEx($model,'IndiceCONEAT'); ?>
+		<?php echo $form->textField($campo,'IndiceCONEAT'); ?>
+		<?php echo $form->error($model,'IndiceCONEAT'); ?>
+	</div>
+	<div class="row">
+		<?php echo $form->labelEx($model,'IndiceCONEAT'); ?>
+		<?php echo $form->textField($campo,'IndiceCONEAT'); ?>
+		<?php echo $form->error($model,'IndiceCONEAT'); ?>
+	</div>
+	<div class="row">
+		<?php echo $form->labelEx($model,'Tajamar'); ?>
+		<?php echo $form->dropDownList($campo,'Tajamar',array('1'=>'SI','0'=>'NO')); ?>
+		<?php echo $form->error($model,'Tajamar'); ?>
+	</div>
+	<div class="row">
+		<?php echo $form->labelEx($model,'Caniada'); ?>
+		<?php echo $form->dropDownList($campo,'Caniada',array('1'=>'SI','0'=>'NO')); ?>
+		<?php echo $form->error($model,'Caniada'); ?>
+	</div>
+	<div class="row">
+		<?php echo $form->labelEx($model,'PozoAgua'); ?>
+		<?php echo $form->dropDownList($campo,'PozoAgua',array('1'=>'SI','0'=>'NO')); ?>
+		<?php echo $form->error($model,'PozoAgua'); ?>
+	</div>
+	<div class="row">
+		<?php echo $form->labelEx($model,'Galpones'); ?>
+		<?php echo $form->textField($campo,'Galpones'); ?>
+		<?php echo $form->error($model,'Galpones'); ?>
+	</div>
+	<div class="row">
+		<?php echo $form->labelEx($model,'Extras'); ?>
+		<?php echo $form->textField($campo,'Extras'); ?>
+		<?php echo $form->error($model,'Extras'); ?>
+	</div>
+</div>
+
 	
 	<div class="row">
 		<?php echo $form->labelEx($imagenes,'Imagen Principal'); ?>

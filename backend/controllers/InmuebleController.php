@@ -66,6 +66,7 @@ class InmuebleController extends Controller
 		$datosp=new Datospersonales;
 		$casapo=new Inmcao;
 		$imagenes=new Imagenes;
+		$campo = new Inmcampos;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -75,17 +76,27 @@ class InmuebleController extends Controller
 			$model->attributes=$_POST['Inmueble'];
 			$model->Disponible = '1';	
 
-			if($model->save()){				                
-				$casapo->attributes=$_POST['Inmcao'];
-			    $casapo->idInmbueble=$model->idInmueble;
-			    $casapo->save();				
-			/////Imagen///////////////
+			if($model->save()){	
+				if($model->TipoInmueble == 'CAMPO')
+				{
+					$model->attributes=$_POST['Inmcampos'];
+					$campo->idInmueble=$model->idInmueble;	
+					$campo->save();	
+				}		
+				else
+				{
+					$casapo->attributes=$_POST['Inmcao'];
+			    	$casapo->idInmbueble=$model->idInmueble;
+			    	$casapo->save();
+				}	                
+				
+			   	    				
+				/////Imagen///////////////
 				  $rnd = rand(0,9999);  // generate random number between 0-9999
                   $imagenes->attributes=$_POST['Imagenes'];				
   
   				  if(isset($imagenes->Ubicacion))
-  				  {
-  				  	 
+  				  {  				  	 
 	  				$uploadedFile=CUploadedFile::getInstance($imagenes,'Ubicacion');
 
 	  				if(is_object($uploadedFile)){
@@ -96,12 +107,12 @@ class InmuebleController extends Controller
 		                  $imagenes->Idinmueble = $model->idInmueble;
 		                  $imagenes->IdImagen='1';                 
 		                  $imagenes->Ubicacion = $fileName;
-		               	  $imagenes->save();
-		                       
-	                }
-	                $this->redirect(array('view','id'=>$model->idInmueble));
+		               	  $imagenes->save();		                      
+	                }	                
   				  }                                               
-			////////FIN IMAGEN////////////////////////
+				////////FIN IMAGEN////////////////////////
+  				  
+  				  $this->redirect(array('view','id'=>$model->idInmueble));
 			}
 		}
 
@@ -110,6 +121,7 @@ class InmuebleController extends Controller
 			'datosp'=>$datosp,
 			'casapo'=>$casapo,
 			'imagenes'=>$imagenes,
+			'campo'=>$campo,
 		));
 	}
 
