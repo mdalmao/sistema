@@ -5,7 +5,9 @@ $this->pageTitle=Yii::app()->name;
 ?>
 
 
-<?php $todo=Yii::app()->ImagenesInmueble->slider();
+<?php 
+   /*
+     $todo=Yii::app()->ImagenesInmueble->slider();
       $fotos= $todo[0];
       $titulo= $todo[1];
       $descripcion =   $todo[2];
@@ -18,42 +20,26 @@ $this->pageTitle=Yii::app()->name;
         array('image'=> $fotos[4], 'label'=>$titulo[4], 'caption'=>$descripcion[4]),
         array('image'=> $fotos[5], 'label'=>$titulo[5], 'caption'=> $descripcion[5]),
     ), )); 
-
+    */
 ?>
 
 <?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
 <script type="text/javascript">
 /*<![CDATA[*/
 jQuery(function($) {
-   jQuery('body').delegate('#filtrosaplicados','change',function(){
-    jQuery.ajax({
-         'url':'/yii/sistema/backend.php/site/CargarCalendario/?id=' + $('#inmueble').val(),
-         'cache':false,
-         'success':function(html){
-            jQuery("#vista").html(html)
-         }
-      });
-      return false;
-   });
-
     $( "p" ).click(function() {
-      
     var htmlString = $( this ).html();
     var padre = $(this).parents('div:eq(0)').attr('id');
-    alert("Padre" + padre);
     if ( padre == "filtrosaplicados"){
        var valor = $(this).html();
-       alert("valor"+valor);
-      if (valor == "Apartamento" || valor =="Casa" || valor=="Campo"){
+       if (valor == "Apartamento" || valor =="Casa" || valor=="Campo"){
         $("#filtroTipo").show();
         $("#filtroTipo").append($(this));  
-        $("#filtrosaplicados").remove($(this));  
-      }
+     }
       if (valor == "Venta" || valor =="Alquiler"){
         $("#filtrooperacion").show();
         $("#filtrooperacion").append($(this));  
-        $("#filtrosaplicados").remove($(this));
-      }        
+       }        
     }
     else{
       $("#filtrosaplicados").append($(this));
@@ -63,6 +49,26 @@ jQuery(function($) {
         $("#filtrooperacion").hide();
       }       
     }
+
+      var filtros = $("#filtrosaplicados").html();
+      var find = '<p>';
+      var re = new RegExp(find, 'g');
+      str = filtros.replace(re, '');
+      
+      var find = '</p>';
+      var re = new RegExp(find, 'g');
+      str2 = str.replace(re, ';');      
+
+      var res = filtros.replace("</p>", ";");
+      var resultado =  res.replace("<p>",""); 
+      
+      jQuery.ajax({
+         'url':'/yii/sistema/backend.php/site/ResultDatos/?filtros=' + str2,
+         'cache':false,
+         'success':function(html){
+            jQuery("#resultado").html(html)
+         }
+         });
 
     });
 });
@@ -99,14 +105,24 @@ Operacion:
 
 </div>
 
-<div id="mapa">
-<?php
-echo Yii::app()->Mapas->mapa();
-?>
-</div>
 
-<div class="container"> 
-<div id="buscador">
+
+
+
+
+ 
+   <div id="resultado">
+    Datos
+   <!--
+
+   <div id="mapa">
+   <?php
+    echo Yii::app()->Mapas->mapa();
+   ?>
+   </div>
+
+   <div class="container"> 
+   <div id="buscador">
    <h1> Inmuebles </h1>
    <select id="tipoinmueble" class="selectpicker" data-style="btn-primary" data-width="auto">
    <option value="1"> Casa </option>
@@ -124,23 +140,15 @@ echo Yii::app()->Mapas->mapa();
    </select>   
     
    <button type="submit" class="btn btn-primary">Buscar</button>  
-</div>
-
-
- 
-   <div id="resultado">
-    <?php foreach ($model as $inmueble): ?>
-   <div class="resultado">
-   <p class="reserva-titulo"><?php echo $inmueble['idInmueble']; ?></p>
-   <p class="descripcion"> <?php echo CHtml::decode($inmueble['Descripcion']);  ?> </p>
-   <?php $id = $inmueble['idInmueble']; ?> 
-   <img class ="imagen" src="<?php echo Yii::app()->ImagenesInmueble->imagenprincipal($id); ?>" /> 
    </div>
-   <?php endforeach; ?>
 
 
+   
+   !-->
    </div>
 </div>
+
+
 
 
 
