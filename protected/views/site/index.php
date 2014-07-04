@@ -18,6 +18,14 @@ $this->pageTitle=Yii::app()->name;
        <a href="https://www.facebook.com">https://www.facebook.com</a>
 
     </p>
+    <p> <img class ="img-rounded" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'andv.jpg' ; ?>"></img>
+       <a href="http://www.anv.gub.uy/">http://www.anv.gub.uy/</a>
+
+    </p>
+    <p> <img class ="img-rounded" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'bhu.jpg' ; ?>"></img>
+       <a href="http://www.bhu.com.uy/">http://www.bhu.com.uy/</a>
+
+    </p>
     
     <a href='http://www.freecurrencyrates.com/es/myconverter#cur=USD-EUR-UYU-ARS-BRL-GBP;amt=USD1' id='ccw_cnhfybwf'>CONVERSOR</a>
   <div id='gcw_rates'></div><script src='http://www.freecurrencyrates.com/converter-widget?source=Yahoo%20Finance&width=250&currs=USD,EUR,UYU,ARS,BRL,GBP&precision=2&language=es&flags=1&currchangable=0' charset='UTF-8'>
