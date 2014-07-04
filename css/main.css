@@ -70,11 +70,12 @@ body
 	position: relative;
     left: 325px;
     right:250px;
-    width: 600px;
-    height: 400px;
-    margin-right: 350px;
-    margin-top: 5px;
+    width: 200px;
+    height: 280px;
+    
+    
 	padding: 0;
+	float: center;
     
 }
 
@@ -307,9 +308,10 @@ margin: 10px;
     float: right;
     padding: 0.714285714rem;}
 .centrarImagenesIzquierda{width: 20%;
-margin: 10px;
+margin: 8px;
     margin: 0.714285714rem;
     border: 1px solid black  ;
     padding: 10px;
     float: left;
-    padding: 0.714285714rem;}
+    padding: 0.714285714rem;
+position: relative;}

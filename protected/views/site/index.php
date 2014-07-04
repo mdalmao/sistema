@@ -18,12 +18,23 @@ $this->pageTitle=Yii::app()->name;
        <a href="https://www.facebook.com">https://www.facebook.com</a>
 
     </p>
+    
+    <a href='http://www.freecurrencyrates.com/es/myconverter#cur=USD-EUR-UYU-ARS-BRL-GBP;amt=USD1' id='ccw_cnhfybwf'>CONVERSOR</a>
+  <div id='gcw_rates'></div><script src='http://www.freecurrencyrates.com/converter-widget?source=Yahoo%20Finance&width=250&currs=USD,EUR,UYU,ARS,BRL,GBP&precision=2&language=es&flags=1&currchangable=0' charset='UTF-8'>
+</script></div>
+</div>
+    <!--End of Currency Converter widget by FreeCurrencyRates.com -->
+  
     </div>
   
 
+  
 
 
 </aside>
+
+
+
 <aside>
     <div class= "centrarImagenesIzquierda"> 
     
@@ -55,7 +66,10 @@ Consúltenos a través de cualquier medio, vía mail, nuestra página web, telef
 
 </div>
 
-<head>
+
+
+
+<aside>
 
 <?php $todo=Yii::app()->ImagenesInmueble->slider();
       $fotos= $todo[0];
@@ -74,25 +88,16 @@ Consúltenos a través de cualquier medio, vía mail, nuestra página web, telef
 
 ?>
 
-  </head>
+  </aside>
+
+
 <div id="mapa">
 <?php
 echo Yii::app()->Mapas->mapa();
 ?>
 </div>
 
-<div id="resultadoPrincipal">
-    <?php foreach ($model as $inmueble): ?>
-   <div class="resultadoprincipal">
-   <p class="reserva-titulo"><?php echo $inmueble['idInmueble']; ?></p>
-   <p class="descripcion"> <?php echo CHtml::decode($inmueble['Descripcion']);  ?> </p>
-   <?php $id = $inmueble['idInmueble']; ?> 
-   <img class ="imagen" src="<?php echo Yii::app()->ImagenesInmueble->imagenprincipal($id); ?>" /> 
-   </div>
-   <?php endforeach; ?>
 
-
-   </div>
 
  
  
