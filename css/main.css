@@ -46,7 +46,7 @@ body
 
 #sidebar
 {
-	padding: 20px 20px 20px 0;
+	padding: 100px 200px 200px 10;
 }
 
 #footer
@@ -68,16 +68,18 @@ body
 .carousel-inner{
 	
 	position: relative;
-    left: 350px;
-    right:350px;
+    left: 325px;
+    right:250px;
     width: 600px;
     height: 400px;
     margin-right: 350px;
+    margin-top: 5px;
+	padding: 0;
     
 }
 
 .carousel-caption{
-	margin-right:814px;
+	margin-right:934px;
 	border-radius: 10px;
 }
 
@@ -297,10 +299,17 @@ div.search-form
     width:300px;
     float:right;
 }
-.centrarImagenes{width: 30%;
+.centrarImagenes{width: 20%;
 margin: 10px;
     margin: 0.714285714rem;
     border: 1px solid black  ;
     padding: 10px;
     float: right;
+    padding: 0.714285714rem;}
+.centrarImagenesIzquierda{width: 20%;
+margin: 10px;
+    margin: 0.714285714rem;
+    border: 1px solid black  ;
+    padding: 10px;
+    float: left;
     padding: 0.714285714rem;}

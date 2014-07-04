@@ -260,7 +260,7 @@ margin-left : 7%;}
 .resultado{
 	background-image:url('../imagenes/shattered.png');
 	background-size: cover;
-  
+
 }
 
 .resultadoprincipal{
@@ -308,6 +308,16 @@ margin-left : 7%;}
 .centrarImagenes{width: 30%;
 margin: 10px;
 float: right;
+background-image:url('../imagenes/shattered.png');
+    margin: 0.714285714rem;
+    border: 1px solid black  ;
+    padding: 10px;
+    padding: 0.714285714rem;
+  }
+
+  .centrarImagenesIzquierda{width: 30%;
+margin: 10px;
+float: left;
 background-image:url('../imagenes/shattered.png');
     margin: 0.714285714rem;
     border: 1px solid black  ;

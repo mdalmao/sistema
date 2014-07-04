@@ -14,8 +14,49 @@ $this->pageTitle=Yii::app()->name;
       <p><img class ="img-rounded" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'brou.jpg' ; ?>"></img>
       <a href="http://www.brou.com.uy/web/guest/home">http://www.brou.com.uy/web/guest/home</a>
      </p>
+     <p> <img class ="img-rounded" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'facebook.jpg' ; ?>"></img>
+       <a href="https://www.facebook.com">https://www.facebook.com</a>
+
+    </p>
     </div>
-  </aside>
+  
+
+
+
+</aside>
+<aside>
+    <div class= "centrarImagenesIzquierda"> 
+    
+      <p><img class ="img-rounded" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'tasaciones.jpg' ; ?>"></img>
+      
+
+      <h1>TASACIONES</h1>
+      La empresa cuenta con personal idóneo para esta materia. En estos tiempos que corren, tasar resulta algo muy complejo, delicado y no cabe duda de que hay que tomarse algo de tiempo para definir y a la vez transmitir la correspondiente tasación.
+
+Tasamos para compra-venta y arrendamiento en toda la capital, tanto sean casas, apartamentos, locales comerciales, industriales, galpones y terrenos.
+
+Existe lo que llamamos Tasaciones sin Cargo, que consiste en visitar el bien a tasar. Dicho bien es tasado y previo acuerdo de partes, a corto plazo ingresa en nuestra cartera de material a ofrecer en determinadas condiciones anteriormente estipuladas.
+
+Tasaciones con cargo, son aquellas de carácter judicial, futura sucesión o planificación familiar, o simplemente para definir una futura compra venta.
+
+En caso de que la propiedad tasada ingrese en nuestra cartera a ofrecer y se concrete la compra-venta, de la comisión correspondiente por tal operación se debitarán los honorarios abonados en su oportunidad por dicha tasación.
+
+Como más arriba mencionábamos, para tasar un inmueble se necesita mucha profesionalidad, conocer profundamente la actualidad del mercado inmobiliario tan cambiante y cíclico, pero ante todo lo más sagrado: Seriedad 100%.
+
+Consúltenos a través de cualquier medio, vía mail, nuestra página web, telefónicamente o visítenos en cualquiera de nuestras dos oficinas que con gusto lo atenderemos.
+     </p>
+    </div>
+  
+
+
+
+</aside>
+
+
+</div>
+
+<head>
+
 <?php $todo=Yii::app()->ImagenesInmueble->slider();
       $fotos= $todo[0];
       $titulo= $todo[1];
@@ -32,7 +73,8 @@ $this->pageTitle=Yii::app()->name;
 
 
 ?>
-  
+
+  </head>
 <div id="mapa">
 <?php
 echo Yii::app()->Mapas->mapa();
