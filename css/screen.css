@@ -240,8 +240,10 @@ hr.space {background:#fff;color:#fff;visibility:hidden;}
 width: 30%;
 height: 800px;} 
 .inmueble {
-    float: center;
-	width: 70%}
+    width : 86%;
+
+margin-left : 7%;}
+
 
 .libre{
    background: green;
@@ -258,6 +260,7 @@ height: 800px;}
 .resultado{
 	background-image:url('../imagenes/shattered.png');
 	background-size: cover;
+  
 }
 
 .resultadoprincipal{
@@ -302,3 +305,12 @@ height: 800px;}
     border-width: 5px;
     width: 200px;
 }
+.centrarImagenes{width: 30%;
+margin: 10px;
+float: right;
+background-image:url('../imagenes/shattered.png');
+    margin: 0.714285714rem;
+    border: 1px solid black  ;
+    padding: 10px;
+    padding: 0.714285714rem;
+  }

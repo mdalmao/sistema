@@ -45,16 +45,16 @@
 			<ul class="nav nav-pills">
 
 
-			 <li> <a href="/yii/sistema/" class="btn btn-primary btn-large"><i class="icon-white icon-home"></i> Inicio</a> </li>
-			 <li> <a href="/yii/sistema/site/Mision" class="btn btn-primary btn-large"><i class="icon-white "></i> Misión</a> </li>
-			 <li> <a href="/yii/sistema/site/Vision" class="btn btn-primary btn-large"><i class="icon-white"></i> Visión</a> </li>
-			 <li> <a href="/yii/sistema/site/alquileres" class="btn btn-success btn-large"><i class="icon-white "></i> Alquileres</a> </li>
-			 <li> <a href="/yii/sistema/site/ventas" class="btn btn-success btn-large"><i class="icon-white "></i> Ventas</a> </li>
-			 <li> <a href="/yii/sistema/site/casas" class="btn btn-success btn-large"><i class="icon-white"></i> Casas</a> </li>
-			<li> <a href="/yii/sistema/site/apartamentos" class="btn btn btn-success btn-large"><i class="icon-white "></i> Apartamentos</a> </li>
-			<li> <a href="/yii/sistema/site/campos" class="btn btn-success btn-large"><i class="icon-white"></i> Campos</a> </li>
+			 <li> <a href="/yii/sistema/" class=" btn-primary btn-large"><i class="icon-white icon-home"></i> Inicio</a> </li>
+			 <li> <a href="/yii/sistema/site/Mision" class=" btn-primary btn-large"><i class="icon-white "></i> Misión</a> </li>
+			 <li> <a href="/yii/sistema/site/Vision" class=" btn-primary btn-large"><i class="icon-white"></i> Visión</a> </li>
+			 <li> <a href="/yii/sistema/site/alquileres" class=" btn-success btn-large"><i class="icon-white "></i> Alquileres</a> </li>
+			 <li> <a href="/yii/sistema/site/ventas" class="btn-success btn-large"><i class="icon-white "></i> Ventas</a> </li>
+			 <li> <a href="/yii/sistema/site/casas" class=" btn-success btn-large"><i class="icon-white"></i> Casas</a> </li>
+			<li> <a href="/yii/sistema/site/apartamentos" class=" btn-success btn-large"><i class="icon-white "></i> Apartamentos</a> </li>
+			<li> <a href="/yii/sistema/site/campos" class="btn-success btn-large"><i class="icon-white"></i> Campos</a> </li>
 	    
-			 <li> <a href="/yii/sistema/site/contact" class="btn btn-primary btn-large"><i class="icon-white icon-envelope"></i> Contacto</a> </li>    
+			 <li> <a href="/yii/sistema/site/contact" class=" btn-primary btn-large"><i class="icon-white icon-envelope"></i> Contacto</a> </li>    
 			
 			     <form class="navbar-form navbar-left" role="search">
 

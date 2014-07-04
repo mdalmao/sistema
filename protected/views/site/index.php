@@ -4,6 +4,18 @@
 $this->pageTitle=Yii::app()->name;
 
 ?>
+
+ <aside>
+    <div class= "centrarImagenes"> 
+    <p> <img class ="img-rounded" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'imm.jpg' ; ?>"></img>
+       <a href="http://www.montevideo.gub.uy/tramites/">http://www.montevideo.gub.uy/tramites</a>
+
+    </p>
+      <p><img class ="img-rounded" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'brou.jpg' ; ?>"></img>
+      <a href="http://www.brou.com.uy/web/guest/home">http://www.brou.com.uy/web/guest/home</a>
+     </p>
+    </div>
+  </aside>
 <?php $todo=Yii::app()->ImagenesInmueble->slider();
       $fotos= $todo[0];
       $titulo= $todo[1];
@@ -20,7 +32,7 @@ $this->pageTitle=Yii::app()->name;
 
 
 ?>
-
+  
 <div id="mapa">
 <?php
 echo Yii::app()->Mapas->mapa();
