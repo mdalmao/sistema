@@ -144,6 +144,7 @@ class TbCarousel extends CWidget
 					$item['imageOptions'] = array();
 
 				echo CHtml::image($item['image'], $item['alt'], $item['imageOptions']);
+					
 			}
 
 			if (!empty($item['caption']) && (isset($item['label']) || isset($item['caption'])))

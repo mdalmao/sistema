@@ -40,6 +40,20 @@ class SiteController extends Controller
        
 	}
 
+     public function actionPrincipal()
+	{
+		// renders the view file 'protected/views/site/index.php'
+		// using the default layout 'protected/views/layouts/main.php'
+
+		 $inmuebles = Inmueble::model()->findAll();
+		 
+		// $this->render('index', array('inmuebles' => $inmuebles));
+
+	   $this->render('principal',array('model'=>$inmuebles));
+
+       
+	}
+  
 	/**
 	 * This is the action to handle external exceptions.
 	 */

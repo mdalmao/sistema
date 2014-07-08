@@ -324,3 +324,124 @@ background-image:url('../imagenes/shattered.png');
     padding: 10px;
     padding: 0.714285714rem;
   }
+
+
+#destacado1{
+  width: 300px;
+  height: 200px;
+  float: left;
+  margin:  0px 60px 20px;
+  
+}
+
+#destacado1-arriba{
+  width: 300px;
+  height: 200px;
+  margin: -199px 0px 21px;
+  opacity: 0.6;
+  background: black;
+  color: white;
+}
+
+#destacado2{
+  width: 300px;
+  height: 200px;
+  float: left;
+  margin:  0px 60px 20px;
+}
+
+#destacado2-arriba{
+  width: 300px;
+  height: 200px;
+  margin: -199px 0px 21px;
+  opacity: 0.6;
+  background: black;
+  color: white;
+}
+
+#destacado3{
+  width: 300px;
+  height: 200px;
+  float: left;
+  margin:  0px 60px 20px;
+}
+
+#destacado3-arriba{
+  width: 300px;
+  height: 200px;
+  margin: -199px 0px 21px;
+  opacity: 0.6;
+  background: black;
+  color: white;
+}
+
+#destacado4{
+  width: 300px;
+  height: 200px;
+  float: left;
+  margin: 22px 59px 20px;
+  
+}
+
+
+#destacado4-arriba{
+  width: 300px;
+  height: 200px;
+  margin: -199px 0px 21px;
+  opacity: 0.6;
+  background: black;
+  color: white;
+}
+
+#destacado5{
+  width: 300px;
+  height: 200px;
+  float: left;
+  margin: 22px 59px 20px;
+}
+
+#destacado5-arriba{
+  width: 300px;
+  height: 200px;
+  margin: -199px 0px 21px;
+  opacity: 0.6;
+  background: black;
+  color: white;
+}
+#destacado6{
+  width: 300px;
+  height: 200px;
+  float: left;
+  margin: 22px 59px 20px;
+}
+
+#destacado6-arriba{
+  width: 300px;
+  height: 200px;
+  margin: -199px 0px 21px;
+  opacity: 0.6;
+  background: black;
+  color: white;
+}
+
+#contenido-principal{
+
+width: 100%;
+height: 1000px;
+
+}
+
+.vermas{
+  width: 40px;
+  height: 20px;
+ margin: -46px 104px 39px;
+  opacity: 0.6;
+  background: black;
+  color: white;
+}
+
+#des{
+color:black;
+font-size:40px;
+margin-left: 40%;
+}
