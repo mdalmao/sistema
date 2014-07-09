@@ -13,7 +13,7 @@ $this->breadcrumbs=array(
 <div class="inmueble">
 	
 	<?php foreach ($model as $Casas): ?>
-	<form action="CasasGenerico"  method="post">
+	<form action="DescripcionInmueble"  method="post">
 		<div class="resultado">
 			<input type="hidden" name="idinmueble" value="<?php echo $Casas['idInmueble']; ?>"/>
 			<p class="descripcion"> 

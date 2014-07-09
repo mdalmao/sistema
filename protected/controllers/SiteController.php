@@ -149,7 +149,7 @@ class SiteController extends Controller
 
 
 	}
-	public function actionCasasGenerico()
+	public function actionDescripcionInmueble()
 	{
 
 		//ver como obtener el id del inmueble enviado por post
@@ -157,49 +157,32 @@ class SiteController extends Controller
 		$Criteria = new CDbCriteria();
 		$id =$_POST['idinmueble'];
 		$Criteria->condition = "idinmueble = $id";
-    	
-    	$Casas = Inmcasa::model()->findAll($Criteria);
     	$Inmueble = Inmueble::model()->findAll($Criteria);
     	$Imagenes = Imagenes::model()->findAll($Criteria);
-    	
-
-	   $this->render('casasGenerico',array('model' =>$Casas, 'model2' =>$Inmueble,'model3'=>$Imagenes));
-	}
-	public function actionCampoGenerico()
-	{
-		//ver como obtener el id del inmueble enviado por post
-		//setie con id = 5 a modo de como quedaria la vista
-		$Criteria = new CDbCriteria();
-		$id =$_POST['idinmueble'];
-		$Criteria->condition = "idinmueble = $id";
-    	$Campo = Inmcampos::model()->findAll($Criteria);
-    	$Inmueble = Inmueble::model()->findAll($Criteria);
-    	$Imagenes = Imagenes::model()->findAll($Criteria);
-    	
-
-	   $this->render('campoGenerico',array('model' =>$Campo, 'model2' =>$Inmueble,'model3'=>$Imagenes));
+    	foreach ($Inmueble as $aux ){
+	    	
+			if ( $aux['TipoInmueble']== 'CASA') {
+				$Casas = Inmcasa::model()->findAll($Criteria);
+	    	   	
+	    	   $this->render('casasGenerico',array('model' =>$Casas, 'model2' =>$Inmueble,'model3'=>$Imagenes));
+			}
+			elseif ($aux['TipoInmueble']== 'CAMPO') {
+				$Campo = Inmcampos::model()->findAll($Criteria);
+				$this->render('campoGenerico',array('model' =>$Campo, 'model2' =>$Inmueble,'model3'=>$Imagenes));
+			}
+			else
+			{
+				$Apartamento = Inmapartoficina::model()->findAll($Criteria);
+    		   	$this->render('apartamentoGenerico',array('model' =>$Apartamento, 'model2' =>$Inmueble,'model3'=>$Imagenes));
 	
-    	
+			}
+		}
+
 		
-	}
-	public function actionApartamentoGenerico()
-	{
-		//ver como obtener el id del inmueble enviado por post
-		//setie con id = 3 a modo de como quedaria la vista
-		$Criteria = new CDbCriteria();
-		$id =$_POST['idinmueble'];
-		$Criteria->condition = "idinmueble = $id";
-    	$Campo = Inmapartoficina::model()->findAll($Criteria);
-    	$Inmueble = Inmueble::model()->findAll($Criteria);
-    	$Imagenes = Imagenes::model()->findAll($Criteria);
     	
-
-	   $this->render('apartamentoGenerico',array('model' =>$Campo, 'model2' =>$Inmueble,'model3'=>$Imagenes));
+	}
 	
 	
-    	
-		 //$this->render('apartamentoGenerico');
-	}
 	/**
 	 * Displays the contact page
 	 */

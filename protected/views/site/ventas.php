@@ -59,43 +59,17 @@ $this->breadcrumbs=array(
 			</p>
 			<?php $id = $Ventas['idInmueble']; ?>
  			<img class ="imagen" src="<?php echo Yii::app()->ImagenesInmueble->imagenprincipal($id); ?>" /> 
- 				<?php if ($Ventas['TipoInmueble'] == 'CASA'): ?>
+ 				
 
 
-				 <form action="CasasGenerico"  method="post">
+				 <form action="DescripcionInmueble"  method="post">
  					<input type="hidden" name="idinmueble" value="<?php echo $Ventas['idInmueble']; ?>"/>	
 					 <div class="lateral" >
 					<?php echo CHtml::submitButton('Ver Mas'); ?>
 					</div>
 				 </form>
 
-				<?php endif; ?>
-
-
-				<?php if ($Ventas['TipoInmueble'] == 'CAMPO'): ?>
-
-					<form action="CampoGenerico"  method="post">
-					<input type="hidden" name="idinmueble" value="<?php echo $Ventas['idInmueble']; ?>"/>	
-					<div class="lateral" >
-					<?php echo CHtml::submitButton('Ver Mas'); ?>
-					</div>
-				 
-				
-				</form>
-
-				<?php endif; ?>
-				<?php if ($Ventas['TipoInmueble'] == 'APARTAMENTO'): ?>
-
-
-				<form action="ApartamentoGenerico"  method="post">
-					<input type="hidden" name="idinmueble" value="<?php echo $Alquilere['idInmueble']; ?>"/>	
-					<div class="lateral" >
-					<?php echo CHtml::submitButton('Ver Mas'); ?>
-					</div>
-				</form>
-				
-
-				<?php endif; ?>
+							
 			 
 			
 				

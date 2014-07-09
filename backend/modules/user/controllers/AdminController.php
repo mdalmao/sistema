@@ -68,9 +68,12 @@ class AdminController extends Controller
 	{
 		$model=new User;
 		$profile=new Profile;
+		$datospersonales=new Datospersonales;
 		if(isset($_POST['User']))
 		{
 			$model->attributes=$_POST['User'];
+			//variable para la tabla de datos personales
+			$datospersonales->attributes=$_POST['datospersonales'];
 			$model->activkey=Yii::app()->controller->module->encrypting(microtime().$model->password);
 			$model->createtime=time();
 			$model->lastvisit=time();
@@ -79,6 +82,8 @@ class AdminController extends Controller
 			if($model->validate()&&$profile->validate()) {
 				$model->password=Yii::app()->controller->module->encrypting($model->password);
 				if($model->save()) {
+
+					$model->id= $datospersonales->idUsuario;
 					$profile->user_id=$model->id;
 					$profile->save();
 				}
@@ -89,6 +94,7 @@ class AdminController extends Controller
 		$this->render('create',array(
 			'model'=>$model,
 			'profile'=>$profile,
+			'modeldatos'=>$datospersonales,
 		));
 	}
 

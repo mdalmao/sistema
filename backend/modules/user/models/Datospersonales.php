@@ -1,26 +1,29 @@
 <?php
 
 /**
- * This is the model class for table "cliente".
+ * This is the model class for table "datospersonales".
  *
- * The followings are the available columns in table 'cliente':
+ * The followings are the available columns in table 'datospersonales':
  * @property integer $idUsuario
- * @property string $Nacionalidad
+ * @property string $CIUsuario
+ * @property string $NombreUsuario
+ * @property string $ApellidoUsuario
+ * @property string $DireccionUsuario
+ * @property string $Telefono
+ * @property string $FechaNacimiento
  *
  * The followings are the available model relations:
- * @property Alquiler[] $alquilers
- * @property Datospersonales $idUsuario0
+ * @property Cliente $cliente
  * @property Inmueble[] $inmuebles
- * @property Compraventa[] $compraventas
  */
-class Cliente extends CActiveRecord
+class Datospersonales extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'cliente';
+		return 'datospersonales';
 	}
 
 	/**
@@ -31,12 +34,13 @@ class Cliente extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('idUsuario', 'required'),
-			array('idUsuario', 'numerical', 'integerOnly'=>true),
-			array('Nacionalidad', 'length', 'max'=>45),
+			array('CIUsuario, NombreUsuario, ApellidoUsuario', 'length', 'max'=>45),
+			array('DireccionUsuario', 'length', 'max'=>90),
+			array('Telefono', 'length', 'max'=>20),
+			array('FechaNacimiento', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idUsuario, Nacionalidad', 'safe', 'on'=>'search'),
+			array('idUsuario, CIUsuario, NombreUsuario, ApellidoUsuario, DireccionUsuario, Telefono, FechaNacimiento', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -48,10 +52,8 @@ class Cliente extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'alquilers' => array(self::HAS_MANY, 'Alquiler', 'IdCliente'),
-			'idUsuario0' => array(self::BELONGS_TO, 'Datospersonales', 'idUsuario'),
-			'inmuebles' => array(self::MANY_MANY, 'Inmueble', 'clienteinmueble(IdUsuario, IdInmueble)'),
-			'compraventas' => array(self::HAS_MANY, 'Compraventa', 'IdCliente'),
+			'cliente' => array(self::HAS_ONE, 'Cliente', 'idUsuario'),
+			'inmuebles' => array(self::HAS_MANY, 'Inmueble', 'idUsuario'),
 		);
 	}
 
@@ -62,7 +64,12 @@ class Cliente extends CActiveRecord
 	{
 		return array(
 			'idUsuario' => 'Id Usuario',
-			'Nacionalidad' => 'Nacionalidad',
+			'CIUsuario' => 'CI',
+			'NombreUsuario' => 'Nombre',
+			'ApellidoUsuario' => 'Apellido',
+			'DireccionUsuario' => 'Direccion',
+			'Telefono' => 'Telefono',
+			'FechaNacimiento' => 'Fecha Nacimiento',
 		);
 	}
 
@@ -85,7 +92,12 @@ class Cliente extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('idUsuario',$this->idUsuario);
-		$criteria->compare('Nacionalidad',$this->Nacionalidad,true);
+		$criteria->compare('CIUsuario',$this->CIUsuario,true);
+		$criteria->compare('NombreUsuario',$this->NombreUsuario,true);
+		$criteria->compare('ApellidoUsuario',$this->ApellidoUsuario,true);
+		$criteria->compare('DireccionUsuario',$this->DireccionUsuario,true);
+		$criteria->compare('Telefono',$this->Telefono,true);
+		$criteria->compare('FechaNacimiento',$this->FechaNacimiento,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -96,7 +108,7 @@ class Cliente extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Cliente the static model class
+	 * @return Datospersonales the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
