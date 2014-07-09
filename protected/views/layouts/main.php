@@ -55,7 +55,10 @@
 			<li> <a href="/yii/sistema/site/campos" class="btn-success btn-large"><i class="icon-white"></i> Campos</a> </li>
 	    
 			 <li> <a href="/yii/sistema/site/contact" class=" btn-primary btn-large"><i class="icon-white icon-envelope"></i> Contacto</a> </li>    
-			
+		
+
+		    <li> <a href="/yii/sistema/site/buscar" class="btn-primary btn-large"><i class="icon-search icon-white"></i> Buscador</a> </li>
+	    	     <!--
 			     <form class="navbar-form navbar-left" role="search">
 
 			        <input type="text" class="search-query" placeholder="Buscar" />        
@@ -63,7 +66,7 @@
 
 			        <input id="mySubmit" type="submit" value="Go" class="hidden" />
 			     </form>    
-
+                !-->
 			</ul>
 
 		</div>

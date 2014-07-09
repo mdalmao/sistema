@@ -269,6 +269,14 @@ margin-left : 7%;}
 	background-size: cover;	
 }
 
+#resultadobuscador{
+   background-image: url("../imagenes/shattered.png");
+    background-size: cover;
+    width: 1000px;
+    margin-top: -172px;
+    margin-left: 246px;
+}
+
 #resultadoPrincipal{
 	margin-top: -512px;
 }
@@ -287,7 +295,6 @@ margin-left : 7%;}
 	border-style: solid;
 	border-color: black;
     border-width: 5px;
-    width: 200px;
     background: gray;
 }
 
@@ -300,10 +307,7 @@ margin-left : 7%;}
 }
 
 #filtroTipo{
-	border-style: solid;
-	border-color: gray;
-    border-width: 5px;
-    width: 200px;
+	width: 200px;
 }
 .centrarImagenes{width: 30%;
 margin: 10px;
@@ -445,3 +449,21 @@ color:black;
 font-size:40px;
 margin-left: 40%;
 }
+
+.texto{
+  color:black;
+  font-size: 12px;
+}
+
+.carousel-caption{
+  margin-left: 78px;
+  width: 344px;
+}
+
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    display: block;
+    line-height: 1;
+    margin-left: 78px;
+}
+
+

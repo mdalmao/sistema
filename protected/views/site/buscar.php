@@ -1,12 +1,11 @@
 <?php
 /* @var $this SiteController */
-
 $this->pageTitle=Yii::app()->name;
 ?>
 
 
 <?php 
-   /*
+  
      $todo=Yii::app()->ImagenesInmueble->slider();
       $fotos= $todo[0];
       $titulo= $todo[1];
@@ -20,14 +19,14 @@ $this->pageTitle=Yii::app()->name;
         array('image'=> $fotos[4], 'label'=>$titulo[4], 'caption'=>$descripcion[4]),
         array('image'=> $fotos[5], 'label'=>$titulo[5], 'caption'=> $descripcion[5]),
     ), )); 
-    */
+    
 ?>
 
 <?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
 <script type="text/javascript">
 /*<![CDATA[*/
 jQuery(function($) {
-    $( "p" ).click(function() {
+   $( "p" ).click(function() {
     var htmlString = $( this ).html();
     var padre = $(this).parents('div:eq(0)').attr('id');
     if ( padre == "filtrosaplicados"){
@@ -66,7 +65,7 @@ jQuery(function($) {
          'url':'/yii/sistema/backend.php/site/ResultDatos/?filtros=' + str2,
          'cache':false,
          'success':function(html){
-            jQuery("#resultado").html(html)
+            jQuery("#resultadobuscador").html(html)
          }
          });
 
@@ -75,78 +74,79 @@ jQuery(function($) {
 /*]]>*/
 </script>
 
-<div id="filtradolateral">
-Filtrado Por: 
-<div id="filtrosaplicados">
-</div>
 
+<div id="filtradolateral">
+<div id="filtrosaplicados">
+<p class="texto"> Filtrado Por: </p> 
+</div>
 <div id="filtroTipo">
-Inmueble:
+<p class="texto"> Inmueble: </p>
   <p>Apartamento</p>
   <p>Casa</p>
   <p>Campo</p>
 </div>
-
 <div id="filtrooperacion">
-Operacion:
+<p class="texto"> Operacion: </p>
   <p>Venta</p>
   <p>Alquiler</p>
 </div>
-
 <div id="filtroubicacion">
 </div>
-
 <div id="filtrometro">
 </div>
-
 <div id="filtroprecio">
 </div>
-
-
 </div>
+<div id="resultadobuscador">
+
+  <?php foreach ($model as $inmueble): ?>
+      <div  class="resultado">
+      
+      <p class="descripcion"> 
+        Descripcion:
+        <?php echo CHtml::decode($inmueble['Descripcion']);  ?> 
+      </p>
+      <p class="estado">
+        <p> Estado:
+         <?php echo CHtml::decode($inmueble['Estado']);  ?> 
+        </p>
+      </p>
+      <p class="precio"> 
+        <p> Precio:
+        <?php echo CHtml::decode($inmueble['Precio']);  ?> 
+        </p>
+      </p>
+      <p class="departamento"> 
+        <p>Departamento:
+        <?php echo CHtml::decode($inmueble['Departamento']);  ?> 
+        </p>
 
 
+      </p>
+      <p class="ciudad">
+        <p>Ciudad:
+         <?php echo CHtml::decode($inmueble['Ciudad']);  ?>
+        </p>
+       </p>
+      <p class="direccion"> 
+        <p>
+          Zona: 
+          <?php echo CHtml::decode($inmueble['Zona']); ?>
+        </p>
+        <p> Direccion:  
 
+        <?php echo CHtml::decode($inmueble['Direccion']);  ?> 
 
-
-
- 
-   <div id="resultado">
-    Datos
-   <!--
-
-   <div id="mapa">
-   <?php
-    echo Yii::app()->Mapas->mapa();
-   ?>
-   </div>
-
-   <div class="container"> 
-   <div id="buscador">
-   <h1> Inmuebles </h1>
-   <select id="tipoinmueble" class="selectpicker" data-style="btn-primary" data-width="auto">
-   <option value="1"> Casa </option>
-   <option value="2"> Apartamento </option>
-   </select>
-
-   <select id="departamento" data-width="auto">
-   <option value="1"> Todos los departamentos </option>
-   <option value="2"> Montevideo </option>
-   </select>
-
-   <select id="ciudad" data-width="auto">
-   <option value="1"> Todas las Ciudades </option>
-   <option value="2"> Montevideo </option>
-   </select>   
-    
-   <button type="submit" class="btn btn-primary">Buscar</button>  
-   </div>
-
+        </p>
+      </p>
+      </div>
+     <?php endforeach; ?>
+     
+</div>
 
    
-   !-->
-   </div>
-</div>
+   
+
 
 
 
