@@ -8,8 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Users', 'url'=>array('index')),
-	array('label'=>'Create Users', 'url'=>array('create')),
+	array('label'=>'Lista de Empleados', 'url'=>array('index')),
+	array('label'=>'Crear Empleados', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,11 +26,10 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Users</h1>
+<h1>Administrador de Empleados</h1>
 
 <p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
+Para realizar busquedas escriba en la columna que corresponda el empleado a buscar
 </p>
 
 <?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>

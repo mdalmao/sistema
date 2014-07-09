@@ -1,18 +1,18 @@
 <?php
-/* @var $this InmuebleController */
+/* @var $this UsersController */
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Inmuebles',
+	'Users',
 );
 
 $this->menu=array(
-	array('label'=>'Create Inmueble', 'url'=>array('create')),
-	array('label'=>'Manage Inmueble', 'url'=>array('admin')),
+	array('label'=>'Crear Empleados', 'url'=>array('create')),
+	array('label'=>'Gestionar Empleados', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Inmuebles</h1>
+<h1>Users</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
