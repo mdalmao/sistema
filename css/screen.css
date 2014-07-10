@@ -467,3 +467,7 @@ margin-left: 40%;
 }
 
 
+.mapainmueble {
+  z-index: 1000;
+   
+}

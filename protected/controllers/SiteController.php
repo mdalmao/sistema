@@ -22,6 +22,51 @@ class SiteController extends Controller
 		);
 	}
 
+
+        public function actionResultDatos()
+	{
+		$Criteria = new CDbCriteria(); $filtros=$_GET['filtros'];
+        $condicion = "";
+        $valores=split(";",$filtros);
+        for($i=0;$i<count($valores);$i++){
+           if ( $valores[$i] == "Apartamento"){
+           	 if ($condicion != ""){
+                 $condicion = $condicion . " and ";
+              } 
+             $condicion = $condicion . " TipoInmueble = 'APARTAMENTO' AND Disponible = 1 ";   	
+           }
+           if ( $valores[$i] == "Casa"){
+           	 if ($condicion != ""){
+                 $condicion = $condicion . " and ";
+              } 
+             $condicion = $condicion . " TipoInmueble = 'CASA' AND Disponible = 1 ";  	
+           }
+           if ( $valores[$i] == "Campo"){
+           	 if ($condicion != ""){
+                 $condicion = $condicion . " and ";
+              } 
+             $condicion = $condicion . " TipoInmueble = 'CAMPO' AND Disponible = 1 ";  	
+           }
+
+           if ( $valores[$i] == "Alquiler"){
+           	 if ($condicion != ""){
+                 $condicion = $condicion . " and ";
+              } 	 
+             $condicion =$condicion . " QueHacer = 'ALQUILAR' AND Disponible = 1 ";	
+           }
+
+           if ( $valores[$i] == "Venta"){
+           	 if ($condicion != ""){
+                 $condicion = $condicion . " and ";
+              } 
+            $condicion = $condicion . " QueHacer = 'VENDER' AND Disponible = 1 ";
+           }          
+        }
+        
+        $Criteria->condition = $condicion;
+    	$model = Inmueble::model()->findAll($Criteria);	
+		$this->renderPartial('_ajaxbuscador', array('model' => $model));
+	}
 	/**
 	 * This is the default 'index' action that is invoked
 	 * when an action is not explicitly requested by users.

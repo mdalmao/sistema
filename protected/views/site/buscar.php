@@ -34,19 +34,21 @@ jQuery(function($) {
        if (valor == "Apartamento" || valor =="Casa" || valor=="Campo"){
         $("#filtroTipo").show();
         $("#filtroTipo").append($(this));  
-     }
-      if (valor == "Venta" || valor =="Alquiler"){
+       }
+       if (valor == "Venta" || valor =="Alquiler"){
         $("#filtrooperacion").show();
         $("#filtrooperacion").append($(this));  
        }        
     }
     else{
-      $("#filtrosaplicados").append($(this));
-      if  (padre == "filtroTipo"){
-        $("#filtroTipo").hide();
-      }if  (padre == "filtrooperacion"){
-        $("#filtrooperacion").hide();
-      }       
+      if ( padre == "filtroTipo" || padre == "filtrooperacion"  ){
+        $("#filtrosaplicados").append($(this));
+        if  (padre == "filtroTipo"){
+          $("#filtroTipo").hide();
+        }if  (padre == "filtrooperacion"){
+          $("#filtrooperacion").hide();
+        } 
+      }      
     }
 
       var filtros = $("#filtrosaplicados").html();
@@ -76,17 +78,19 @@ jQuery(function($) {
 
 
 <div id="filtradolateral">
-<div id="filtrosaplicados">
 <p class="texto"> Filtrado Por: </p> 
+<div id="filtrosaplicados">
 </div>
-<div id="filtroTipo">
+
 <p class="texto"> Inmueble: </p>
+<div id="filtroTipo">
   <p>Apartamento</p>
   <p>Casa</p>
   <p>Campo</p>
 </div>
-<div id="filtrooperacion">
+
 <p class="texto"> Operacion: </p>
+<div id="filtrooperacion">
   <p>Venta</p>
   <p>Alquiler</p>
 </div>
@@ -107,38 +111,44 @@ jQuery(function($) {
         <?php echo CHtml::decode($inmueble['Descripcion']);  ?> 
       </p>
       <p class="estado">
-        <p> Estado:
+        </p> Estado:
          <?php echo CHtml::decode($inmueble['Estado']);  ?> 
         </p>
       </p>
       <p class="precio"> 
-        <p> Precio:
+        </p> Precio:
         <?php echo CHtml::decode($inmueble['Precio']);  ?> 
         </p>
       </p>
       <p class="departamento"> 
-        <p>Departamento:
+        </p>Departamento:
         <?php echo CHtml::decode($inmueble['Departamento']);  ?> 
         </p>
 
 
       </p>
       <p class="ciudad">
-        <p>Ciudad:
+        </p>Ciudad:
          <?php echo CHtml::decode($inmueble['Ciudad']);  ?>
         </p>
        </p>
       <p class="direccion"> 
-        <p>
+        </p>
           Zona: 
           <?php echo CHtml::decode($inmueble['Zona']); ?>
         </p>
-        <p> Direccion:  
+        </p> Direccion:  
 
         <?php echo CHtml::decode($inmueble['Direccion']);  ?> 
 
         </p>
       </p>
+      <div class="mapainmueble">
+          <?php 
+          echo Yii::app()->Mapas->mapa_inmueble($inmueble['idInmueble']);
+          ?>
+      </div>
+
       </div>
      <?php endforeach; ?>
      

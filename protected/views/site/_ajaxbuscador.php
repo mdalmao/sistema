@@ -4,11 +4,10 @@
    <p class="descripcion"> <?php echo CHtml::decode($inmueble['Descripcion']);  ?> </p>
    <?php $id = $inmueble['idInmueble']; ?> 
    <img class ="imagen" src="<?php echo Yii::app()->ImagenesInmueble->imagenprincipal($inmueble['idInmueble']); ?>" /> 
-   <div class="mapainmueble">
+    <div class="mapainmueble">
           <?php 
-          echo Yii::app()->Mapas->mapa_inmueble($inmueble['idInmueble']);
-
+          echo Yii::app()->Mapas->mapa_inmueble($id);
           ?>
-      </div>
+    </div>
    </div>
 <?php endforeach; ?>

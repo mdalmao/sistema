@@ -133,4 +133,44 @@ class Mapas extends CApplicationComponent{
    $gMap->enableMarkerClusterer(new EGMapMarkerClusterer());
    $gMap->renderMap();
   }
+
+  public function mapa_inmueble($id){
+   Yii::import('ext.EGMap.*');
+   $Criteria = new CDbCriteria();
+   $Criteria->condition = "idinmueble = ". $id;
+   $Inmuebles = Inmueble::model()->findAll($Criteria);
+   $gMap = new EGMap();
+   $gMap->zoom = 10;
+  
+   foreach ($Inmuebles as $inmueble):
+    $x= $inmueble['x'];
+    $y= $inmueble['y'];
+   endforeach;
+    $gMap->setCenter($x,$y);
+   $marker = new EGMapMarkerWithLabel($x,$y);
+   $label_options = array(
+     'backgroundColor'=>'yellow',
+     'opacity'=>'0.75',
+     'width'=>'100px',
+     'color'=>'blue'
+    );
+   $info_window_b = new EGMapInfoWindow('<div> Ubicacion del Inmueble</div>');
+  // $marker->labelContent= 'Ubicacion';
+   $marker->labelStyle=$label_options;
+   $marker->draggable=false;
+   $marker->labelClass='labels';
+   $marker->raiseOnDrag= true;
+   $marker->setLabelAnchor(new EGMapPoint(22,0));
+   $marker->addHtmlInfoWindow($info_window_b);
+   $gMap->addMarker($marker);
+   $gMap->enableMarkerClusterer(new EGMapMarkerClusterer());
+   $gMap->renderMap();
+  }
+
 } 
+
+
+
+
+
+
