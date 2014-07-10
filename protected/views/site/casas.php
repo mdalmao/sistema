@@ -11,7 +11,6 @@ $this->breadcrumbs=array(
 
 <h1>Casas</h1>
 <div class="inmueble">
-	
 	<?php foreach ($model as $Casas): ?>
 	<form action="DescripcionInmueble"  method="post">
 		<div class="resultado">

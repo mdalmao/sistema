@@ -71,6 +71,8 @@ jQuery(function($) {
          }
          });
 
+  
+
     });
 });
 /*]]>*/
@@ -105,11 +107,15 @@ jQuery(function($) {
 
   <?php foreach ($model as $inmueble): ?>
       <div  class="resultado">
-      
+
+
       <p class="descripcion"> 
         Descripcion:
         <?php echo CHtml::decode($inmueble['Descripcion']);  ?> 
       </p>
+
+       <img class ="imagen" src="<?php echo Yii::app()->ImagenesInmueble->imagenprincipal($inmueble['idInmueble']); ?>" /> 
+      
       <p class="estado">
         </p> Estado:
          <?php echo CHtml::decode($inmueble['Estado']);  ?> 

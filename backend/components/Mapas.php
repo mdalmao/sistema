@@ -135,37 +135,71 @@ class Mapas extends CApplicationComponent{
   }
 
   public function mapa_inmueble($id){
-   Yii::import('ext.EGMap.*');
-   $Criteria = new CDbCriteria();
-   $Criteria->condition = "idinmueble = ". $id;
-   $Inmuebles = Inmueble::model()->findAll($Criteria);
-   $gMap = new EGMap();
-   $gMap->zoom = 10;
-  
-   foreach ($Inmuebles as $inmueble):
-    $x= $inmueble['x'];
-    $y= $inmueble['y'];
-   endforeach;
-    $gMap->setCenter($x,$y);
-   $marker = new EGMapMarkerWithLabel($x,$y);
-   $label_options = array(
-     'backgroundColor'=>'yellow',
-     'opacity'=>'0.75',
-     'width'=>'100px',
-     'color'=>'blue'
+    Yii::import('ext.EGMap.*');
+ 
+    $gMap = new EGMap();
+    $gMap->zoom = 10;
+    $mapTypeControlOptions = array(
+     'position'=> EGMapControlPosition::LEFT_BOTTOM,
+     'style'=>EGMap::MAPTYPECONTROL_STYLE_DROPDOWN_MENU
     );
-   $info_window_b = new EGMapInfoWindow('<div> Ubicacion del Inmueble</div>');
-  // $marker->labelContent= 'Ubicacion';
-   $marker->labelStyle=$label_options;
-   $marker->draggable=false;
-   $marker->labelClass='labels';
-   $marker->raiseOnDrag= true;
-   $marker->setLabelAnchor(new EGMapPoint(22,0));
-   $marker->addHtmlInfoWindow($info_window_b);
-   $gMap->addMarker($marker);
+    $gMap->mapTypeControlOptions= $mapTypeControlOptions;
+    $gMap->setCenter(-34.8999799,-56.1348723);
+    // Create GMapInfoWindowc
+    $info_window_a = new EGMapInfoWindow('<div> Inmueble</div>');
+     $info_window_b = new EGMapInfoWindow('<div> Oficina Centrales</div>');
+    $casa = Yii::app()->baseUrl . "/imagenes/casa.jpg";
+  
+    $Criteria = new CDbCriteria();
+    $Criteria->condition = "idinmueble = $id";
+    $Inmuebles = Inmueble::model()->findAll($Criteria);
+     
+    $a= new Mapas();
+    $titulo = "Inmueble";
+    $a->dibujar($gMap,$Inmuebles,$casa,$info_window_a, $titulo);
+   
+    foreach ($Inmuebles as $inmueble):
+        $gMap->setCenter($inmueble['x'],$inmueble['y']);
+       
+   endforeach;
+     
    $gMap->enableMarkerClusterer(new EGMapMarkerClusterer());
    $gMap->renderMap();
+  
+  }
+
+
+   public function mapa_inmueble_modelo($model){
+    Yii::import('ext.EGMap.*');
+ 
+    $gMap = new EGMap();
+    $gMap->zoom = 10;
+    $mapTypeControlOptions = array(
+     'position'=> EGMapControlPosition::LEFT_BOTTOM,
+     'style'=>EGMap::MAPTYPECONTROL_STYLE_DROPDOWN_MENU
+    );
+    $gMap->mapTypeControlOptions= $mapTypeControlOptions;
+    $gMap->setCenter(-34.8999799,-56.1348723);
+    // Create GMapInfoWindowc
+    $info_window_a = new EGMapInfoWindow('<div> Inmueble</div>');
+     $info_window_b = new EGMapInfoWindow('<div> Oficina Centrales</div>');
+    $casa = Yii::app()->baseUrl . "/imagenes/casa.jpg";
+  
+    
+    $Inmuebles = $model;
+     
+    $a= new Mapas();
+    $titulo = "Inmueble";
+    $a->dibujar($gMap,$Inmuebles,$casa,$info_window_a, $titulo);
    
+    foreach ($Inmuebles as $inmueble):
+        $gMap->setCenter($inmueble['x'],$inmueble['y']);
+       
+   endforeach;
+     
+   $gMap->enableMarkerClusterer(new EGMapMarkerClusterer());
+   $gMap->renderMap();
+  
   }
 
 } 
