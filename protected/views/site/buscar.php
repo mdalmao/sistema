@@ -22,6 +22,7 @@ $this->pageTitle=Yii::app()->name;
     
 ?>
 
+
 <?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
 <script type="text/javascript">
 /*<![CDATA[*/
@@ -71,13 +72,44 @@ jQuery(function($) {
          }
          });
 
-  
+
 
     });
+   
+   $( "input[type='text']" ).keypress(function() {
+     var valor= $(this).val();
+     
+        var filtros = $("#filtrosaplicados").html();
+        var find = '<p>';
+        var re = new RegExp(find, 'g');
+        str = filtros.replace(re, '');
+        
+        var find = '</p>';
+        var re = new RegExp(find, 'g');
+        str2 = str.replace(re, ';');      
+
+        var res = filtros.replace("</p>", ";");
+        var resultado =  res.replace("<p>",""); 
+        
+        jQuery.ajax({
+           'url':'/yii/sistema/backend.php/site/ResultDatosTexto/?filtros=' + str2 +'&valor='+ valor,
+           'cache':false,
+           'success':function(html){
+              jQuery("#resultadobuscador").html(html)
+           }
+        });
+      
+
+  });
+
 });
 /*]]>*/
 </script>
 
+<div id="buscadortexto">
+ <input type="text" name="buscador" id="buscarportexto" placeholder="Buscar por Texto"/>
+
+</div>
 
 <div id="filtradolateral">
 <p class="texto"> Filtrado Por: </p> 

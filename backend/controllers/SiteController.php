@@ -167,45 +167,37 @@ class SiteController extends Controller
 		$this->renderPartial('_ajaxviewcalendario', array('idinmueble' => $_GET['id']));
 	}
 
+    
+
     public function actionResultDatos()
 	{
-		$Criteria = new CDbCriteria(); $filtros=$_GET['filtros'];
+		$Criteria = new CDbCriteria(); 
+		$filtros=$_GET['filtros'];
         $condicion = "";
         $valores=split(";",$filtros);
-        for($i=0;$i<count($valores);$i++){
-           if ( $valores[$i] == "Apartamento"){
-           	 if ($condicion != ""){
-                 $condicion = $condicion . " and ";
-              } 
-             $condicion = $condicion . " TipoInmueble = 'APARTAMENTO' AND Disponible = 1 ";   	
-           }
-           if ( $valores[$i] == "Casa"){
-           	 if ($condicion != ""){
-                 $condicion = $condicion . " and ";
-              } 
-             $condicion = $condicion . " TipoInmueble = 'CASA' AND Disponible = 1 ";  	
-           }
-           if ( $valores[$i] == "Campo"){
-           	 if ($condicion != ""){
-                 $condicion = $condicion . " and ";
-              } 
-             $condicion = $condicion . " TipoInmueble = 'CAMPO' AND Disponible = 1 ";  	
-           }
+        $condicion = Yii::app()->Datos->filtros($valores);
+        $Criteria->condition = $condicion;
+    	$model = Inmueble::model()->findAll($Criteria);	
+		$this->renderPartial('_ajaxbuscador', array('model' => $model));
+	}
 
-           if ( $valores[$i] == "Alquiler"){
-           	 if ($condicion != ""){
-                 $condicion = $condicion . " and ";
-              } 	 
-             $condicion =$condicion . " QueHacer = 'ALQUILAR' AND Disponible = 1 ";	
-           }
-
-           if ( $valores[$i] == "Venta"){
-           	 if ($condicion != ""){
-                 $condicion = $condicion . " and ";
-              } 
-            $condicion = $condicion . " QueHacer = 'VENDER' AND Disponible = 1 ";
-           }          
+	public function actionResultDatosTexto()
+	{
+		$Criteria = new CDbCriteria(); 
+		$condicion = "";
+		$filtros=$_GET['filtros'];
+		$valor= $_GET['valor'];
+        if ($filtros != ""){
+        	$valores=split(";",$filtros);
+            $condicion = Yii::app()->Datos-> filtros($valores);
         }
+	    if ( $valor != "" ){
+            if ($condicion != ""){
+	    	$condicion = $condicion . " and Descripcion like '%" . $valor ."%'"; 
+	        }else{
+	        	$condicion = $condicion . " Descripcion like '%" . $valor ."%'";
+	        }
+	    }
         
         $Criteria->condition = $condicion;
     	$model = Inmueble::model()->findAll($Criteria);	

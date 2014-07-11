@@ -40,5 +40,44 @@ class Datos extends CApplicationComponent{
        echo "</select>";
     
    }
-  
+
+ 
+   public function filtros( $valores){
+     $condicion ="";
+       for($i=0;$i<count($valores);$i++){
+           if ( $valores[$i] == "Apartamento"){
+             if ($condicion != ""){
+                 $condicion = $condicion . " and ";
+              } 
+             $condicion = $condicion . " TipoInmueble = 'APARTAMENTO' AND Disponible = 1 ";     
+           }
+           if ( $valores[$i] == "Casa"){
+             if ($condicion != ""){
+                 $condicion = $condicion . " and ";
+              } 
+             $condicion = $condicion . " TipoInmueble = 'CASA' AND Disponible = 1 ";    
+           }
+           if ( $valores[$i] == "Campo"){
+             if ($condicion != ""){
+                 $condicion = $condicion . " and ";
+              } 
+             $condicion = $condicion . " TipoInmueble = 'CAMPO' AND Disponible = 1 ";   
+           }
+
+           if ( $valores[$i] == "Alquiler"){
+             if ($condicion != ""){
+                 $condicion = $condicion . " and ";
+              }    
+             $condicion =$condicion . " QueHacer = 'ALQUILAR' AND Disponible = 1 "; 
+           }
+
+           if ( $valores[$i] == "Venta"){
+             if ($condicion != ""){
+                 $condicion = $condicion . " and ";
+              } 
+            $condicion = $condicion . " QueHacer = 'VENDER' AND Disponible = 1 ";
+           }          
+        }  
+        return $condicion;
+    }  
 }
