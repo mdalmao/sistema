@@ -477,3 +477,19 @@ margin-left: 40%;
    
    
 }
+
+
+
+.camposinmueble{
+  float: left;
+  width: 168px;
+}
+
+#ubicacionmapa{
+   margin-left: 105%;
+    width: 411px;
+}
+
+#map_canvas{
+  width: 400px;
+}
