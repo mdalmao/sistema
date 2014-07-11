@@ -37,7 +37,7 @@
 		
 		<div class= "container-fluid">
 			<br/>
-			<p> <img class ="img-rounded" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'logo.png' ; ?>"></img></p>
+			<p> <a href="/yii/sistema/"><img class ="img-rounded" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'logo.png' ; ?>"></img></a></p>
 			<h4>Bienveniedos a nuestra Inmboliaria Inmobi 4p</h4>
 
 		</div>
