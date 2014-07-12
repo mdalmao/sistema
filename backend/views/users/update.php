@@ -11,8 +11,8 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Lista de Empleados', 'url'=>array('index')),
 	array('label'=>'Crear Empleado', 'url'=>array('create')),
-	array('label'=>'View Users', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Gestionar Empleados', 'url'=>array('admin')),
+	array('label'=>'Datos de Empleados', 'url'=>array('view', 'id'=>$model->id)),
+	array('label'=>'Gestionar Empleados', 'url'=>array('user/admin/admin')),
 );
 ?>
 

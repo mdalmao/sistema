@@ -8,7 +8,7 @@ $this->breadcrumbs=array(
 
 <?php echo $this->renderPartial('_menu', array(
 		'list'=> array(
-			CHtml::link(UserModule::t('Crear Empleado'),array('create')),
+			
 			CHtml::link(UserModule::t('Modificar Empleado'),array('update','id'=>$model->id)),
 			CHtml::linkButton(UserModule::t('Borrar Empleado'),array('submit'=>array('delete','id'=>$model->id),'confirm'=>UserModule::t('Are you sure to delete this item?'))),
 		),

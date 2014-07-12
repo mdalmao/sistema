@@ -10,7 +10,7 @@ $this->breadcrumbs=array(
 
 <?php echo $this->renderPartial('_menu', array(
 		'list'=> array(
-			CHtml::link(UserModule::t('Crear Empleado'),array('create')),
+			
 			CHtml::link(UserModule::t('Ver Empleado'),array('view','id'=>$model->id)),
 		),
 	)); 

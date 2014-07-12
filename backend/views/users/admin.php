@@ -48,9 +48,10 @@ Para realizar busquedas escriba en la columna que corresponda el empleado a busc
 		'username',
 		'password',
 		'email',
+		/*
 		'activkey',
 		'createtime',
-		/*
+		
 		'lastvisit',
 		'superuser',
 		'status',

@@ -3,16 +3,16 @@
 /* @var $model Users */
 
 $this->breadcrumbs=array(
-	'Users'=>array('index'),
+	'Empleados'=>array('index'),
 	$model->id,
 );
 
 $this->menu=array(
 	array('label'=>'Lista de Empleados', 'url'=>array('index')),
 	array('label'=>'Crear Empleado', 'url'=>array('create')),
-	array('label'=>'Modificar Empleado', 'url'=>array('update', 'id'=>$model->id)),
+	array('label'=>'Modificar Empleado', 'url'=>array('user/admin/update', 'id'=>$model->id)),
 	array('label'=>'Borrar Empleado', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Gestionar Empleados', 'url'=>array('admin')),
+	array('label'=>'Gestionar Empleados', 'url'=>array('user/admin')),
 );
 ?>
 
