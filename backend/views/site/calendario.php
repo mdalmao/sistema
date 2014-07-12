@@ -16,22 +16,23 @@ Yii::app()->clientScript->registerCoreScript('jquery');
 
 <div id="divinmuble">
 Inmueble
-<?php echo Yii::app()->Datos-> inmueblescombo(); ?>
+<p><?php echo Yii::app()->Datos-> inmueblescombo(); ?></p>
 </div>
 
 <div id="divcliente">
 Clientes
-<?php echo Yii::app()->Datos-> clientesscombo(); ?>
+<p><?php echo Yii::app()->Datos-> clientesscombo(); ?></p>
 </div>
 
 <div id="divhora">
 Horas
-<?php echo Yii::app()->Datos-> horas(); ?>
+<p>
+<?php echo Yii::app()->Datos-> horas(); ?></p>
 </div>
 
 <div id="divfecha">
 Fecha
-<?php
+<p><?php
 $this->widget('zii.widgets.jui.CJuiDatePicker',array(
     'name'=>'fecha',
     // additional javascript options for the date picker plugin
@@ -43,7 +44,7 @@ $this->widget('zii.widgets.jui.CJuiDatePicker',array(
         'style'=>'height:20px;background-color:white;color:black;',
     ),
 ));
-?>
+?></p>
 </div>
 
 

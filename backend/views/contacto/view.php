@@ -10,7 +10,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Lista de Contactos', 'url'=>array('index')),
 	
-	array('label'=>'Editar Contacto', 'url'=>array('update', 'id'=>$model->idContacto)),
+	
 	array('label'=>'Borrar Contacto', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idContacto),'confirm'=>'Esta seguro que desea eliminar este contacto?')),
 	array('label'=>'Gestionar Contactos', 'url'=>array('admin')),
 );

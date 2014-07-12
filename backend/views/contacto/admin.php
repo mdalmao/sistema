@@ -4,7 +4,7 @@
 
 $this->breadcrumbs=array(
 	'Contactos'=>array('index'),
-	'Manage',
+	'Gestionar',
 );
 
 $this->menu=array(
