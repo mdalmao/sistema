@@ -75,6 +75,12 @@ Consúltenos a través de cualquier medio, vía mail, nuestra página web, telef
 </div>
 
 
+<div class="videoDestacado">
+      <video poster="imagenes/foto.png" width="380" height="240" controls>
+      <source src="imagenes/video.mp4" type="video/mp4;
+      codecs="avc1.42E01E,mp4a.40.2""></br>
+</div>     
+
 
 
 <aside>
