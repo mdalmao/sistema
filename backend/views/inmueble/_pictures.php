@@ -14,9 +14,9 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Inmueble', 'url'=>array('index')),	
-	array('label'=>'Update Inmueble', 'url'=>array('update', 'id'=>$model->idInmueble)),	
-	array('label'=>'Add Pictures', 'url'=>array('pictures', 'id'=>$model->idInmueble)),
+	array('label'=>'Lista de Inmuebles', 'url'=>array('index')),	
+	array('label'=>'Modificar Inmueble', 'url'=>array('update', 'id'=>$model->idInmueble)),	
+	array('label'=>'Agregar Fotos', 'url'=>array('pictures', 'id'=>$model->idInmueble)),
 );
 ?>
 

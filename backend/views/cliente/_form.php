@@ -51,7 +51,7 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model2,'FechaNacimiento'); ?>
+		<?php echo $form->labelEx($model2,'FechaNacimiento (Año/Mes/Día)'); ?>
 		<?php echo $form->textField($model2,'FechaNacimiento',array('size'=>45,'maxlength'=>45)); ?>
 		<?php echo $form->error($model2,'FechaNacimiento'); ?>
 	</div>
