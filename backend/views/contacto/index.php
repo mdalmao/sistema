@@ -7,7 +7,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Crear Contactos', 'url'=>array('create')),
+	
 	array('label'=>'Gestionar Contactos', 'url'=>array('admin')),
 );
 ?>
