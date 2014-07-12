@@ -4,7 +4,7 @@ $this->breadcrumbs=array(
 	UserModule::t('Create'),
 );
 ?>
-<h1><?php echo UserModule::t("Create User"); ?></h1>
+<h1><?php echo UserModule::t("Crear Empleado"); ?></h1>
 
 <?php 
 	echo $this->renderPartial('_menu',array(

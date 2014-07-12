@@ -119,18 +119,13 @@ class SiteController extends Controller
 	  $inmuebles = Inmueble::model()->findAll();
 	   $this->render('buscar',array('model'=>$inmuebles));
 	}
-	public function actionMision()
+	public function actionHome()
 	{
 
 	  
-	   $this->render('mision');
+	   $this->render('home');
 	}
-	public function actionVision()
-	{
-
-	  
-	   $this->render('vision');
-	}
+	
 
    	public function actionApartamentos()
 	{
@@ -209,16 +204,16 @@ class SiteController extends Controller
 			if ( $aux['TipoInmueble']== 'CASA') {
 				$Casas = Inmcasa::model()->findAll($Criteria);
 	    	   	
-	    	   $this->render('casasGenerico',array('model' =>$Casas, 'model2' =>$Inmueble,'model3'=>$Imagenes));
+	    	   $this->render('descripcionInmueble',array('model' =>$Casas, 'model2' =>$Inmueble,'model3'=>$Imagenes));
 			}
 			elseif ($aux['TipoInmueble']== 'CAMPO') {
 				$Campo = Inmcampos::model()->findAll($Criteria);
-				$this->render('campoGenerico',array('model' =>$Campo, 'model2' =>$Inmueble,'model3'=>$Imagenes));
+				$this->render('descripcionInmueble',array('model' =>$Campo, 'model2' =>$Inmueble,'model3'=>$Imagenes));
 			}
 			else
 			{
 				$Apartamento = Inmapartoficina::model()->findAll($Criteria);
-    		   	$this->render('apartamentoGenerico',array('model' =>$Apartamento, 'model2' =>$Inmueble,'model3'=>$Imagenes));
+    		   	$this->render('descripcionInmueble',array('model' =>$Apartamento, 'model2' =>$Inmueble,'model3'=>$Imagenes));
 	
 			}
 		}

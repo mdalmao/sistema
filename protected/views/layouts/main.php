@@ -37,7 +37,7 @@
 		
 		<div class= "container-fluid">
 			<br/>
-			<p> <img class ="img-rounded" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'logo.png' ; ?>"></img></p>
+			<p> <a href="/yii/sistema/"><img class ="img-rounded" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'logo.png' ; ?>"></img></a></p>
 			<h4>Bienveniedos a nuestra Inmboliaria Inmobi 4p</h4>
 
 		</div>
@@ -46,8 +46,8 @@
 
 
 			 <li> <a href="/yii/sistema/" class=" btn-primary btn-large"><i class="icon-white icon-home"></i> Inicio</a> </li>
-			 <li> <a href="/yii/sistema/site/Mision" class=" btn-primary btn-large"><i class="icon-white "></i> Misión</a> </li>
-			 <li> <a href="/yii/sistema/site/Vision" class=" btn-primary btn-large"><i class="icon-white"></i> Visión</a> </li>
+			 <li> <a href="/yii/sistema/site/home" class=" btn-primary btn-large"><i class="icon-white "></i> Home</a> </li>
+			 
 			 <li> <a href="/yii/sistema/site/alquileres" class=" btn-success btn-large"><i class="icon-white "></i> Alquileres</a> </li>
 			 <li> <a href="/yii/sistema/site/ventas" class="btn-success btn-large"><i class="icon-white "></i> Ventas</a> </li>
 			 <li> <a href="/yii/sistema/site/casas" class=" btn-success btn-large"><i class="icon-white"></i> Casas</a> </li>

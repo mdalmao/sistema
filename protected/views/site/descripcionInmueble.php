@@ -3,9 +3,9 @@
 /* @var $model ContactForm */
 /* @var $form CActiveForm */
 
-$this->pageTitle=Yii::app()->name . ' - Campo';
+$this->pageTitle=Yii::app()->name . ' - Inmueble';
 $this->breadcrumbs=array(
-	'Campo',
+	'Inmueble',
 );
 ?>
 
@@ -16,7 +16,7 @@ $this->breadcrumbs=array(
 		<div class="resultado">
 			
 			<p class="descripcion"> 
-				 Descripcion:
+				Descripcion:
 				<?php echo CHtml::decode($inmueble['Descripcion']);  ?> 
 				
 			</p>
@@ -54,15 +54,76 @@ $this->breadcrumbs=array(
 				</p>
 			</p>
 			 			
-			</div>
-
+			
 
 <?php foreach ($model as $modelo): ?>
-	<form action="Campo"  method="post">
-	<div class="resultado">
+	<form action="Apartamento"  method="post">
+	
 				
+		<?php if ($inmueble['TipoInmueble'] == 'CASA'): ?>
+		<p> Cantidad de Piso:
+					<?php echo CHtml::decode($modelo['Piso']);  ?> 
+				</p>
 			
-				<p> Cantidad de Hectareas:
+				<p>
+					Metros Cuadrados de la Propiedad:
+					<?php echo CHtml::decode($modelo['MetrosCuadradosTerreno']);  ?> 
+				</p>
+				<p>
+					Fondo:
+					 
+					<?php if ($modelo['Fondo'] == 1): ?>
+					 	<?php echo CHtml::decode('Si');  ?> 
+					<?php else: ?> 	
+						<?php echo CHtml::decode('No');  ?> 
+					<?php endif; ?>
+				</p>
+				<p>	 Frente:
+					
+					<?php if ($modelo['Frente'] == 1): ?>
+					 	<?php echo CHtml::decode('Si');  ?> 
+					<?php else: ?> 	
+						<?php echo CHtml::decode('No');  ?> 
+					<?php endif; ?>
+				</p>
+				
+				<p> Barbacoa:
+					
+					<?php if ($modelo['Barbacoa'] == 1): ?>
+					 	<?php echo CHtml::decode('Si');  ?> 
+					<?php else: ?> 	
+						<?php echo CHtml::decode('No');  ?> 
+					<?php endif; ?>
+				</p>
+				<p>
+					Rejas:
+					 
+					 <?php if ($modelo['Rejas'] == 1): ?>
+					 	<?php echo CHtml::decode('Si');  ?> 
+					<?php else: ?> 	
+						<?php echo CHtml::decode('No');  ?> 
+					<?php endif; ?>
+				</p>
+					<p>
+					Estufa: 
+					
+					<?php if ($modelo['Estufa'] == 1): ?>
+				 	<?php echo CHtml::decode('Si');  ?> 
+					<?php else: ?> 	
+					<?php echo CHtml::decode('No');  ?> 
+					<?php endif; ?>
+				</p>
+					<p>
+					Saneamiento: 	
+						<?php if ($modelo['Saneamiento'] == 1): ?>
+					 	<?php echo CHtml::decode('Si');  ?> 
+					<?php else: ?> 	
+						<?php echo CHtml::decode('No');  ?> 
+					s<?php endif; ?>
+					</p>
+
+		<?php elseif($inmueble['TipoInmueble'] == 'CAMPO'): ?>
+		<p> Cantidad de Hectareas:
 					<?php echo CHtml::decode($modelo['Hectareas']);  ?> 
 				</p>
 			
@@ -149,30 +210,64 @@ $this->breadcrumbs=array(
 					 	<?php echo CHtml::decode($modelo['Galpones']);  ?> 
 					
 					</p>
+					
+
+		<?php else: ?> 
+				<p> GastosComunes:
+					<?php echo CHtml::decode($modelo['GastosComunes']);  ?> 
+				</p>
+			
+				
+				<p>	 Terrazas:
+					
+					<?php if ($modelo['Terrazas'] == 1): ?>
+					 	<?php echo CHtml::decode('Si');  ?> 
+					<?php else: ?> 	
+						<?php echo CHtml::decode('No');  ?> 
+					<?php endif; ?>
+				</p>
+				
+				
+				<p>
+					Ascensor:
+					 
+					 <?php if ($modelo['Ascensor'] == 1): ?>
+					 	<?php echo CHtml::decode('Si');  ?> 
+					<?php else: ?> 	
+						<?php echo CHtml::decode('No');  ?> 
+					<?php endif; ?>
+				</p>
 					<p>
-					Extras: 	
+						Portero: 
+					
+					<?php if ($modelo['Portero'] == 1): ?>
+				 	<?php echo CHtml::decode('Si');  ?> 
+					<?php else: ?> 	
+					<?php echo CHtml::decode('No');  ?> 
+					<?php endif; ?>
+				</p>
+					<p>
+					Piso: 	
 						
-					 	<?php echo CHtml::decode($modelo['Extras']);  ?> 
+					 	<?php echo CHtml::decode($modelo['Piso']);  ?> 
 					
 					</p>
+		<?php endif; ?>			
 
 					
 	</div>
 			</form>
 	<?php endforeach; ?>
 
-		</div>
+		
 		</form>
 	<?php endforeach; ?>
 
 
 
-
-</div>
 <div class="resultado">
-
 	<p class="descripcion"> 
-				Imagenes del Campo:
+				Imagenes del Apartamento:
 				
 				
 			</p>
@@ -184,22 +279,25 @@ $this->breadcrumbs=array(
  			<img class ="imagen" src="<?php echo Yii::app()->ImagenesInmueble->imagenesDeInmueble($id,$idImag); ?>" /> 
  			
 <?php endforeach; ?>
-</div>
-</div>
-
-<div id="lateral">
-	<div class= "calendarioInmueble">
-	<?php 
-		$id = $inmueble['idInmueble']; 
-
-		echo Yii::app()->Calendario->mostrar($id);
-
-	?>
 	</div>
+</div>
+<div class="resultado">
+	
 
+		
+			<div class="columnaIzq">
+		<?php 
+			$id = $inmueble['idInmueble']; 
+			
+			echo Yii::app()->Calendario->mostrar($id);
+
+		?>
+		</div>
 </div>
 
 
 
 
 
+
+</div>

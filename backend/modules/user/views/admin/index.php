@@ -4,11 +4,11 @@ $this->breadcrumbs=array(
 	UserModule::t('Manage'),
 );
 ?>
-<h1><?php echo UserModule::t("Manage Users"); ?></h1>
+<h1><?php echo UserModule::t("Gestionar Empleados"); ?></h1>
 
 <?php echo $this->renderPartial('_menu', array(
 		'list'=> array(
-			CHtml::link(UserModule::t('Create User'),array('create')),
+			CHtml::link(UserModule::t('Crear Empleado'),array('create')),
 		),
 	));
 ?>

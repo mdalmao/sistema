@@ -4,7 +4,7 @@ $this->breadcrumbs=array(
 	$model->username,
 );
 ?>
-<h1><?php echo UserModule::t('View User').' "'.$model->username.'"'; ?></h1>
+<h1><?php echo UserModule::t('Ver Empleado').' "'.$model->username.'"'; ?></h1>
 
 <ul class="actions">
 	<li><?php echo CHtml::link(UserModule::t('List User'),array('index')); ?></li>

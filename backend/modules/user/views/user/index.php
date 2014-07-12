@@ -4,11 +4,11 @@ $this->breadcrumbs=array(
 );
 ?>
 
-<h1><?php echo UserModule::t("List User"); ?></h1>
+<h1><?php echo UserModule::t("Lista de Empleados"); ?></h1>
 <?php if(UserModule::isAdmin()) {
 	?><ul class="actions">
-	<li><?php echo CHtml::link(UserModule::t('Manage User'),array('/user/admin')); ?></li>
-	<li><?php echo CHtml::link(UserModule::t('Manage Profile Field'),array('profileField/admin')); ?></li>
+	<li><?php echo CHtml::link(UserModule::t('Gestionar Empleados'),array('/user/admin')); ?></li>
+	<!--<li><?php echo CHtml::link(UserModule::t('Gestionar Perfil '),array('profileField/admin')); ?></li>-->
 </ul><!-- actions --><?php 
 } ?>
 <?php $this->widget('zii.widgets.grid.CGridView', array(
