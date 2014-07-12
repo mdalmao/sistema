@@ -65,35 +65,12 @@
 		<?php echo $form->error($model,'email'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'activkey'); ?>
-		<?php echo $form->textField($model,'activkey',array('size'=>60,'maxlength'=>128)); ?>
-		<?php echo $form->error($model,'activkey'); ?>
-	</div>
+	
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'createtime'); ?>
-		<?php echo $form->textField($model,'createtime'); ?>
-		<?php echo $form->error($model,'createtime'); ?>
-	</div>
+	
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'lastvisit'); ?>
-		<?php echo $form->textField($model,'lastvisit'); ?>
-		<?php echo $form->error($model,'lastvisit'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'superuser'); ?>
-		<?php echo $form->textField($model,'superuser'); ?>
-		<?php echo $form->error($model,'superuser'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'status'); ?>
-		<?php echo $form->textField($model,'status'); ?>
-		<?php echo $form->error($model,'status'); ?>
-	</div>
+	
+	
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

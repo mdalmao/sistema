@@ -13,6 +13,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Crear Empleado falta ver lo del encriptado</h1>
+<h1>Empleado</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model,'model2'=>$model2)); ?>
