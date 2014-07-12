@@ -9,7 +9,9 @@
 	<?php echo CHtml::link(CHtml::encode($data->idUsuario), array('view', 'id'=>$data->idUsuario)); ?>
 	<br />
 
-	
+<!--agregar modelo 2-->
+
+
 
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Nacionalidad')); ?>:</b>

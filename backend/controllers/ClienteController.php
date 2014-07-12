@@ -56,6 +56,7 @@ class ClienteController extends Controller
 	{
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
+			'model2'=>$this->loadModel($id),
 		));
 	}
 
@@ -186,12 +187,18 @@ class ClienteController extends Controller
 	public function actionAdmin()
 	{
 		$model=new Cliente('search');
+		$model2=new Datospersonales('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Cliente']))
-			$model->attributes=$_GET['Cliente'];
+		$model2->unsetAttributes(); 
+		$model->idUsuario= $model2->idUsuario;
 
+		if(isset($_GET['Cliente'])){
+			$model->attributes=$_GET['Cliente'];
+			$model2->attributes=$_GET['Datospersonales'];
+		}
 		$this->render('admin',array(
 			'model'=>$model,
+			'model2'=>$model2,
 		));
 	}
 

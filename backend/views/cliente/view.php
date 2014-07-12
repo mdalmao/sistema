@@ -16,12 +16,15 @@ $this->menu=array(
 );
 ?>
 
-<h1>View Cliente #<?php echo $model->idUsuario; ?></h1>
+<h1>Ver Cliente #<?php echo $model->idUsuario; ?></h1>
+
 
 <?php $this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
+	'data'=>$model, //$model2,
+
 	'attributes'=>array(
 		'idUsuario',
 		'Nacionalidad',
+		//'NombreUsuario',
 	),
 )); ?>
