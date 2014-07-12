@@ -38,44 +38,50 @@ Si desea comunicarse con nuestra empresa, ingrese sus datos en el formulario a c
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'name'); ?>
+		<!-- <?php echo $form->labelEx($model,'name'); ?> -->
+	 	<?php echo "Nombre" ?>
 		<?php echo $form->textField($model,'name'); ?>
 		<?php echo $form->error($model,'name'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'email'); ?>
+		<!-- <?php echo $form->labelEx($model,'email'); ?> -->
+		<?php echo "Email *";?>
 		<?php echo $form->textField($model,'email'); ?>
 		<?php echo $form->error($model,'email'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'telefono'); ?>
+		<!-- <?php echo $form->labelEx($model,'telefono'); ?> -->
+		<?php echo "Telefono"; ?>
 		<?php echo $form->textField($model,'telefono'); ?>
 		<?php echo $form->error($model,'telefono'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'subject'); ?>
+		<!-- <?php echo $form->labelEx($model,'subject'); ?> -->
+		<?php echo "Asunto"; ?>
 		<?php echo $form->textField($model,'subject',array('size'=>60,'maxlength'=>128)); ?>
 		<?php echo $form->error($model,'subject'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'body'); ?>
+		<!-- <?php echo $form->labelEx($model,'body'); ?> -->
+		<?php echo "Mensaje"; ?>
 		<?php echo $form->textArea($model,'body',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'body'); ?>
 	</div>
 
 	<?php if(CCaptcha::checkRequirements()): ?>
 	<div class="row">
-		<?php echo $form->labelEx($model,'verifyCode'); ?>
+		<!-- <?php echo $form->labelEx($model,'verifyCode'); ?>  -->
+        <?php echo "Codigo de Verficacion"; ?>
 		<div>
 		<?php $this->widget('CCaptcha'); ?>
 		<?php echo $form->textField($model,'verifyCode'); ?>
 		</div>
-		<div class="hint">Please enter the letters as they are shown in the image above.
-		<br/>Letters are not case-sensitive.</div>
+		<div class="hint">Por favor introduce las letras tal como se muestran en la imagen de arriba. 
+Las letras no distinguen entre mayúsculas y minúsculas.</div>
 		<?php echo $form->error($model,'verifyCode'); ?>
 	</div>
 	<?php endif; ?>
