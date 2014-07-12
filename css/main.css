@@ -28,8 +28,14 @@ body
 	background-image:url('../imagenes/house.jpg');
 	background-size: cover;
 	height:180px;
-
 }
+
+.imgresultado{
+	margin-top: 10px;
+	border-radius: 15px;
+	border-image: 10px;
+}
+
 
 .page-header
 {

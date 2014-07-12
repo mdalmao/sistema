@@ -15,7 +15,7 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Los campos con<span class="required">*</span> son requeridos.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 	
@@ -43,7 +43,8 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model2,'FechaNacimiento'); ?>
+		<?php echo $form->labelEx($model2,'FechaNacimiento formato:dd/mm/yyyy'); ?>
+		
 		<?php echo $form->textField($model2,'FechaNacimiento',array('size'=>45,'maxlength'=>45)); ?>
 		<?php echo $form->error($model2,'FechaNacimiento'); ?>
 	</div>
@@ -65,35 +66,12 @@
 		<?php echo $form->error($model,'email'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'activkey'); ?>
-		<?php echo $form->textField($model,'activkey',array('size'=>60,'maxlength'=>128)); ?>
-		<?php echo $form->error($model,'activkey'); ?>
-	</div>
+	
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'createtime'); ?>
-		<?php echo $form->textField($model,'createtime'); ?>
-		<?php echo $form->error($model,'createtime'); ?>
-	</div>
+	
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'lastvisit'); ?>
-		<?php echo $form->textField($model,'lastvisit'); ?>
-		<?php echo $form->error($model,'lastvisit'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'superuser'); ?>
-		<?php echo $form->textField($model,'superuser'); ?>
-		<?php echo $form->error($model,'superuser'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'status'); ?>
-		<?php echo $form->textField($model,'status'); ?>
-		<?php echo $form->error($model,'status'); ?>
-	</div>
+	
+	
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

@@ -64,22 +64,42 @@ class UsersController extends Controller
 	{
 		$model=new Users;
 		$model2=new Datospersonales;
+		$model3= new Profile;
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
 		if(isset($_POST['Users']))
 		{
 			$model->attributes=$_POST['Users'];
+			$model->superuser= 0;
+			$model->createtime = time();
+			$model->status = 1;
+			$model->lastvisit=time();
+			$model->activkey= $model->password;
 			$model2->attributes=$_POST['Datospersonales'];
-
+			$model2->NombreUsuario= $model->username;
 			$model2->save(); 
+			//$model2->FechaNacimiento = new DateTime($model2->FechaNacimiento);
+			$model3->user_id=0;
+			//$model3->user_id = "5";//$model->id
+				$model3->lastname =$model2->ApellidoUsuario;
+				$model3->firstname = $model->username;
+				$model3->birthday = '2000-11-02';//;//$model2->FechaNacimiento;
+			
 			
 			if($model->save())
 				$model->id= $model2->idUsuario;
+				
+				
+				$model3->user_id = $model->id;
+				$model3->save();
 				$model->save();
+				//Profile
+			
+				
 				$this->redirect(array('view','id'=>$model->id));
 		}
-
+		///'model3'=>$model3,
 		$this->render('create',array(
 			'model'=>$model,
 			'model2'=>$model2,

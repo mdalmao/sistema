@@ -33,7 +33,7 @@
 	<?php echo CHtml::encode($data->lastvisit); ?>
 	<br />
 
-	<?php /*
+	
 	<b><?php echo CHtml::encode($data->getAttributeLabel('superuser')); ?>:</b>
 	<?php echo CHtml::encode($data->superuser); ?>
 	<br />
@@ -42,6 +42,6 @@
 	<?php echo CHtml::encode($data->status); ?>
 	<br />
 
-	*/ ?>
+ 
 
 </div>
