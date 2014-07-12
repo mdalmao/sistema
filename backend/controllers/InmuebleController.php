@@ -51,9 +51,27 @@ class InmuebleController extends Controller
 	 */
 	public function actionView($id)
 	{
-		$this->render('view',array(
-			'model'=>$this->loadModel($id),
-		));
+		$casapo=new Inmcao;
+		$imagenes=new Imagenes;
+		$campo = new Inmcampos;
+		$model = $this->loadModel($id);
+
+		if($model->TipoInmueble == 'CASA'  || $model->TipoInmueble == 'APARTAMENTO' || $model->TipoInmueble == 'OFICINA')
+			{
+				$this->render('view',array(
+					'model'=>$this->loadModel($id),
+					'casapo'=>$this->loadModelImcao($id)							
+					//'imagenes'=>$this->loadModelImagenes($id),
+				));
+			}
+		if($model->TipoInmueble == 'CAMPO' || $model->TipoInmueble == 'TERRENO')	
+			{
+				$this->render('view',array(
+					'model'=>$this->loadModel($id),		
+					'campo'=>$this->loadModelCampos($id),
+				));
+			}
+		
 	}
 
 	/**
@@ -77,7 +95,7 @@ class InmuebleController extends Controller
 			$model->Disponible = '1';	
 
 			if($model->save()){	
-				if($model->TipoInmueble == 'CAMPO')
+				if($model->TipoInmueble == 'CAMPO' || $model->TipoInmueble == 'TERRENO' )
 				{
 					$model->attributes=$_POST['Inmcampos'];
 					$campo->idInmueble=$model->idInmueble;	
@@ -133,7 +151,15 @@ class InmuebleController extends Controller
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
-		$casapo=$this->loadModelImcao($id);
+		if($model->TipoInmueble == 'CASA' || $model->TipoInmueble == 'APARTAMENTO' || $model->TipoInmueble == 'OFICINA')
+		{
+			$casapo=$this->loadModelImcao($id);	
+		}
+		if($model->TipoInmueble == 'CAMPO' || $model->TipoInmueble == 'TERRENO')
+		{
+			$campo=$this->loadModelCampos($id);
+		}
+		
 		$datosp=$this->loadModelDatosPersonales($id);
 		$imagenes = new Imagenes;
 		$imagenes2 = new Imagenes;				
@@ -146,9 +172,19 @@ class InmuebleController extends Controller
 		{
 			$model->attributes=$_POST['Inmueble'];
 			if($model->save()){
-				$casapo->attributes=$_POST['Inmcao'];
-			    $casapo->idInmbueble=$model->idInmueble;
-			    $casapo->save();				
+				if($model->TipoInmueble == 'CASA' || $model->TipoInmueble == 'APARTAMENTO' || $model->TipoInmueble == 'OFICINA')
+				{
+					$casapo->attributes=$_POST['Inmcao'];
+			        $casapo->idInmbueble=$model->idInmueble;
+			        $casapo->save();
+				}
+
+				if($model->TipoInmueble == 'CAMPO' || $model->TipoInmueble == 'TERRENO')
+				{
+					$campo->attributes=$_POST['Inmcampos'];
+			        $campo->idInmueble=$model->idInmueble;
+			        $campo->save();
+				}					
 			/////Imagen///////////////
 				  $rnd = rand(0,9999);  // generate random number between 0-9999
                   $imagenes->attributes=$_POST['Imagenes'];		
@@ -201,17 +237,39 @@ class InmuebleController extends Controller
   				  }
                               
 			////////FIN IMAGEN////////////////////////			
-				$this->redirect(array('view','id'=>$model->idInmueble,'anio'=>$casapo->AnioConstruccion));               	 		
+				if($model->TipoInmueble == 'CASA' || $model->TipoInmueble == 'APARTAMENTO' || $model->TipoInmueble == 'OFICINA' )
+				{
+					$this->redirect(array('view','id'=>$model->idInmueble,'anio'=>$casapo->AnioConstruccion));               	 			
+				}
+				if($model->TipoInmueble == 'CAMPO' || $model->TipoInmueble == 'TERRENO')
+				{
+					$this->redirect(array('view','id'=>$model->idInmueble));               	 			
+				}
+				
 			}				
 		}
 
-		$this->render('update',array(
+		if($model->TipoInmueble == 'CASA' || $model->TipoInmueble == 'APARTAMENTO' || $model->TipoInmueble == 'OFICINA')
+		{
+			$this->render('update',array(
 			'model'=>$model,			
 			'casapo'=>$casapo,	
 			'datosp'=>$datosp,	
 			'imagenes'=>$imagenes,	
-			//'imgnueva'=>$imgnueva,
+			
 		));
+		}
+		
+		if($model->TipoInmueble == 'CAMPO' || $model->TipoInmueble == 'TERRENO')
+		{
+			$this->render('updatecampo',array(
+			'model'=>$model,						
+			'datosp'=>$datosp,	
+			'campo'=>$campo,
+			'imagenes'=>$imagenes,	
+			
+		));
+		}
 	}
 
 	/**
@@ -219,7 +277,7 @@ class InmuebleController extends Controller
 	 * If deletion is successful, the browser will be redirected to the 'admin' page.
 	 * @param integer $id the ID of the model to be deleted
 	 */
-	/*public function actionDelete($id)
+	public function actionDelete($id)
 	{
 		$Criteria = new CDbCriteria();
 		$inmcliente = new clienteinmueble;
@@ -243,7 +301,7 @@ class InmuebleController extends Controller
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
-	}*/
+	}
 
 	/**
 	 * Lists all models.
@@ -347,6 +405,14 @@ class InmuebleController extends Controller
 	public function loadModelDatosPersonales($id)
 	{
 		$model=Datospersonales::model()->findByPk($id);
+		if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+		return $model;
+	}
+
+	public function loadModelCampos($id)
+	{
+		$model=Inmcampos::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
