@@ -135,6 +135,8 @@ $gMap->renderMap(array(
 
 	  $(document).ready(function() {
 
+      $("#campo").hide();
+
       $("#apartamento").hide();
       
 	  $("#Inmueble_TipoInmueble").change(function() {
