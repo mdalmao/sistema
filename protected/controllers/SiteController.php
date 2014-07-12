@@ -119,18 +119,13 @@ class SiteController extends Controller
 	  $inmuebles = Inmueble::model()->findAll();
 	   $this->render('buscar',array('model'=>$inmuebles));
 	}
-	public function actionMision()
+	public function actionHome()
 	{
 
 	  
-	   $this->render('mision');
+	   $this->render('home');
 	}
-	public function actionVision()
-	{
-
-	  
-	   $this->render('vision');
-	}
+	
 
    	public function actionApartamentos()
 	{
