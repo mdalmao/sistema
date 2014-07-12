@@ -139,10 +139,20 @@ class AdminController extends Controller
 		if(Yii::app()->request->isPostRequest)
 		{
 			// we only allow deletion via POST request
+
+			//Busco el usuario a eleminar de la tabla
+			//$datospersonales = new Datospersonales;
+		
+
 			$model = $this->loadModel();
 			$profile = Profile::model()->findByPk($model->id);
+			$datospersonales = Datospersonales::model()->findByPk($model->id);
+				
+    		
+    		
 			$profile->delete();
 			$model->delete();
+			$datospersonales->delete();
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			if(!isset($_POST['ajax']))
 				$this->redirect(array('/user/admin'));
