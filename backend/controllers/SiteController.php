@@ -215,12 +215,27 @@ class SiteController extends Controller
             $horas=  (int) $_POST['hora'];
 			$fecha = $_POST['fecha'];
 			
-            Yii::app()->Calendario-> alta($idinmueble,$cliente,$fecha,$horas);
-            echo "Se agendo correctamente";
+            $mensaje= Yii::app()->Calendario-> alta($idinmueble,$cliente,$fecha,$horas);
+           // $mensaje= " Se agendo correctamente ";
+            $this->render('calendario',array('model'=>$model, 'mensaje'=>$mensaje));
+            
 		}else{
 			$this->render('calendario',array('model'=>$model));
            
 		}
          
 	}
+
+
+    public function actionCargarCalendario2()
+	{
+		
+		$this->renderPartial('_ajaxviewcalendariofecha', array('fecha' => $_GET['fecha']));
+	}
+
+	public function actionCargarCalendario3()
+	{
+		$this->renderPartial('_ajaxviewcalendariocedula', array('cedula' => $_GET['cedula']));
+	}
+
 }

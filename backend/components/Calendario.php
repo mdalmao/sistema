@@ -32,21 +32,163 @@ class Calendario extends CApplicationComponent{
   public function alta($idinmueble,$cliente,$fecha,$hora){
      Yii::import('ext.couchdb.*');
      $client = new couchClient ('http://localhost:5984','agenda');
-
-
-    // Los siguiente son los datos a guardar en la base no relacional    
-    /* $idinmueble = 1;
-     $cliente =1;
-     $fecha= "20/05/2014";
-     $hora="20:30";
-    */
-   // Aca esta como se guarda
-     $doc = new couchDocument($client);
-     $doc->inmueble= $idinmueble;
-     $doc->cliente=$cliente;
-     $doc->fecha=$fecha;
-     $doc->hora=$hora;
+    try {
+       $vista = $client->limit(100)->getView('inmueble','name3');
+       } catch (Exception $e) {
+      echo "something weird happened: ".$e->getMessage()."<BR>\n";
+     }
+   
+    $a = 0;
+    foreach ( $vista->rows as $row ) {
+      $doc = $client->getDoc($row->id);
+        if ( $fecha ==  $doc->fecha) {
+          if ($hora == $doc->hora){
+            if ($idinmueble == $doc->inmueble){
+              $a =1; 
+            }
+          }
+         }  
+    }  
+    
+    if ( $a == 0){
+       $doc = new couchDocument($client);
+       $doc->inmueble= $idinmueble;
+       $doc->cliente=$cliente;
+       $doc->fecha=$fecha;
+       $doc->hora=$hora;
+       return "Se reservo correctamente";
+    }else{
+      return "Ya existe una reserva de visita para esa fecha y hora";
+    }
+ 
  }
+
+
+ public function fecha($valor){
+
+  if ($valor == 0){
+    return $texto = "8 a 9hs";
+  }elseif( $valor ==1 ){
+    return $texto = "9 a 10hs";
+  }elseif( $valor ==2 ){
+    return $texto = "10 a 11hs";
+  }elseif( $valor ==3 ){
+    return $texto = "11 a 12hs";
+  }elseif( $valor ==4 ){
+    return $texto = "12 a 13hs";
+  }elseif( $valor ==5 ){
+    return $texto = "14 a 15hs";
+  }elseif( $valor ==6 ){
+    return $texto = "15 a 16hs";
+  }elseif( $valor ==7 ){
+    return $texto = "16 a 17hs";
+  }else{
+    return $texto = "17 a 18hs";
+  }
+ }
+
+ public function cliente_cedula($id){
+
+   $Criteria = new CDbCriteria();
+   $Criteria->condition = "idUsuario =" .$id;
+   $clientes = Datospersonales::model()->findAll($Criteria);
+   foreach ($clientes as $cliente) {
+      $datos = $cliente-> CIUsuario;
+     
+   }
+   return $datos;
+ }
+
+ public function cliente($id){
+
+   $Criteria = new CDbCriteria();
+   $Criteria->condition = "idUsuario =" .$id;
+   $clientes = Datospersonales::model()->findAll($Criteria);
+   foreach ($clientes as $cliente) {
+      $datos = "Cliente: " . $cliente-> NombreUsuario;
+      $datos = $datos . " " . $cliente-> ApellidoUsuario;
+   }
+   return $datos;
+ }
+
+ public function inmueble($id){
+
+   $Criteria = new CDbCriteria();
+   $Criteria->condition = "idinmueble =" .$id;
+   $inmuebles = Inmueble::model()->findAll($Criteria);
+   foreach ($inmuebles as $inmueble) {
+      $datos = "Inmueble: " . $inmueble-> Direccion;
+     
+   }
+   return $datos;
+ }
+
+ public function mostrar2($fecha){
+ Yii::import('ext.couchdb.*');
+ $client = new couchClient ('http://localhost:5984','agenda');
+ try {
+     $vista = $client->limit(100)->getView('inmueble','name2');
+     } catch (Exception $e) {
+    echo "something weird happened: ".$e->getMessage()."<BR>\n";
+   }
+  
+  $a = 0;
+  foreach ( $vista->rows as $row ) {
+    $doc = $client->getDoc($row->id);
+      if  ( $fecha ==  $doc->fecha) {
+        $a =1; 
+        $hora = Yii::app()->Calendario-> fecha($doc->hora);
+        echo "Hora: " . $hora . "<br />";
+        $cliente=Yii::app()->Calendario-> cliente($doc->cliente);
+        echo $cliente . "<br />";
+        $inmueble = Yii::app()->Calendario-> inmueble($doc->inmueble); 
+        echo $inmueble . "<br />";
+        //echo "Fecha: " . $doc->fecha . "<br /><br />";
+        echo "<hr>";
+       }
+     
+  }  
+  if ($a == 0 ){
+        echo "No hay registros para le fecha solicitada";
+    }
+ 
+}
+
+public function mostrar3($cedula){
+ Yii::import('ext.couchdb.*');
+ $client = new couchClient ('http://localhost:5984','agenda');
+ try {
+     $vista = $client->limit(100)->getView('inmueble','name3');
+     } catch (Exception $e) {
+    echo "something weird happened: ".$e->getMessage()."<BR>\n";
+   }
+  
+  $a = 0;
+  foreach ( $vista->rows as $row ) {
+    $doc = $client->getDoc($row->id);
+
+        $cedula2=Yii::app()->Calendario-> cliente_cedula($doc->cliente);
+        if ( $cedula2 == $cedula){
+        $a =1; 
+        $hora = Yii::app()->Calendario-> fecha($doc->hora);
+        echo "Fecha: " . $doc->fecha . "<br />";
+        echo "Hora: " . $hora . "<br />";
+      
+        $cliente=Yii::app()->Calendario-> cliente($doc->cliente);
+        echo $cliente . "<br />";
+        $inmueble = Yii::app()->Calendario-> inmueble($doc->inmueble); 
+        echo $inmueble . "<br />";
+       
+        echo "<hr>";
+        
+       }
+     
+  }  
+  if ($a == 0 ){
+        echo "No hay registros para la cedula ingresada";
+    }
+ 
+}
 
 
  public function mostrar($idinmueble){

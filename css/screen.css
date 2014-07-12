@@ -493,3 +493,25 @@ margin-left: 40%;
 #map_canvas{
   width: 400px;
 }
+
+
+#resultadobusquedafecha{
+  width: 400px;
+   border: 1px solid black  ;
+}
+
+#resultadobusquedacedula{
+  width: 400px;
+   border: 1px solid black  ;
+}
+
+#mensaje {
+   border: 1px solid black;
+  height: 26px;
+  width: 371px;
+  margin-bottom: 12px;
+}
+
+#formcalendario {
+ margin-top: 20px;
+}
