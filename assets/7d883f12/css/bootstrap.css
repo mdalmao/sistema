@@ -3939,9 +3939,8 @@ input[type="submit"].btn.btn-mini {
 }
 
 .nav {
-  margin-top:40px;
   margin-bottom: 20px;
-  margin-left: 50px;
+  margin-left: 0;
   list-style: none;
 }
 
@@ -5969,7 +5968,7 @@ a.badge:focus {
 }
 
 .carousel-inner {
-  position: relative;
+  position: absolute;
   width: 100%;
   overflow: hidden;
 }
@@ -5990,6 +5989,7 @@ a.badge:focus {
 .carousel-inner > .item > a > img {
   display: block;
   line-height: 1;
+ 
 }
 
 .carousel-inner > .active,
@@ -6054,11 +6054,6 @@ a.badge:focus {
 .carousel-control.right {
   right: 15px;
   left: auto;
-}
-
-.carousel-control.left {
-  left: 80px;
-  
 }
 
 .carousel-control:hover,

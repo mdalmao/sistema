@@ -3,7 +3,7 @@
 $this->pageTitle=Yii::app()->name;
 ?>
 
-
+<!--
 <?php 
       $todo=Yii::app()->ImagenesInmueble->slider();
       $fotos= $todo[0];
@@ -19,7 +19,7 @@ $this->pageTitle=Yii::app()->name;
         array('image'=> $fotos[5], 'label'=>$titulo[5], 'caption'=> $descripcion[5]),
     ), )); 
     
-?>
+?>-->
 
 
 <?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>

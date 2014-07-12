@@ -5,41 +5,7 @@ $this->pageTitle=Yii::app()->name;
 
 ?>
 
- <aside>
-    <div class= "centrarImagenes"> 
-    <p> <img class ="img-rounded" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'imm.jpg' ; ?>"></img>
-       <a href="http://www.montevideo.gub.uy/tramites/">http://www.montevideo.gub.uy/tramites</a>
 
-    </p>
-      <p><img class ="img-rounded" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'brou.jpg' ; ?>"></img>
-      <a href="http://www.brou.com.uy/web/guest/home">http://www.brou.com.uy/web/guest/home</a>
-     </p>
-     <p> <img class ="img-rounded" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'facebook.jpg' ; ?>"></img>
-       <a href="https://www.facebook.com">https://www.facebook.com</a>
-
-    </p>
-    <p> <img class ="img-rounded" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'andv.jpg' ; ?>"></img>
-       <a href="http://www.anv.gub.uy/">http://www.anv.gub.uy/</a>
-
-    </p>
-    <p> <img class ="img-rounded" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'bhu.jpg' ; ?>"></img>
-       <a href="http://www.bhu.com.uy/">http://www.bhu.com.uy/</a>
-
-    </p>
-    
-    <a href='http://www.freecurrencyrates.com/es/myconverter#cur=USD-EUR-UYU-ARS-BRL-GBP;amt=USD1' id='ccw_cnhfybwf'>CONVERSOR</a>
-  <div id='gcw_rates'></div><script src='http://www.freecurrencyrates.com/converter-widget?source=Yahoo%20Finance&width=250&currs=USD,EUR,UYU,ARS,BRL,GBP&precision=2&language=es&flags=1&currchangable=0' charset='UTF-8'>
-</script></div>
-</div>
-    <!--End of Currency Converter widget by FreeCurrencyRates.com -->
-  
-    </div>
-  
-
-  
-
-
-</aside>
 
 
 
@@ -49,7 +15,9 @@ $this->pageTitle=Yii::app()->name;
       <p><img class ="img-rounded" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'tasaciones.jpg' ; ?>"></img>
       
 
-      <h1>TASACIONES</h1>
+
+
+      <h4>TASACIONES</h4>
       La empresa cuenta con personal idóneo para esta materia. En estos tiempos que corren, tasar resulta algo muy complejo, delicado y no cabe duda de que hay que tomarse algo de tiempo para definir y a la vez transmitir la correspondiente tasación.
 
 Tasamos para compra-venta y arrendamiento en toda la capital, tanto sean casas, apartamentos, locales comerciales, industriales, galpones y terrenos.
@@ -75,11 +43,8 @@ Consúltenos a través de cualquier medio, vía mail, nuestra página web, telef
 </div>
 
 
-<div class="videoDestacado">
-      <video poster="imagenes/foto.png" width="380" height="240" controls>
-      <source src="imagenes/video.mp4" type="video/mp4;
-      codecs="avc1.42E01E,mp4a.40.2""></br>
-</div>     
+
+
 
 
 
@@ -105,12 +70,62 @@ Consúltenos a través de cualquier medio, vía mail, nuestra página web, telef
   </aside>
 
 
-<div id="mapa">
+<div class="videoDestacado">
+      <video poster="imagenes/foto.png" width="380" height="240" controls>
+      <source src="imagenes/video.mp4" type="video/mp4;
+      codecs="avc1.42E01E,mp4a.40.2""></br>
+</div>     
+
+<div class="conversor">
+<a href='http://www.freecurrencyrates.com/es/myconverter#cur=USD-EUR-UYU-ARS-BRL-GBP;amt=USD1' id='ccw_cnhfybwf'>CONVERSOR</a>
+  <div id='gcw_rates'></div>
+  <script src='http://www.freecurrencyrates.com/converter-widget?source=Yahoo%20Finance&width=250&currs=USD,EUR,UYU,ARS,BRL,GBP&precision=2&language=es&flags=1&currchangable=0' charset='UTF-8'>
+</script>
+</div>
+
+<!--<div id="mapa">
 <?php
 echo Yii::app()->Mapas->mapa();
 ?>
-</div>
+</div>-->
 
+ <aside>
+    <div class= "centrarImagenes"> 
+     
+     <a href="http://www.montevideo.gub.uy/tramites/">
+      <img class ="img-rounded2" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'imm.jpg' ; ?>"></img>
+     </a>
+   
+   
+
+      
+       <a href="http://www.brou.com.uy/web/guest/home">
+        <img class ="img-rounded2" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'brou.jpg' ; ?>"></img>
+      </a>
+      
+     
+     <a href="https://www.facebook.com/groups/141305722585637/">
+      <img class ="img-rounded2" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'facebook.jpg' ; ?>"></img>
+      </a>
+
+    <a href="http://www.anv.gub.uy/">
+      <img class ="img-rounded2" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'andv.jpg' ; ?>"></img>
+      </a>
+
+ 
+     <a href="http://www.bhu.com.uy/">
+      <img class ="img-rounded2" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'bhu.jpg' ; ?>"></img>
+      </a>
+
+      <a href="http://www.anda.com.uy/index_1.html">
+      <img class ="img-rounded2" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'anda.jpg' ; ?>"></img>
+      </a>
+    
+    
+   
+  
+    </div>
+</aside>
 
 
  

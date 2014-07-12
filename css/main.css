@@ -72,9 +72,12 @@ body
 	font-size: 200%;
 }
 
+
+
+
 .carousel-inner{
 	
-	position: relative;
+	position: absolute;
     left: 325px;
     right:250px;
     width: 200px;
@@ -307,18 +310,49 @@ div.search-form
     width:300px;
     float:right;
 }
-.centrarImagenes{width: 20%;
-margin: 10px;
-    margin: 0.714285714rem;
+
+.centrarImagenes{
+	margin-top:800px;
+	margin-bottom:20px;
+	width: 94%;
+margin-left: 30px;
+
     border: 1px solid black  ;
-    padding: 10px;
-    float: right;
-    padding: 0.714285714rem;}
+ 
+    float: bottom;
+   }
+
 .centrarImagenesIzquierda{width: 20%;
 margin: 10px;
+margin-bottom: 50px;
     margin: 0.714285714rem;
     border: 1px solid black  ;
     padding: 10px;
-    float: left;
+    
     padding: 0.714285714rem;
 position: relative;}
+
+.imagenesLink{
+	 width:150px;
+	 height:70px;
+}
+
+.img-rounded{
+	
+	border-radius: 25px;
+
+}
+
+.conversor{
+
+	margin-left:900px;
+	margin-top:300px;
+	
+}
+
+.img-rounded2{
+	margin-left: 10px;
+	border-radius: 15px;
+	 width:175px;
+	 height:75px;
+}
