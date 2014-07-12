@@ -9,11 +9,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Inmueble', 'url'=>array('index')),
-	array('label'=>'Create Inmueble', 'url'=>array('create')),
-	array('label'=>'View Inmueble', 'url'=>array('view', 'id'=>$model->idInmueble)),
-	array('label'=>'Manage Inmueble', 'url'=>array('admin')),
-	array('label'=>'Add Pictures', 'url'=>array('pictures', 'id'=>$model->idInmueble)),
+	array('label'=>'Lista de Inmuebles', 'url'=>array('index')),
+	array('label'=>'Crear Inmueble', 'url'=>array('create')),
+	array('label'=>'Ver Inmueble', 'url'=>array('view', 'id'=>$model->idInmueble)),
+	array('label'=>'Gestionar Inmuebles', 'url'=>array('admin')),
+	array('label'=>'Agregar Fotos', 'url'=>array('pictures', 'id'=>$model->idInmueble)),
 );
 ?>
 

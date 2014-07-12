@@ -250,7 +250,7 @@ class SiteController extends Controller
                 $model2->Telefono= $model->telefono;
                 $model2->save();
 
-				Yii::app()->user->setFlash('contact','Thank you for contacting us. We will respond to you as soon as possible.');
+				Yii::app()->user->setFlash('contact','Gracias por contactarte con nuestra empresa. Recibirás una respuesta a la brevedad.');
 				$this->refresh();
 			}
 		}

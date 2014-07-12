@@ -8,12 +8,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Inmueble', 'url'=>array('index')),
-	array('label'=>'Create Inmueble', 'url'=>array('create')),
-	array('label'=>'Update Inmueble', 'url'=>array('update', 'id'=>$model->idInmueble)),
-	array('label'=>'Delete Inmueble', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idInmueble),'confirm'=>'Esta seguro que desea eliminar este inmueble?')),
-	array('label'=>'Manage Inmueble', 'url'=>array('admin')),
-	array('label'=>'Add Pictures', 'url'=>array('pictures', 'id'=>$model->idInmueble)),
+	array('label'=>'Lista de Inmuebles', 'url'=>array('index')),
+	array('label'=>'Crear Inmueble', 'url'=>array('create')),
+	array('label'=>'Modificar Inmuebles', 'url'=>array('update', 'id'=>$model->idInmueble)),
+	array('label'=>'Borrar Inmueble', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idInmueble),'confirm'=>'Esta seguro que desea eliminar este inmueble?')),
+	array('label'=>'Gestionar Inmuebles', 'url'=>array('admin')),
+	array('label'=>'Agregar Fotos', 'url'=>array('pictures', 'id'=>$model->idInmueble)),
 );
 ?>
 
