@@ -462,11 +462,13 @@ margin-left: 400px;
 }
 
 .carousel-caption{
+
   margin-left: 78px;
   width: 344px;
 }
 
 .carousel-inner > .item > img, .carousel-inner > .item > a > img {
+
     display: block;
     line-height: 1;
     margin-left: 78px;
@@ -480,8 +482,7 @@ margin-left: 400px;
 
 #buscadortexto{
    margin-left: 40%;
-   
-   
+
 }
 
 
