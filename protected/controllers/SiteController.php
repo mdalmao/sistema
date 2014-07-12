@@ -23,9 +23,19 @@ class SiteController extends Controller
 	}
 
 
+   public function actionWebServiceHipoteca(){
+   	   $filtros1=$_GET['valor1'];
+   	   $filtros2=$_GET['valor2'];
+   	   $filtros3=$_GET['valor3'];
+   	   $res=Yii::app()->WebService->consumir($filtros1,$filtros2,$filtros3);
+   	   echo  $res;
+
+   }
+
         public function actionResultDatos()
 	{
-		$Criteria = new CDbCriteria(); $filtros=$_GET['filtros'];
+		$Criteria = new CDbCriteria(); 
+		$filtros=$_GET['filtros'];
         $condicion = "";
         $valores=split(";",$filtros);
         for($i=0;$i<count($valores);$i++){

@@ -68,6 +68,22 @@ jQuery(function($) {
         $('#destacado6-arriba').show();
         $("#des-form6").hide();
       });
+
+   $("#imagen").hide();
+   $( "#consultar" ).click(function() {
+     var valor1= $("#valor1").val();
+     var valor2= $("#valor2").val();
+     var valor3= $("#valor3").val();
+     $("#imagen").show();
+     jQuery.ajax({
+           'url':'/yii/sistema/index.php/site/WebServiceHipoteca/?valor1=' + valor1 +'&valor2='+ valor2 +'&valor3='+ valor3,
+           'cache':false,
+           'success':function(html){
+               $("#imagen").hide();
+              jQuery("#hipotecaresultado").html(html)
+           }
+        });
+     });
 });
 </script>
 
@@ -142,4 +158,27 @@ jQuery(function($) {
     </div>
     </div>
 
+</div>
+
+
+<div id="hipoteca">
+Hipoteca
+<div id="campo1">
+Monto del Prestamo
+<input type="text" id="valor1" name="valor1" >
+</div>
+<div id="campo2">
+Rango de Interes
+<input type="text" id="valor2" name="valor2" >
+</div>
+<div id="campo3">
+Mes
+<input type="text" id="valor3" name="valor3" > 
+</div>
+<input type="button" name="consultar" id="consultar" value="Consultar Hipoteca">
+<div id="imagen">
+   <img src="http://www.funcion13.com/wp-content/uploads/2012/04/loader.gif" />
+</div>
+<div id="hipotecaresultado">
+</div>
 </div>

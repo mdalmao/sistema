@@ -67,6 +67,10 @@ return array(
                'class'=>'application.components.Mapas',
                 ),
 
+			'WebService' => array(
+               'class'=>'application.components.WebService',
+                ),
+
          'ImagenesInmueble' => array(
                'class'=>'application.components.ImagenesInmueble',
                 ),
