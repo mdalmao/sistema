@@ -1,7 +1,7 @@
 <?php $this->pageTitle=Yii::app()->name . ' - '.UserModule::t("Profile");
 $this->breadcrumbs=array(
 	UserModule::t("Profile")=>array('profile'),
-	UserModule::t("Edit"),
+	UserModule::t("Editar"),
 );
 ?><h2><?php echo UserModule::t('Edit profile'); ?></h2>
 <?php echo $this->renderPartial('menu'); ?>
