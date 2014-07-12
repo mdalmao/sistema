@@ -86,6 +86,7 @@ class Cliente extends CActiveRecord
 
 		$criteria->compare('idUsuario',$this->idUsuario);
 		$criteria->compare('Nacionalidad',$this->Nacionalidad,true);
+	//	$criteria->compare('NombreUsuario'),$this->NombreUsuario,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
