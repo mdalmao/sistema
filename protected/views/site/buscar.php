@@ -5,8 +5,7 @@ $this->pageTitle=Yii::app()->name;
 
 
 <?php 
-  
-     $todo=Yii::app()->ImagenesInmueble->slider();
+      $todo=Yii::app()->ImagenesInmueble->slider();
       $fotos= $todo[0];
       $titulo= $todo[1];
       $descripcion =   $todo[2];

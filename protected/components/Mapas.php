@@ -11,8 +11,12 @@ class Mapas extends CApplicationComponent{
         $icon->setSize(32, 37);
         $icon->setAnchor(16, 16.5);
         $icon->setOrigin(0, 0);
+        $url = "http://localhost:90/yii/sistema/index.php/site/DescripcionInmueble?idinmueble=".$inmueble['idInmueble'];
+        $link = $link . ' <a href="'. $url . '"> Ver Inmueble </a>'; 
+        $link2 = new EGMapInfoWindow($link);
+
         $marker = new EGMapMarker($inmueble['x'],$inmueble['y'], array('title' => $titulo,'icon'=>$icon));
-        $marker->addHtmlInfoWindow($link);
+        $marker->addHtmlInfoWindow($link2);
         $gMap->addMarker($marker);
    endforeach;
   }
@@ -30,11 +34,16 @@ class Mapas extends CApplicationComponent{
     $gMap->mapTypeControlOptions= $mapTypeControlOptions;
     $gMap->setCenter(-34.8999799,-56.1348723);
     // Create GMapInfoWindowc
-    $info_window_a = new EGMapInfoWindow('<div>Casa en Alquiler</div>');
+    /*$info_window_a = new EGMapInfoWindow('<div>Casa en Alquiler</div>');
     $info_window_c = new EGMapInfoWindow('<div>Apartamentos en Alquiler</div>');
     $info_window_d = new EGMapInfoWindow('<div> Campos en Alquiler</div>');
+    */
+   
     $info_window_b = new EGMapInfoWindow('<div>Nuestras Oficinias, contactese con nosotros</div>');
- 
+    $info_window_a = '<div>Casa en Alquiler</div>';
+    $info_window_c = '<div>Apartamentos en Alquiler</div>';
+    $info_window_d = '<div> Campos en Alquiler</div>';
+   
     $casa = Yii::app()->baseUrl . "/imagenes/casa.jpg";
     $campo =  $casa = Yii::app()->baseUrl . "/imagenes/casa.jpg";
     $oficinas = Yii::app()->baseUrl . "/imagenes/oficina.png";
