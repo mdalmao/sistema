@@ -1,14 +1,14 @@
 <?php
 $this->breadcrumbs=array(
 	UserModule::t('Users')=>array('admin'),
-	UserModule::t('Manage'),
+	UserModule::t('Gestión'),
 );
 ?>
 <h1><?php echo UserModule::t("Gestionar Empleados"); ?></h1>
 
 <?php echo $this->renderPartial('_menu', array(
 		'list'=> array(
-			CHtml::link(UserModule::t('Crear Empleado'),array('create')),
+			
 		),
 	));
 ?>

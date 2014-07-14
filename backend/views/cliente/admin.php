@@ -46,13 +46,10 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'dataProvider'=>$model->search(), //$model2->search(), 
 	'filter'=>$model, 
 	'columns'=>array(
-		'idUsuario',
-		'Nacionalidad',
-		//'NombreUsuario',
 		
-		array(
-			'class'=>'CButtonColumn',
-		),
+
+		'idUsuario',
+		'Nacionalidad',				
 	),
 )); ?>
 

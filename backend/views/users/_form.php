@@ -43,7 +43,8 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model2,'FechaNacimiento formato:dd/mm/yyyy'); ?>
+		<?php echo $form->labelEx($model2,'FechaNacimiento '); ?>
+		<p>formato:yyyy--mm--dd</p>
 		
 		<?php echo $form->textField($model2,'FechaNacimiento',array('size'=>45,'maxlength'=>45)); ?>
 		<?php echo $form->error($model2,'FechaNacimiento'); ?>

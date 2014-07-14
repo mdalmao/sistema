@@ -56,7 +56,7 @@ class ClienteController extends Controller
 	{
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
-			'model2'=>$this->loadModel($id),
+			'model2'=>$this->loadModel2($id),
 		));
 	}
 
@@ -174,8 +174,9 @@ class ClienteController extends Controller
 	 * Lists all models.
 	 */
 	public function actionIndex()
-	{
-		$dataProvider=new CActiveDataProvider('Cliente');
+	{		
+
+		$dataProvider=new CActiveDataProvider('Datospersonales');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

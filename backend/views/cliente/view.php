@@ -19,12 +19,15 @@ $this->menu=array(
 <h1>Ver Cliente #<?php echo $model->idUsuario; ?></h1>
 
 
-<?php $this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model, //$model2,
 
+<?php $this->widget('zii.widgets.CDetailView', array(
+	'data'=>$model2, 
 	'attributes'=>array(
-		'idUsuario',
-		'Nacionalidad',
-		//'NombreUsuario',
+		'idUsuario',		
+		'NombreUsuario',
+		'ApellidoUsuario',
+		'DireccionUsuario',
+		'Telefono',
+		'FechaNacimiento',
 	),
 )); ?>
