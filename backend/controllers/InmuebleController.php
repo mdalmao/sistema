@@ -39,9 +39,10 @@ class InmuebleController extends Controller
 				'actions'=>array('admin','delete'),
 				'users'=>array('admin'),
 			),
-			array('deny',  // deny all users
-				'users'=>array('*'),
-			),
+			//PARA QUE TODOS LOS EMPLEADOS PUEDAN MANIPULAR LOS INMUEBLES
+			//array('deny',  // deny all users
+			//	'users'=>array('*'),
+			//),
 		);
 	}
 
