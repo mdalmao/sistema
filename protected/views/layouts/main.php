@@ -92,7 +92,7 @@
  
 
 <div id="footer">
-<div id="centrarImagenes"> 
+
      
      <a href="http://www.montevideo.gub.uy/tramites/">
       <img class ="img-rounded2" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'imm.jpg' ; ?>"></img>
@@ -122,13 +122,13 @@
       <a href="http://www.anda.com.uy/index_1.html">
       <img class ="img-rounded2" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'anda.jpg' ; ?>"></img>
       </a>
-    
+    <br/>
     
    
   
-    </div>
+    <br/>
      	Copyright &copy; <?php echo date('Y'); ?> Inmobiliaria PHP Inmobi 4p.<br/>
-		All Rights Reserved.<br/>
+		All Rights Reserved. ®<br/>
 		
  </div><!-- footer -->
 </body>
