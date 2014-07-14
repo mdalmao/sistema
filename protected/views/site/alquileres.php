@@ -23,11 +23,17 @@ $this->breadcrumbs=array(
 			<input type="hidden" name="idinmueble" value="<?php echo $Alquilere['idInmueble']; ?>"/>
 			<input type="hidden" name="tipo" value="<?php echo $Alquilere['TipoInmueble']; ?>"/>
 			
-			<p class="descripcion"> 
+			
+            <p class="descripcion"> 
 				 Descripcion:
 				<?php echo CHtml::decode($Alquilere['Descripcion']);  ?> 
 				
 			</p>
+			<?php $id = $Alquilere['idInmueble']; ?>
+			<img class ="imagen" src="<?php echo Yii::app()->ImagenesInmueble->imagenprincipal($id); ?>" /> 
+
+
+			
 			<p class="estado">
 				<p> Estado:
 				 <?php echo CHtml::decode($Alquilere['Estado']);  ?> 
@@ -61,9 +67,7 @@ $this->breadcrumbs=array(
 
 				</p>
 			</p>
-			<?php $id = $Alquilere['idInmueble']; ?>
- 			<img class ="imagen" src="<?php echo Yii::app()->ImagenesInmueble->imagenprincipal($id); ?>" /> 
-
+         
  			
  					<form action="DescripcionInmueble"  method="post">
  					<input type="hidden" name="idinmueble" value="<?php echo $Alquilere['idInmueble']; ?>"/>	

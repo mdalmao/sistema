@@ -92,7 +92,41 @@
  
 
 <div id="footer">
+<div id="centrarImagenes"> 
+     
+     <a href="http://www.montevideo.gub.uy/tramites/">
+      <img class ="img-rounded2" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'imm.jpg' ; ?>"></img>
+     </a>
+   
+   
 
+      
+       <a href="http://www.brou.com.uy/web/guest/home">
+        <img class ="img-rounded2" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'brou.jpg' ; ?>"></img>
+      </a>
+      
+     
+     <a href="https://www.facebook.com/groups/141305722585637/">
+      <img class ="img-rounded2" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'facebook.jpg' ; ?>"></img>
+      </a>
+
+    <a href="http://www.anv.gub.uy/">
+      <img class ="img-rounded2" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'andv.jpg' ; ?>"></img>
+      </a>
+
+ 
+     <a href="http://www.bhu.com.uy/">
+      <img class ="img-rounded2" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'bhu.jpg' ; ?>"></img>
+      </a>
+
+      <a href="http://www.anda.com.uy/index_1.html">
+      <img class ="img-rounded2" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'anda.jpg' ; ?>"></img>
+      </a>
+    
+    
+   
+  
+    </div>
      	Copyright &copy; <?php echo date('Y'); ?> Inmobiliaria PHP Inmobi 4p.<br/>
 		All Rights Reserved.<br/>
 		

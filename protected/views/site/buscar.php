@@ -1,7 +1,11 @@
 <?php
 /* @var $this SiteController */
 $this->pageTitle=Yii::app()->name;
+
+echo Yii::app()->Mapas->mapa_inmueble_modelo($model);
 ?>
+
+
 
 <!--
 <?php 
@@ -105,6 +109,8 @@ jQuery(function($) {
 /*]]>*/
 </script>
 
+<div id="contenidobuscar">
+
 <div id="buscadortexto">
  <input type="text" name="buscador" id="buscarportexto" placeholder="Buscar por Texto"/>
 
@@ -190,8 +196,7 @@ jQuery(function($) {
      <?php endforeach; ?>
      
 </div>
-
-   
+</div>
    
 
 

@@ -5,51 +5,109 @@ $this->pageTitle=Yii::app()->name;
 
 ?>
 
+<?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
+<script type="text/javascript">
+/*<![CDATA[*/
+jQuery(function($) {
+   $("#imagen").hide();
+   $( "#consultar" ).click(function() {
+     var valor1= $("#valor1").val();
+     var valor2= $("#valor2").val();
+     var valor3= $("#valor3").val();
+     $("#imagen").show();
+     jQuery.ajax({
+           'url':'/yii/sistema/index.php/site/WebServiceHipoteca/?valor1=' + valor1 +'&valor2='+ valor2 +'&valor3='+ valor3,
+           'cache':false,
+           'success':function(html){
+               $("#imagen").hide();
+              jQuery("#hipotecaresultado").html(html)
+           }
+        });
+     });
+
+   $( "p" ).click(function() {
+    var htmlString = $( this ).html();
+    var padre = $(this).parents('div:eq(0)').attr('id');
+    if ( padre == "filtrosaplicados"){
+       var valor = $(this).html();
+       if (valor == "Apartamento" || valor =="Casa" || valor=="Campo"){
+        $("#filtroTipo").show();
+        $("#filtroTipo").append($(this));  
+       }
+       if (valor == "Venta" || valor =="Alquiler"){
+        $("#filtrooperacion").show();
+        $("#filtrooperacion").append($(this));  
+       }        
+    }
+    else{
+      if ( padre == "filtroTipo" || padre == "filtrooperacion"  ){
+        $("#filtrosaplicados").append($(this));
+        if  (padre == "filtroTipo"){
+          $("#filtroTipo").hide();
+        }if  (padre == "filtrooperacion"){
+          $("#filtrooperacion").hide();
+        } 
+      }      
+    }
+
+      var filtros = $("#filtrosaplicados").html();
+      var find = '<p>';
+      var re = new RegExp(find, 'g');
+      str = filtros.replace(re, '');
+      
+      var find = '</p>';
+      var re = new RegExp(find, 'g');
+      str2 = str.replace(re, ';');      
+
+      var res = filtros.replace("</p>", ";");
+      var resultado =  res.replace("<p>",""); 
+      
+      jQuery.ajax({
+         'url':'/yii/sistema/backend.php/site/ResultDatos/?filtros=' + str2,
+         'cache':false,
+         'success':function(html){
+            jQuery("#resultadobuscador").html(html)
+         }
+         });
 
 
 
+    });
+   
+   $( "#buscarportexto" ).keypress(function() {
+     var valor= $(this).val();
+     
+        var filtros = $("#filtrosaplicados").html();
+        var find = '<p>';
+        var re = new RegExp(find, 'g');
+        str = filtros.replace(re, '');
+        
+        var find = '</p>';
+        var re = new RegExp(find, 'g');
+        str2 = str.replace(re, ';');      
 
-<aside>
-    <div class= "centrarImagenesIzquierda"> 
-    
-      <p><img class ="img-rounded" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'tasaciones.jpg' ; ?>"></img>
+        var res = filtros.replace("</p>", ";");
+        var resultado =  res.replace("<p>",""); 
+        
+        jQuery.ajax({
+           'url':'/yii/sistema/backend.php/site/ResultDatosTexto/?filtros=' + str2 +'&valor='+ valor,
+           'cache':false,
+           'success':function(html){
+              
+              jQuery("#resultadobuscador").html(html)
+           }
+        });
       
 
+  });
 
-
-      <h4>TASACIONES</h4>
-      La empresa cuenta con personal idóneo para esta materia. En estos tiempos que corren, tasar resulta algo muy complejo, delicado y no cabe duda de que hay que tomarse algo de tiempo para definir y a la vez transmitir la correspondiente tasación.
-
-Tasamos para compra-venta y arrendamiento en toda la capital, tanto sean casas, apartamentos, locales comerciales, industriales, galpones y terrenos.
-
-Existe lo que llamamos Tasaciones sin Cargo, que consiste en visitar el bien a tasar. Dicho bien es tasado y previo acuerdo de partes, a corto plazo ingresa en nuestra cartera de material a ofrecer en determinadas condiciones anteriormente estipuladas.
-
-Tasaciones con cargo, son aquellas de carácter judicial, futura sucesión o planificación familiar, o simplemente para definir una futura compra venta.
-
-En caso de que la propiedad tasada ingrese en nuestra cartera a ofrecer y se concrete la compra-venta, de la comisión correspondiente por tal operación se debitarán los honorarios abonados en su oportunidad por dicha tasación.
-
-Como más arriba mencionábamos, para tasar un inmueble se necesita mucha profesionalidad, conocer profundamente la actualidad del mercado inmobiliario tan cambiante y cíclico, pero ante todo lo más sagrado: Seriedad 100%.
-
-Consúltenos a través de cualquier medio, vía mail, nuestra página web, telefónicamente o visítenos en cualquiera de nuestras dos oficinas que con gusto lo atenderemos.
-     </p>
-    </div>
-  
-
-
-
-</aside>
-
-
-</div>
-
-
-
-
+});
+/*]]>*/
+</script>
 
 
 
 <aside>
-
 <?php $todo=Yii::app()->ImagenesInmueble->slider();
       $fotos= $todo[0];
       $titulo= $todo[1];
@@ -66,8 +124,7 @@ Consúltenos a través de cualquier medio, vía mail, nuestra página web, telef
 
 
 ?>
-
-  </aside>
+</aside>
 
 
 <div class="videoDestacado">
@@ -83,49 +140,139 @@ Consúltenos a través de cualquier medio, vía mail, nuestra página web, telef
 </script>
 </div>
 
+
+
+<div id="lateralderecha2">
+
+
+<div id="hipoteca">
+Hipoteca
+<div id="campo1">
+Monto del Prestamo
+<input type="text" id="valor1" name="valor1" >
+</div>
+<div id="campo2">
+Rango de Interes
+<input type="text" id="valor2" name="valor2" >
+</div>
+<div id="campo3">
+Mes
+<input type="text" id="valor3" name="valor3" > 
+</div>
+<input type="button" name="consultar" id="consultar" value="Consultar Hipoteca">
+<div id="imagen">
+   <img src="http://www.funcion13.com/wp-content/uploads/2012/04/loader.gif" />
+</div>
+
+<div id="contenedorHipotecaResultado">
+Resultado
+<div id="hipotecaresultado">
+
+</div>
+</div>
+</div>
+
+
+
+
+</div>
+<div id='contenido'>
+
+<div id="buscadortexto">
+ <input type="text" name="buscador" id="buscarportexto" placeholder="Buscar por Texto"/>
+
+</div>
+
+<div id="filtradolateral">
+<p class="texto"> Filtrado Por: </p> 
+<div id="filtrosaplicados">
+</div>
+
+
+<div id="filtroTipo">
+<span class="texto"> Inmueble: </span>
+  <p>Apartamento</p>
+  <p>Casa</p>
+  <p>Campo</p>
+</div>
+
+
+<div id="filtrooperacion">
+<span class="texto"> Operacion: </span>
+  <p>Venta</p>
+  <p>Alquiler</p>
+</div>
+<div id="filtroubicacion">
+</div>
+<div id="filtrometro">
+</div>
+<div id="filtroprecio">
+</div>
+</div>
+<div id="resultadobuscador">
+
+  <?php foreach ($model as $inmueble): ?>
+      <div  class="resultado">
+        
+    
+      <p class="descripcion"> 
+        Descripcion:
+        <?php echo CHtml::decode($inmueble['Descripcion']);  ?> 
+      </p>
+       
+       <?php $url = "http://localhost:90/yii/sistema/index.php/site/DescripcionInmueble?idinmueble=". $inmueble['idInmueble']; ?>
+       <a href="<?php echo $url; ?>">
+       <img class ="imagen" src="<?php echo Yii::app()->ImagenesInmueble->imagenprincipal($inmueble['idInmueble']); ?>" /> 
+       </a>  
+      <p class="estado">
+        </p> Estado:
+         <?php echo CHtml::decode($inmueble['Estado']);  ?> 
+        </p>
+      </p>
+      <p class="precio"> 
+        </p> Precio:
+        <?php echo CHtml::decode($inmueble['Precio']);  ?> 
+        </p>
+      </p>
+      <p class="departamento"> 
+        </p>Departamento:
+        <?php echo CHtml::decode($inmueble['Departamento']);  ?> 
+        </p>
+
+
+      </p>
+      <p class="ciudad">
+        </p>Ciudad:
+         <?php echo CHtml::decode($inmueble['Ciudad']);  ?>
+        </p>
+       </p>
+      <p class="direccion"> 
+        </p>
+          Zona: 
+          <?php echo CHtml::decode($inmueble['Zona']); ?>
+        </p>
+        </p> Direccion:  
+
+        <?php echo CHtml::decode($inmueble['Direccion']);  ?> 
+
+        </p>
+      </p>
+     
+
+      </div>
+    
+     <?php endforeach; ?>
+     
+</div>
+
+
 <!--<div id="mapa">
 <?php
 echo Yii::app()->Mapas->mapa();
 ?>
 </div>-->
 
- <aside>
-    <div class= "centrarImagenes"> 
-     
-     <a href="http://www.montevideo.gub.uy/tramites/">
-      <img class ="img-rounded2" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'imm.jpg' ; ?>"></img>
-     </a>
-   
-   
-
-      
-       <a href="http://www.brou.com.uy/web/guest/home">
-        <img class ="img-rounded2" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'brou.jpg' ; ?>"></img>
-      </a>
-      
-     
-     <a href="https://www.facebook.com/groups/141305722585637/">
-      <img class ="img-rounded2" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'facebook.jpg' ; ?>"></img>
-      </a>
-
-    <a href="http://www.anv.gub.uy/">
-      <img class ="img-rounded2" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'andv.jpg' ; ?>"></img>
-      </a>
-
  
-     <a href="http://www.bhu.com.uy/">
-      <img class ="img-rounded2" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'bhu.jpg' ; ?>"></img>
-      </a>
-
-      <a href="http://www.anda.com.uy/index_1.html">
-      <img class ="img-rounded2" src="<?php echo Yii::app()->baseUrl . '/imagenes/'. 'anda.jpg' ; ?>"></img>
-      </a>
-    
-    
-   
-  
-    </div>
-</aside>
 
 
  

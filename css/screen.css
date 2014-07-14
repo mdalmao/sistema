@@ -272,8 +272,8 @@ margin-left : 7%;}
 #resultadobuscador{
    background-image: url("../imagenes/shattered.png");
     background-size: cover;
-    width: 1000px;
-    margin-top: -172px;
+    width: 700px;
+    margin-top: -210px;
     margin-left: 246px;
 }
 
@@ -309,25 +309,30 @@ margin-left : 7%;}
 #filtroTipo{
 	width: 200px;
 }
-.centrarImagenes{width: 30%;
-margin: 10px;
-float: bottom;
-background-image:url('../imagenes/shattered.png');
-    margin: 0.714285714rem;
-    border: 1px solid black  ;
-    padding: 10px;
-    padding: 0.714285714rem;
+
+#centrarImagenes{
+  border: 1px solid black;
+  background-image:url('../imagenes/shattered.png');
+    width: 100%;
+ 
+ }
+
+#centrarImagenesIzquierda{
+    width: 168%;
+    margin-left: -138px;
+    
   }
 
-  .centrarImagenesIzquierda{width: 30%;
-margin: 10px;
-float: left;
-background-image:url('../imagenes/shattered.png');
-    margin: 0.714285714rem;
-    border: 1px solid black  ;
-    padding: 10px;
-    padding: 0.714285714rem;
-  }
+#lateralderecha2{
+width: 200px;
+float: right;
+}
+#hipoteca{
+  width: 240px;
+  margin-top: 20px;
+  margin-left: -136px;
+   height: 285px;
+}
 
 
 #destacado1{
@@ -456,9 +461,9 @@ margin-left: 40%;
 }
 
 .videoDestacado{
-  float:left;
-margin-top: 5px;
-margin-left: 500px;
+  float: left;
+    margin-left: 928px;
+    margin-top: 5px;
 
 }
 
@@ -482,7 +487,8 @@ margin-left: 500px;
 }
 
 #buscadortexto{
-   margin-left: 40%;
+   margin-left: 0%;
+    margin-top: 333px;
 
 }
 
@@ -522,4 +528,29 @@ margin-left: 500px;
 
 #formcalendario {
  margin-top: 20px;
+}
+
+#contenido{
+width: 600px;
+}
+
+#espacio{
+  height: 963px;
+}
+
+#mapainmueble2 {
+  
+    margin-left: 237px;
+    margin-top: -328px;
+}
+
+#columnaIzq2{
+   margin-left: -616px;
+    margin-top: 46px;
+
+}
+
+#contenidobuscar{
+ margin-top: -390px;
+
 }

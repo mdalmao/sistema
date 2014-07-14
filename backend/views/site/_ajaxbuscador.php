@@ -7,7 +7,10 @@
             <?php echo CHtml::decode($inmueble['Descripcion']);  ?> 
           </p>
           
-          <img class ="imagen" src="<?php echo Yii::app()->ImagenesInmueble->imagenprincipal($inmueble['idInmueble']); ?>" /> 
+          <?php $url = "http://localhost:90/yii/sistema/index.php/site/DescripcionInmueble?idinmueble=". $inmueble['idInmueble']; ?>
+         <a href="<?php echo $url; ?>">
+         <img class ="imagen" src="<?php echo Yii::app()->ImagenesInmueble->imagenprincipal($inmueble['idInmueble']); ?>" /> 
+         </a> 
 
           <p class="estado">
             </p> Estado:
@@ -50,7 +53,10 @@
 else{ 
 ?>
   <div  class="resultado">
-     <h1> No hay resultados para los filtros aplicados </h1>
+     <span> No hay resultados para los filtros aplicados </span>
+  </div>
+  <div id="espacio">
+
   </div>
 <?php
 }

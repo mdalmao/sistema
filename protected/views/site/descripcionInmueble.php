@@ -15,11 +15,15 @@ $this->breadcrumbs=array(
 	 <form action="Inmueble"  method="post">
 		<div class="resultado">
 			
+
+
 			<p class="descripcion"> 
 				Descripcion:
 				<?php echo CHtml::decode($inmueble['Descripcion']);  ?> 
 				
 			</p>
+
+		
 			<p class="estado">
 				<p> Estado:
 				 <?php echo CHtml::decode($inmueble['Estado']);  ?> 
@@ -53,7 +57,7 @@ $this->breadcrumbs=array(
 
 				</p>
 			</p>
-			 			
+		  		
 			
 
 <?php foreach ($model as $modelo): ?>
@@ -254,7 +258,20 @@ $this->breadcrumbs=array(
 					</p>
 		<?php endif; ?>			
 
-					
+			 <div id="mapainmueble2">
+            <?php 
+            echo Yii::app()->Mapas->mapa_inmueble($inmueble['idInmueble']);
+            ?>
+           </div>	
+
+           	<div id="columnaIzq2">
+		<?php 
+			$id = $inmueble['idInmueble']; 
+			
+			echo Yii::app()->Calendario->mostrar($id);
+
+		?>
+		</div>	
 	</div>
 			</form>
 	<?php endforeach; ?>
@@ -281,19 +298,7 @@ $this->breadcrumbs=array(
 <?php endforeach; ?>
 	</div>
 </div>
-<div class="resultado">
-	
 
-		
-			<div class="columnaIzq">
-		<?php 
-			$id = $inmueble['idInmueble']; 
-			
-			echo Yii::app()->Calendario->mostrar($id);
-
-		?>
-		</div>
-</div>
 
 
 

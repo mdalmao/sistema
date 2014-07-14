@@ -21,6 +21,9 @@ $this->breadcrumbs=array(
 				<?php echo CHtml::decode($Casas['Descripcion']);  ?> 
 				
 			</p>
+			<?php $id = $Casas['idInmueble']; ?>
+ 			<img class ="imagen" src="<?php echo Yii::app()->ImagenesInmueble->imagenprincipal($id); ?>" /> 
+ 			
 			<p class="estado">
 				<p> Estado:
 				 <?php echo CHtml::decode($Casas['Estado']);  ?> 
@@ -54,9 +57,7 @@ $this->breadcrumbs=array(
 
 				</p>
 			</p>
-			<?php $id = $Casas['idInmueble']; ?>
- 			<img class ="imagen" src="<?php echo Yii::app()->ImagenesInmueble->imagenprincipal($id); ?>" /> 
- 			<div class="lateral" >
+			<div class="lateral" >
 			<?php echo CHtml::submitButton('Ver Mas'); ?>
 			</div>
 	</div>

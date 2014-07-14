@@ -209,8 +209,14 @@ public function mapa_inmueble_modelo($model){
     $gMap->mapTypeControlOptions= $mapTypeControlOptions;
     $gMap->setCenter(-34.8999799,-56.1348723);
     // Create GMapInfoWindowc
-    $info_window_a = new EGMapInfoWindow('<div> Inmueble</div>');
+   /* 
+   $info_window_a = new EGMapInfoWindow('<div> Inmueble</div>');
     $info_window_b = new EGMapInfoWindow('<div> Oficina Centrales</div>');
+    */
+    
+    $info_window_a = '<div> Inmueble</div>';
+    $info_window_b = '<div> Oficina Centrales</div>';
+    
     $casa = Yii::app()->baseUrl . "/imagenes/casa.jpg";
   
     
