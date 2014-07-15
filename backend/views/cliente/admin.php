@@ -46,6 +46,7 @@ or <b>=</b>) al principio de tus valores de busqueda.
 	'dataProvider'=>$model->search(),
 	 //$model2->search(), 
 	'filter'=>$model, 
+	//'filter'=>CHtml::listData(Address::model()->findAll(), 'idUsuario', 'idUsuario')
 	'columns'=>array(
 		
 		'idUsuario',
@@ -59,18 +60,17 @@ or <b>=</b>) al principio de tus valores de busqueda.
 	),
 )); ?>
 
-
-
-<!--
 	<?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'cliente-grid',
 	'dataProvider'=>$model2->search(), 
 	'filter'=>$model2, 
 	'columns'=>array(
-	
-		
-		
-		
+		'CIUsuario',
+	'NombreUsuario',
+	'ApellidoUsuario',
+	'Telefono',
+
+
 		array(
 			'class'=>'CButtonColumn',
 		),

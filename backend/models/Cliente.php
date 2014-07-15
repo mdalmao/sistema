@@ -49,7 +49,7 @@ class Cliente extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'alquilers' => array(self::HAS_MANY, 'Alquiler', 'IdCliente'),
-			'idUsuario0' => array(self::BELONGS_TO, 'Datospersonales', 'idUsuario'),
+			'idUsuario' => array(self::BELONGS_TO, 'Datospersonales', 'idUsuario'),
 			'inmuebles' => array(self::MANY_MANY, 'Inmueble', 'clienteinmueble(IdUsuario, IdInmueble)'),
 			'compraventas' => array(self::HAS_MANY, 'Compraventa', 'IdCliente'),
 		);
@@ -94,6 +94,20 @@ class Cliente extends CActiveRecord
 		));
 	}
 
+	/*public function search2()
+	{
+		// @todo Please modify the following code to remove attributes that should not be searched.
+
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('idUsuario',$this->idUsuario);
+		$criteria->compare('NombreUsuario',$this->NombreUsuario,true);
+	//	$criteria->compare('NombreUsuario'),$this->NombreUsuario,true);
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
+	}*/
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!

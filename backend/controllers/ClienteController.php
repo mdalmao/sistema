@@ -177,6 +177,7 @@ class ClienteController extends Controller
 	{		
 		//$dataProvider=new CActiveDataProvider('Cliente');
 		$dataProvider=new CActiveDataProvider('Datospersonales');
+
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -200,9 +201,13 @@ class ClienteController extends Controller
 
 		if(isset($_GET['Cliente'])){
 			$model->attributes=$_GET['Cliente'];
-			$model2->attributes=$_GET['Datospersonales'];
+			
 		}
-		
+
+	if(isset($_GET['Datospersonales'])){
+		$model2->attributes=$_GET['Datospersonales'];
+	}
+
 		$this->render('admin',array(
 			'model'=>$model,
 			'model2'=>$model2,
