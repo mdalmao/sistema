@@ -63,6 +63,7 @@ class Cliente extends CActiveRecord
 		return array(
 			'idUsuario' => 'Id Usuario',
 			'Nacionalidad' => 'Nacionalidad',
+			'NombreUsuario' => 'NombreUsuario',
 		);
 	}
 

@@ -175,7 +175,7 @@ class ClienteController extends Controller
 	 */
 	public function actionIndex()
 	{		
-
+		//$dataProvider=new CActiveDataProvider('Cliente');
 		$dataProvider=new CActiveDataProvider('Datospersonales');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
@@ -188,15 +188,21 @@ class ClienteController extends Controller
 	public function actionAdmin()
 	{
 		$model=new Cliente('search');
+		$model->unsetAttributes();
+
+
 		$model2=new Datospersonales('search');
-		$model->unsetAttributes();  // clear any default values
 		$model2->unsetAttributes(); 
+		  // clear any default values
+		
+
 		$model->idUsuario= $model2->idUsuario;
 
 		if(isset($_GET['Cliente'])){
 			$model->attributes=$_GET['Cliente'];
 			$model2->attributes=$_GET['Datospersonales'];
 		}
+		
 		$this->render('admin',array(
 			'model'=>$model,
 			'model2'=>$model2,
