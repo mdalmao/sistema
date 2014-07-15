@@ -260,6 +260,7 @@ margin-left : 7%;}
 .resultado{
 	background-image:url('../imagenes/shattered.png');
 	background-size: cover;
+ 
 
 }
 
@@ -294,8 +295,9 @@ margin-left : 7%;}
 #filtrosaplicados{
 	border-style: solid;
 	border-color: black;
+  color:white;
     border-width: 5px;
-    background: gray;
+    background-color: #0174DF;
 }
 
 
@@ -304,10 +306,12 @@ margin-left : 7%;}
 	border-color: gray;
     border-width: 5px;
     width: 200px;
+    background-image:url('../imagenes/shattered.png');
 }
 
 #filtroTipo{
 	width: 200px;
+
 }
 
 #centrarImagenes{
@@ -330,7 +334,7 @@ float: right;
 #hipoteca{
   width: 240px;
   margin-top: 20px;
-  margin-left: -136px;
+  margin-left: 5px;
    height: 285px;
 }
 
@@ -456,8 +460,10 @@ margin-left: 40%;
 }
 
 .texto{
-  color:black;
-  font-size: 12px;
+  color:#088A29;
+  font-size: 14px;
+  font-weight: bold;
+
 }
 
 .videoDestacado{

@@ -358,3 +358,10 @@ position: relative;}
 	 width:175px;
 	 height:75px;
 }
+
+#filtradolateral{
+	background-image:url('../imagenes/nice_snow.png');
+	background-size: cover;
+	border-radius:10px;
+	border-color:white;
+}

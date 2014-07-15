@@ -46,7 +46,7 @@
 
 
 			 <li> <a href="/yii/sistema/" class=" btn-primary btn-large"><i class="icon-white icon-home"></i> Inicio</a> </li>
-			 <li> <a href="/yii/sistema/site/home" class=" btn-primary btn-large"><i class="icon-white "></i> Home</a> </li>
+			 <li> <a href="/yii/sistema/site/home" class=" btn-primary btn-large"><i class="icon-white "></i> Empresa</a> </li>
 			 
 			 <li> <a href="/yii/sistema/site/alquileres" class=" btn-success btn-large"><i class="icon-white "></i> Alquileres</a> </li>
 			 <li> <a href="/yii/sistema/site/ventas" class="btn-success btn-large"><i class="icon-white "></i> Ventas</a> </li>
